@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-		<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="username" value="pet" />
 		<property name="password" value="pet" />
@@ -26,9 +26,8 @@
 		<!-- encoding 설정 -->
 		<property name="defaultEncoding" value="UTF-8"></property>
 		<!-- 파일 하나당 용량 제한 단위는 byte -->
-		<property name="maxUploadSizePerFile" value="10485760"></property>
+		<property name="maxUploadSizePerFile" value="104857600"></property>
 		<!-- 총 파일의 용량 제한 단위 byte -->
-		<property name="maxUploadSize" value="104857600"></property>
+		<property name="maxUploadSize" value="1048576000"></property>
 	</bean>
-		
 </beans>

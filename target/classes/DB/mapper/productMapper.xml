@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.pet.p1.product.ProductDAO">
+     
+      	<sql id="search">
+  		like '%'||#{search}||'%'
+  		</sql>	
+  		
+  		
+  		<!-- 전체 글의 개수 -->
+  		<select id="productCount"  parameterType="Pager"  resultType="Long">
+
+  		select count(productNum) from product 
+    	<where>
+  			<if test="kind=='pn'">
+  			priductName <include refid="search"></include>
+  			</if>
+  			
+  			<if test="kind=='pc'">
+  			Contents <include refid="search"></include>
+  			</if>
+  		
+  			
+  		</where> 
+
+  		</select>
+
+
+   	<select id="productList" parameterType="Pager" resultType="ProductVO">
+		select * from
+			 select N.*, rownum R from 
+				select * from product 
+				 where 
+				  <choose>
+					<when test="kind == 'pc'">
+						Contents
+					</when>
+					
+					<when test="kind=='pn'">
+						priductName
+					</when>
+					<otherwise>
+						productNum
+					</otherwise>
+				</choose>
+				<include refid="search"></include> and --> productNum>=1 order by productNum desc) N )
+				where R between #{startRow} and #{lastRow}  
+	</select>    
+        
+        </mapper>
