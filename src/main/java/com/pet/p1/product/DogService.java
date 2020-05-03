@@ -8,18 +8,18 @@ import org.springframework.stereotype.Service;
 import com.pet.p1.util.Pager;
 
 @Service
-public class ProductService {
+public class DogService {
 	@Autowired
-	private ProductDAO productDAO;
+	private DogDAO dogDAO;
 	
-	public List<ProductVO> productList(Pager pager) throws Exception{
+	public List<DogVO> dogList(Pager pager) throws Exception{
 		pager.makeRow();
 		
-		long totalCount= productDAO.productCount(pager);
+		long totalCount= dogDAO.dogCount(pager);
 		pager.makePage(totalCount);
-		System.out.println("productService in");
+		System.out.println("dogService in");
 		
-		return productDAO.productList(pager);
+		return dogDAO.dogList(pager);
 	}
 	
 }

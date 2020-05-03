@@ -12,23 +12,23 @@ import com.pet.p1.util.Pager;
 
 @Controller
 @RequestMapping("/product/**")
-public class ProductController {
+public class DogController {
 @Autowired
-private ProductService productService;
+private DogService dogService;
 
-	@RequestMapping(value ="productList", method = RequestMethod.GET )
-	public ModelAndView productList (ModelAndView mv,Pager pager)throws Exception {
+	@RequestMapping(value ="dogList", method = RequestMethod.GET )
+	public ModelAndView dogList (ModelAndView mv,Pager pager)throws Exception {
 		
 		System.out.println("kind:"+pager.getKind());
 		System.out.println("search:"+pager.getSearch());
 		
-		List<ProductVO> ar =productService.productList(pager);
+		List<DogVO> ar =dogService.dogList(pager);
 		System.out.println(pager.getTotalPage());
 		
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
 		
-		mv.setViewName("product/productList");
+		mv.setViewName("product/dogList");
 		
 		System.out.println("controller in");
 		return mv;

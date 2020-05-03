@@ -1,6 +1,6 @@
 package com.pet.p1.product;
 
-public class ProductVO {
+public class DogVO {
 	
 	private long productNum;
 	private String productName;

@@ -10,7 +10,7 @@
   		<typeAlias type="java.util.List" alias="List"/>
   		<typeAlias type="com.pet.p1.util.Pager" alias="Pager"/>
   		
-  		<typeAlias type="com.pet.p1.product.ProductVO" alias="ProductVO"/>
+  		<typeAlias type="com.pet.p1.product.DogVO" alias="DogVO"/>
   		
   	</typeAliases>
   

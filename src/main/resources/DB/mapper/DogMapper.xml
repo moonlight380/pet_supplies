@@ -4,24 +4,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="com.pet.p1.product.ProductDAO">
+  <mapper namespace="com.pet.p1.product.DogDAO">
      
-      	<sql id="search">
+      	<!-- <sql id="search">
   		like '%'||#{search}||'%'
-  		</sql>	
+  		</sql> -->	
   		
   		
   		<!-- 전체 글의 개수 -->
-  		<select id="productCount"  parameterType="Pager"  resultType="Long">
+  		<select id="dogCount"  parameterType="Pager"  resultType="Long">
 
   		select count(productNum) from product 
     	<where>
   			<if test="kind=='pn'">
-  			priductName <include refid="search"></include>
+  			priductName like '%'||#{search}||'%'
   			</if>
   			
   			<if test="kind=='pc'">
-  			Contents <include refid="search"></include>
+  			Contents like '%'||#{search}||'%'
   			</if>
   		
   			
@@ -30,10 +30,10 @@
   		</select>
 
 
-   	<select id="productList" parameterType="Pager" resultType="ProductVO">
+   	<select id="dogList" parameterType="Pager" resultType="DogVO">
 		select * from
-			 select N.*, rownum R from 
-				select * from product 
+			 (select N.*, rownum R from 
+				(select * from product 
 				 where 
 				  <choose>
 					<when test="kind == 'pc'">
@@ -41,13 +41,13 @@
 					</when>
 					
 					<when test="kind=='pn'">
-						priductName
+						productName
 					</when>
 					<otherwise>
 						productNum
 					</otherwise>
 				</choose>
-				<include refid="search"></include> and --> productNum>=1 order by productNum desc) N )
+				like '%'||#{search}||'%' and productNum>=1 order by productNum desc) N )
 				where R between #{startRow} and #{lastRow}  
 	</select>    
         
