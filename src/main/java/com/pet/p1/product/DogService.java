@@ -39,7 +39,7 @@ public class DogService {
 		String path = servletContext.getRealPath("/resources/upload");
 		
 		System.out.println(path);
-		System.out.println("servixe");
+		
 		
 		//시퀀스 번호 받기( dual로 맵퍼에서 가져옴
 		dogVO.setProductNum(dogDAO.dogNum());
@@ -70,6 +70,14 @@ public class DogService {
 	
 	public DogVO dogSelect(long productNum) throws Exception {
 		dogDAO.dogSelect(productNum);
+		
 		return dogDAO.dogSelect(productNum);
 	}
-}
+	//update
+	public int dogUpdate (DogVO dogVO) throws Exception{
+		System.out.println("servixe");
+		return dogDAO.dogUpdate(dogVO);
+	}
+	
+	
+}//end class

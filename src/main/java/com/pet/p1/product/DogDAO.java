@@ -32,15 +32,28 @@ public class DogDAO {
 	}
 	//dogWrite
 	public int dogWrite(DogVO dogVO)throws Exception{
-		System.out.println("DAO");
+		
 		return sqlSession.insert(NAMESPACE+"dogWrite",dogVO);
 	}
 	
 	
 	//SELECT
-		
 	public DogVO dogSelect(long productNum) throws Exception {
 	
 	return sqlSession.selectOne(NAMESPACE+"dogSelect", productNum);
 		}
-}
+
+	//update
+	public int dogUpdate(DogVO dogVO) throws Exception{
+		System.out.println("DAO");
+		return sqlSession.update(NAMESPACE+"dogUpdate",dogVO);
+	}
+
+	//HIT UPDATE
+	public int hitUpdate(long productNum) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.update(NAMESPACE+"hitUpdate", productNum);
+	}
+
+}//end class
+

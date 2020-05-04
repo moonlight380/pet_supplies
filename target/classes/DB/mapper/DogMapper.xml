@@ -52,7 +52,7 @@
 	</select>    
 
    		
-  	<select id="dogSelect" parameterType="Long" resultMap="selectResult">
+  	<select id="dogSelect" parameterType="Long" resultType="DogVO">
 	
 			select * from product where productNum=#{productNum} 
   	</select> 
@@ -71,5 +71,15 @@
 	</insert>
 
 
+	<!-- update -->
+ 	<update id="dogUpdate" parameterType="DogVO">
+  		UPDATE product set productName =#{productName}, price=#{price},contents =#{contents} where productNum=#{productNum}
+  	</update>
+
+
+   <!-- hitupdate -->
+	 <update id="hitUpdate" parameterType="Long">
+	  		UPDATE product set hit=hit+1 where productNum=#{productNum}
+	</update>
 
 </mapper>

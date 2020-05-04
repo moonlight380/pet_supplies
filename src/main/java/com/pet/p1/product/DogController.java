@@ -6,12 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import com.pet.p1.util.Pager;
 
@@ -57,7 +59,7 @@ public String getBoard()throws Exception{
 		
 		int result=dogService.dogWrite(dogVO, files);	
 		//result=0;
-		System.out.println("controller in");
+		
 		if(result>0) {
 			mv.setViewName("redirect:./dogList");
 		}else {
@@ -72,13 +74,39 @@ public String getBoard()throws Exception{
 //Select
 	@GetMapping("dogSelect") 
 		public ModelAndView dogSelect(long productNum) throws Exception{
+		
 			DogVO dogVO=dogService.dogSelect(productNum);
 			ModelAndView mv= new ModelAndView();
 			mv.addObject("vo",dogVO);		
 			mv.setViewName("product/pSelect");
+			
+			
 			return mv;
 		}	
 	
-
+//update_get
+	@GetMapping("dogUpdate")
+	public ModelAndView dogUpdate(ModelAndView mv,DogVO dogVO,long productNum)throws Exception{
+		dogVO =dogService.dogSelect(productNum);
+		mv.addObject("vo",dogVO);	
+		mv.setViewName("product/pUpdate");
+		System.out.println("controller in  1");
+		return mv;
+	}
+//update_post	
+	@RequestMapping(value = "dogUpdate", method=RequestMethod.POST)
+	public String boardUpdate(ModelAndView mv,Model model,DogVO dogVO,long productNum) throws Exception {
+		int result=dogService.dogUpdate(dogVO);
+		//result=0;
+		String path="";
+		if(result>0) {
+			path="redirect:./dogList";
+			
+		}else {
+			path="redirect:./dogSelect?productNum="+dogVO.getProductNum(); 
+		}
+		System.out.println("controller in   2");
+		return path;		
+	}
 	
 }//end class
