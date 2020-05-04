@@ -17,7 +17,7 @@
   		select count(productNum) from product 
     	<where>
   			<if test="kind=='pn'">
-  			priductName like '%'||#{search}||'%'
+  			productName like '%'||#{search}||'%'
   			</if>
   			
   			<if test="kind=='pc'">
@@ -29,7 +29,7 @@
 
   		</select>
 
-
+<!-- LIST -->
    	<select id="dogList" parameterType="Pager" resultType="DogVO">
 		select * from
 			 (select N.*, rownum R from 
@@ -50,5 +50,26 @@
 				like '%'||#{search}||'%' and productNum>=1 order by productNum desc) N )
 				where R between #{startRow} and #{lastRow}  
 	</select>    
-        
-        </mapper>
+
+   		
+  	<select id="dogSelect" parameterType="Long" resultMap="selectResult">
+	
+			select * from product where productNum=#{productNum} 
+  	</select> 
+
+
+	<select id="dogNum" resultType="Long">
+  			select product_seq.nextval from dual
+  		<!-- inset 하기 전에 가상의 테이블에서 먼저 시퀀스 번호를 가져온다 -->
+  	</select>
+	
+	
+	<!-- WRITE -->
+	<insert id="dogWrite" parameterType="DogVO">
+	INSERT INTO product
+	VALUES (#{productNum},#{productName},#{price},#{contents},0,1,SYSDATE)
+	</insert>
+
+
+
+</mapper>

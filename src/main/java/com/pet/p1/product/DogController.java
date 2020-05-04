@@ -2,10 +2,15 @@ package com.pet.p1.product;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pet.p1.util.Pager;
@@ -15,6 +20,11 @@ import com.pet.p1.util.Pager;
 public class DogController {
 @Autowired
 private DogService dogService;
+
+@ModelAttribute("p")
+public String getBoard()throws Exception{
+	return "dog";
+}
 
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
 	public ModelAndView dogList (ModelAndView mv,Pager pager)throws Exception {
@@ -28,10 +38,47 @@ private DogService dogService;
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
 		
-		mv.setViewName("product/dogList");
+		mv.setViewName("product/pList");
 		
-		System.out.println("controller in");
+		
 		return mv;
 	}
+//write_get	
+	@RequestMapping(value = "dogWrite",method = RequestMethod.GET)
+	public ModelAndView dogWrite (ModelAndView mv) throws Exception{
+		
+		mv.setViewName("product/pWrite");
+		
+		return mv;
+	}
+//Write_post
+	@RequestMapping(value ="dogWrite", method = RequestMethod.POST)
+	public ModelAndView boardWrite(HttpServletRequest request,DogVO dogVO , ModelAndView mv, MultipartFile[] files) throws Exception{	
+		
+		int result=dogService.dogWrite(dogVO, files);	
+		//result=0;
+		System.out.println("controller in");
+		if(result>0) {
+			mv.setViewName("redirect:./dogList");
+		}else {
+			mv.addObject("result","WRITER FAIL");
+			mv.addObject("path","./noticeList");
+			mv.setViewName("common/result");
+		}
+		
+		return mv;
+	}	
+	
+//Select
+	@GetMapping("dogSelect") 
+		public ModelAndView dogSelect(long productNum) throws Exception{
+			DogVO dogVO=dogService.dogSelect(productNum);
+			ModelAndView mv= new ModelAndView();
+			mv.addObject("vo",dogVO);		
+			mv.setViewName("product/pSelect");
+			return mv;
+		}	
+	
+
 	
 }//end class

@@ -14,15 +14,33 @@ public class DogDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.pet.p1.product.DogDAO.";
-	
+
+	//dual에서 먼저 조회
+	public long dogNum() throws Exception{
+			return sqlSession.selectOne(NAMESPACE+"dogNum");
+	}
+	//list
 	public List<DogVO> dogList(Pager pager) throws Exception{
-		System.out.println("DogDAO list IN");
+		
 		return sqlSession.selectList(NAMESPACE+"dogList",pager);
 	}
 	
-	
+	//count
 	public long dogCount(Pager pager) throws Exception {
 		
 		return sqlSession.selectOne(NAMESPACE+"dogCount", pager);
 	}
+	//dogWrite
+	public int dogWrite(DogVO dogVO)throws Exception{
+		System.out.println("DAO");
+		return sqlSession.insert(NAMESPACE+"dogWrite",dogVO);
+	}
+	
+	
+	//SELECT
+		
+	public DogVO dogSelect(long productNum) throws Exception {
+	
+	return sqlSession.selectOne(NAMESPACE+"dogSelect", productNum);
+		}
 }

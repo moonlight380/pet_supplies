@@ -1,5 +1,7 @@
 package com.pet.p1.product;
 
+import java.sql.Date;
+
 public class DogVO {
 	
 	private long productNum;
@@ -8,8 +10,14 @@ public class DogVO {
 	private String contents;
 	private long amount;
 	private long hit;
+	private Date regDate;
 	
-	
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
 	public long getProductNum() {
 		return productNum;
 	}
