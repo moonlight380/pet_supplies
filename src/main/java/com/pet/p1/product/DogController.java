@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import com.pet.p1.util.Pager;
 
 @Controller
@@ -90,7 +89,7 @@ public String getBoard()throws Exception{
 		dogVO =dogService.dogSelect(productNum);
 		mv.addObject("vo",dogVO);	
 		mv.setViewName("product/pUpdate");
-		System.out.println("controller in  1");
+		
 		return mv;
 	}
 //update_post	
@@ -105,8 +104,24 @@ public String getBoard()throws Exception{
 		}else {
 			path="redirect:./dogSelect?productNum="+dogVO.getProductNum(); 
 		}
-		System.out.println("controller in   2");
+		
 		return path;		
 	}
+//delete
+		@RequestMapping(value = "dogDelete", method=RequestMethod.GET)
+		public ModelAndView dogDelete(long productNum,DogVO dogVO,ModelAndView mv) throws Exception {
+			int result=dogService.dogDelete(productNum);
+			if(result>0) {
+			mv.addObject("result","dog product Delete Success");
+	
+			}else {
+			mv.addObject("result","dog product Delete Fail");
+			}
+			mv.addObject("path","./dogList");
+			mv.setViewName("common/result");
+			System.out.println("controller in   2");
+			return mv;
+				
+			}
 	
 }//end class

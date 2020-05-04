@@ -74,10 +74,14 @@ public class DogService {
 		return dogDAO.dogSelect(productNum);
 	}
 	//update
-	public int dogUpdate (DogVO dogVO) throws Exception{
-		System.out.println("servixe");
+	public int dogUpdate (DogVO dogVO) throws Exception{	
 		return dogDAO.dogUpdate(dogVO);
 	}
 	
+	//delete
+	public int dogDelete(long productNum) throws Exception {
+		System.out.println("servixe");
+		return dogDAO.dogDelete(productNum);
+	}
 	
 }//end class

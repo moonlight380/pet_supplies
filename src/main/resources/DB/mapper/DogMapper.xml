@@ -76,10 +76,16 @@
   		UPDATE product set productName =#{productName}, price=#{price},contents =#{contents} where productNum=#{productNum}
   	</update>
 
-
-   <!-- hitupdate -->
-	 <update id="hitUpdate" parameterType="Long">
+<!-- 작동안됨 -->
+    <!-- hitupdate -->
+<!-- 	 <update id="hitUpdate" parameterType="Long">
 	  		UPDATE product set hit=hit+1 where productNum=#{productNum}
-	</update>
+	</update> -->
+	
+	 <!-- delete -->
+	<delete id="dogDelete" parameterType="Long"> 
+			delete product where productNum=#{productNum}
+	</delete>
+		
 
 </mapper>

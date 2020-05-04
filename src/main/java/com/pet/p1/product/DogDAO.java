@@ -45,15 +45,23 @@ public class DogDAO {
 
 	//update
 	public int dogUpdate(DogVO dogVO) throws Exception{
-		System.out.println("DAO");
+	
 		return sqlSession.update(NAMESPACE+"dogUpdate",dogVO);
 	}
 
-	//HIT UPDATE
-	public int hitUpdate(long productNum) throws Exception {
-		// TODO Auto-generated method stub
-		return sqlSession.update(NAMESPACE+"hitUpdate", productNum);
-	}
+//	//HIT UPDATE
+//	public int hitUpdate(long productNum) throws Exception {
+//		// TODO Auto-generated method stub
+//		return sqlSession.update(NAMESPACE+"hitUpdate", productNum);
+//	}
 
+	//DELETE
+	
+	public int dogDelete(long productNum) throws Exception {
+		System.out.println("DAO");
+		return sqlSession.delete(NAMESPACE+"dogDelete",productNum);
+	}
+	
+	
 }//end class
 
