@@ -15,35 +15,47 @@ public class DogDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.pet.p1.product.DogDAO.";
 
-	//dual에서 먼저 조회
+//dual에서 먼저 조회
 	public long dogNum() throws Exception{
 			return sqlSession.selectOne(NAMESPACE+"dogNum");
 	}
-	//list
+//list
 	public List<DogVO> dogList(Pager pager) throws Exception{
 		
 		return sqlSession.selectList(NAMESPACE+"dogList",pager);
 	}
 	
-	//count
+//dogNewList
+	public List<DogVO> dogNewList(Pager pager) throws Exception{
+			
+		return sqlSession.selectList(NAMESPACE+"dogNewList",pager);
+	}
+	
+//dogBestList
+	public List<DogVO> dogBestList(Pager pager) throws Exception{
+			
+		return sqlSession.selectList(NAMESPACE+"dogBestList",pager);
+	}		
+	
+//count
 	public long dogCount(Pager pager) throws Exception {
 		
 		return sqlSession.selectOne(NAMESPACE+"dogCount", pager);
 	}
-	//dogWrite
+//dogWrite
 	public int dogWrite(DogVO dogVO)throws Exception{
 		
 		return sqlSession.insert(NAMESPACE+"dogWrite",dogVO);
 	}
 	
 	
-	//SELECT
+//SELECT
 	public DogVO dogSelect(long productNum) throws Exception {
 	
 	return sqlSession.selectOne(NAMESPACE+"dogSelect", productNum);
 		}
 
-	//update
+//update
 	public int dogUpdate(DogVO dogVO) throws Exception{
 	
 		return sqlSession.update(NAMESPACE+"dogUpdate",dogVO);
@@ -55,13 +67,13 @@ public class DogDAO {
 //		return sqlSession.update(NAMESPACE+"hitUpdate", productNum);
 //	}
 
-	//DELETE
-	
+//DELETE
 	public int dogDelete(long productNum) throws Exception {
 		System.out.println("DAO");
 		return sqlSession.delete(NAMESPACE+"dogDelete",productNum);
 	}
-	
+
+
 	
 }//end class
 

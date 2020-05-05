@@ -50,28 +50,76 @@
 				like '%'||#{search}||'%' and productNum>=1 order by productNum desc) N )
 				where R between #{startRow} and #{lastRow}  
 	</select>    
-
-   		
+	
+<!--dogNewList-->
+   	<select id="dogNewList" parameterType="Pager" resultType="DogVO">
+		select * from
+			 (select N.*, rownum R from 
+				(select * from product 
+				 where 
+				  <choose>
+					<when test="kind == 'pc'">
+						Contents
+					</when>
+					
+					<when test="kind=='pn'">
+						productName
+					</when>
+					<otherwise>
+						productNum
+					</otherwise>
+				</choose>
+				like '%'||#{search}||'%' and productNum>=1 order by regDate desc) N )
+				where R between #{startRow} and #{lastRow}  
+	</select>  
+ 
+<!--dogBestList-->
+   	<select id="dogBestList" parameterType="Pager" resultType="DogVO">
+		select * from
+			 (select N.*, rownum R from 
+				(select * from product 
+				 where 
+				  <choose>
+					<when test="kind == 'pc'">
+						Contents
+					</when>
+					
+					<when test="kind=='pn'">
+						productName
+					</when>
+					<otherwise>
+						productNum
+					</otherwise>
+				</choose>
+				like '%'||#{search}||'%' and productNum>=1 order by hit desc) N )
+				where R between #{startRow} and #{lastRow}  
+	</select>  
+  
+ 
+ 
+ <!-- select --> 		
   	<select id="dogSelect" parameterType="Long" resultType="DogVO">
 	
 			select * from product where productNum=#{productNum} 
   	</select> 
+  	
+ 
 
-
+<!-- num 가상테이블 dual -->
 	<select id="dogNum" resultType="Long">
   			select product_seq.nextval from dual
   		<!-- inset 하기 전에 가상의 테이블에서 먼저 시퀀스 번호를 가져온다 -->
   	</select>
 	
 	
-	<!-- WRITE -->
+<!-- WRITE -->
 	<insert id="dogWrite" parameterType="DogVO">
 	INSERT INTO product
 	VALUES (#{productNum},#{productName},#{price},#{contents},0,1,SYSDATE)
 	</insert>
 
 
-	<!-- update -->
+<!-- update -->
  	<update id="dogUpdate" parameterType="DogVO">
   		UPDATE product set productName =#{productName}, price=#{price},contents =#{contents} where productNum=#{productNum}
   	</update>

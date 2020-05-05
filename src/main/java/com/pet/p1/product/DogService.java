@@ -28,12 +28,26 @@ public class DogService {
 		
 		long totalCount= dogDAO.dogCount(pager);
 		pager.makePage(totalCount);
-		System.out.println("dogService in");
+		
 		
 		return dogDAO.dogList(pager);
 	}
-	
-	
+//pNewList	
+	public List<DogVO> dogNewList(Pager pager) throws Exception{
+		pager.makeRow();
+		long totalCount= dogDAO.dogCount(pager);
+		pager.makePage(totalCount);
+		
+		return dogDAO.dogNewList(pager);
+	}	
+//dogBestList	
+	public List<DogVO> dogBestList(Pager pager) throws Exception{
+		pager.makeRow();
+		long totalCount= dogDAO.dogCount(pager);
+		pager.makePage(totalCount);
+		System.out.println("dogBestList in");
+		return dogDAO.dogBestList(pager);
+	}		
 //dogWrite	
 	public int dogWrite(DogVO dogVO,MultipartFile[] files) throws Exception {
 		String path = servletContext.getRealPath("/resources/upload");
@@ -66,19 +80,19 @@ public class DogService {
 	
 	
 	
-	//select
+//select
 	
 	public DogVO dogSelect(long productNum) throws Exception {
 		dogDAO.dogSelect(productNum);
 		
 		return dogDAO.dogSelect(productNum);
 	}
-	//update
+//update
 	public int dogUpdate (DogVO dogVO) throws Exception{	
 		return dogDAO.dogUpdate(dogVO);
 	}
 	
-	//delete
+//delete
 	public int dogDelete(long productNum) throws Exception {
 		System.out.println("servixe");
 		return dogDAO.dogDelete(productNum);

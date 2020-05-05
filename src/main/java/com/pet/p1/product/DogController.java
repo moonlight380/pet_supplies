@@ -26,7 +26,7 @@ private DogService dogService;
 public String getBoard()throws Exception{
 	return "dog";
 }
-
+//List
 	@RequestMapping(value ="dogList", method = RequestMethod.GET )
 	public ModelAndView dogList (ModelAndView mv,Pager pager)throws Exception {
 		
@@ -40,14 +40,50 @@ public String getBoard()throws Exception{
 		mv.addObject("pager",pager);
 		
 		mv.setViewName("product/pList");
-		
-		
+
 		return mv;
 	}
+//dogNewList
+	@RequestMapping(value ="dogNewList", method = RequestMethod.GET )
+	public ModelAndView dogNewList(ModelAndView mv,Pager pager)throws Exception {
+			
+		System.out.println("kind:"+pager.getKind());
+		System.out.println("search:"+pager.getSearch());
+			
+		List<DogVO> ar =dogService.dogNewList(pager);
+		System.out.println(pager.getTotalPage());
+			
+		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
+			
+		mv.setViewName("product/pNewList");
+
+		return mv;
+		
+		}	
+	
+//dogBestList	
+	@RequestMapping(value ="dogBestList", method = RequestMethod.GET )
+	public ModelAndView dogBestList	(ModelAndView mv,Pager pager)throws Exception {
+			
+		System.out.println("kind:"+pager.getKind());
+		System.out.println("search:"+pager.getSearch());
+			
+		List<DogVO> ar =dogService.dogBestList(pager);
+		System.out.println(pager.getTotalPage());
+			
+		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
+			
+		mv.setViewName("product/pBestList");
+
+		return mv;
+		
+		}	
+	
 //write_get	
 	@RequestMapping(value = "dogWrite",method = RequestMethod.GET)
 	public ModelAndView dogWrite (ModelAndView mv) throws Exception{
-		
 		mv.setViewName("product/pWrite");
 		
 		return mv;
@@ -119,7 +155,7 @@ public String getBoard()throws Exception{
 			}
 			mv.addObject("path","./dogList");
 			mv.setViewName("common/result");
-			System.out.println("controller in   2");
+			
 			return mv;
 				
 			}
