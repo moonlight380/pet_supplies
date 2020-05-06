@@ -10,13 +10,15 @@
 <c:import url="../template/css.jsp"></c:import>
 </head>
 <body>
+<c:import url="../template/header.jsp"></c:import>
 	
-	<div class="container">
+<div class="container">
+  <h2>Join form</h2>
+  <form action="./memberJoin" method="post" enctype="multipart/form-data">
 	
 		<div class="row">
 			<div class="col-sm-2 border"></div>
 			<div class="col border m-5">
-				<form class="form-signin" action="./memberLogin" method="post">
 					<div class="text-center">
 					<a href="${pageContext.request.contextPath}">
 					<img class="m-5 mb-4" 
@@ -24,12 +26,11 @@
 						alt="" width="182" height="47">
 					</a>
 					</div>
-
-				</form>
+	
 			</div>
 			<div class="col-sm-2 border"></div>
 		</div>
-	</div>
+	
 		
 		
 	<div class="container" id="result">	
@@ -111,7 +112,6 @@
 
 				
 
-
 				<div class="row">
 					<input type="checkbox"  hidden="hidden" class="check01" id="forth">
 					<div class="col-sm-1 m-2">
@@ -131,21 +131,111 @@
 											
 			</div>
 
-
-
 			<div class="col-sm-2 border"></div>
 		
 		</div>
 		
-		
-		
+ 		<div class="agreeBottom"></div>
+         <div class="btn_area double">
+          <button type="submit" id = "btnCancel" class="btn btn-danger">취소</button>
+          <button type="submit" id = "btnAgree" class="btn btn-default">확인</button>
+         </div>
 		
 	</div>
 		
-		
+
+
+
+  	<div class="text-center">
+	<a href="${pageContext.request.contextPath}">
+	<img class="m-5 mb-4" 
+		src="${pageContext.request.contextPath}/resources/images/logo_dark.png"
+		alt="" width="182" height="47">
+	</a>
+	</div>
+					
+     <div class="form-group">
+      <label for="id">아이디:</label>
+      <input type="text" class="form-control" id="id" placeholder="Enter ID" name="id">
+    </div>
+  
+    <div class="form-group">
+      <label for="pwd">비밀번호:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pw">
+    </div>
+    
+    <div class="form-group">
+      <label for="name">이름:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+    </div>
+    
+    <div class="form-group">
+      <label for="Age">생년월일:</label>
+      <input type="text" class="form-control" id="age" placeholder="Enter Age" name="age">
+    </div>
+    
+    <div class="form-group">
+      <label for="Sex">성별:</label>
+      <input type="text" class="form-control" id="sex" placeholder="Enter Sex" name="sex">
+    </div>
+    
+     <div class="form-group">
+      <label for="num">휴대전화:</label>
+      <input type="text" class="form-control" id="phone" placeholder="Enter Phone" name="phone">
+    </div>
+    
+     <div class="form-group">
+      <label for="num">주소:</label>
+      <input type="text" class="form-control" id="address" placeholder="Enter Address" name="address">
+    </div>
+    
+    <div class="form-group">
+      <label for="email">이메일:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    
+    
+    <button type="submit" class="btn btn-default">가입하기</button>
+    
+  </form>
+</div>
 
 	
 	<script type="text/javascript">
+	
+	
+	$("#id").﻿blur(function() {
+		var id = $(this).val();
+		
+		$.ajax({
+			type: "post",	//method 형식 
+			url : "./memberIdCheck",//URL 주소
+			data: {
+				id:id
+			},	//parameter
+			success : function(data){
+				alert("가능한 아이디입니다");
+			},
+			error	: function() {
+				
+				
+			}
+			
+		});
+
+
+	});
+	
+	
+	/* --------------------------AgreeBtn------------------------------- */
+	$("#btnCancel").click(function() {
+        location.href = "../";
+    });
+
+    $("#btnAgree").click(function() {
+       location.href = "./memberJoin";
+    });
+	
 
 	//-----------------------------All check--------------------------------------------------
 		$("#result").on("click","#checkAll",function(){

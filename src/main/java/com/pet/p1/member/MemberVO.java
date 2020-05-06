@@ -5,11 +5,12 @@ public class MemberVO {
 	private String id;
 	private String pw;
 	private String name;
-	private int age;
+	private Integer age;
 	private String phone;
 	private String email;
 	private String address;
 	private Long point;
+	private String sex;
 	
 	
 	
@@ -31,10 +32,10 @@ public class MemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 	public String getPhone() {
@@ -61,6 +62,13 @@ public class MemberVO {
 	public void setPoint(Long point) {
 		this.point = point;
 	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	
 	
 	
 	

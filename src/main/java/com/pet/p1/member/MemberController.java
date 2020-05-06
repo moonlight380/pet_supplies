@@ -66,6 +66,7 @@ public class MemberController {
 		return mv;
 	}
 	
+	
 	@RequestMapping(value= "memberLogin")
 	public void memberLogin(@CookieValue(value = "cId", required = false)String cId, Model model) {
 		//model.addAttribute("cId", cId);
@@ -78,16 +79,12 @@ public class MemberController {
 		Cookie cookie = new Cookie("cId", "");
 		
 		if(remember != null) {
-		//	cookie = new Cookie("cId", memberVO.getId());
 			cookie.setValue(memberVO.getId());
 		}
-		
-		//cookie.setMaxAge(0);
-		//cookie.setValue(remember);
 		response.addCookie(cookie); 	//만든 쿠키 넣기
 		
 		 memberVO = memberService.memberLogin(memberVO);
-		
+
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
 			 mv.setViewName("redirect:../");
@@ -96,10 +93,6 @@ public class MemberController {
 			 mv.addObject("path", "./memberJoin");
 			 mv.setViewName("common/result");
 		 }
-		 
-		//로그인 성공이면 index
-		//로그인 실패 하면 로그인 실패 alert login form 이동		 
-				 
 				 
 		return mv;
 	}
