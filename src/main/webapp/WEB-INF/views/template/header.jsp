@@ -132,7 +132,7 @@
 										</ul>
 									</div></li>
 
-								<li><a class="nav-link nav_item" href="#">매장 위치 정보</a></li>
+								<li><a class="nav-link nav_item" href="${pageContext.request.contextPath}/nav/contact">매장 위치 정보</a></li>
 							</ul>
 						</div>
 						<ul class="navbar-nav attr-nav align-items-center">
