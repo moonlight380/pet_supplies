@@ -6,10 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:import url="./template/boot.jsp"></c:import>
-<c:import url="./template/css.jsp"></c:import>
+<c:import url="../template/boot.jsp"></c:import>
+<c:import url="../template/css.jsp"></c:import>
 </head>
 <body>
+	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 		<div class="row">
 			<h1>${board}List</h1>
@@ -18,7 +19,7 @@
 					<select class="form-control" id="sel1" name="kind">
 						<option value="bt">Title</option>
 						<option value="bc">Contents</option>
-						<option value="bw">Writer</option>
+						<option value="bw">ID</option>
 					</select>
 				</div>
 				<div class="input-group input-group-sm col-xs-4">
@@ -38,7 +39,7 @@
 			<tr>
 				<td>NUM</td>
 				<td>TITLE</td>
-				<td>WRITER</td>
+				<td>ID</td>
 				<td>DATE</td>
 				<td>HIT</td>
 			</tr>
@@ -52,7 +53,7 @@
 					<!-- &nbsp;&nbsp; -->
 							</c:forEach>
 						</c:catch> <a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
-					<td>${vo.writer}</td>
+					<td>${vo.id}</td>
 					<td>${vo.regDate}</td>
 					<td>${vo.hit}</td>
 				</tr>
