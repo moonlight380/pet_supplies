@@ -9,9 +9,9 @@
 			<div class="nav_block">
 				<a class="navbar-brand" href="index.html"> <img
 					class="logo_light"
-					src="${pageContext.request.contextPath}/resources/images/logo_light.png"
+					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 					alt="logo" /> <img class="logo_dark"
-					src="${pageContext.request.contextPath}/resources/images/logo_dark.png"
+					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 					alt="logo" />
 				</a>
 				<div class="contact_phone order-md-last">
