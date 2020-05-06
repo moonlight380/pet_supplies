@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>
-ddd</h1>
+	<script type="text/javascript">
+	alert('${result}');
+	location.href="${path}";
+	</script>
 </body>
 </html>
