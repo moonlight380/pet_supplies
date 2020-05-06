@@ -7,7 +7,7 @@
 	<div class="middle-header dark_skin">
 		<div class="container">
 			<div class="nav_block">
-				<a class="navbar-brand" href="index.html"> <img
+				<a class="navbar-brand" href="${pageContext.request.contextPath}"> <img
 					class="logo_light"
 					src="${pageContext.request.contextPath}/resources/images/logo_light.png"
 					alt="logo" /> <img class="logo_dark"
@@ -142,7 +142,7 @@
 									<ul>
 
 										<li><a class="dropdown-item nav-link nav_item" href="${pageContext.request.contextPath}/member/memberLogin">로그인하기</a></li>
-										<li><a class="dropdown-item nav-link nav_item" href="">마이페이지</a></li>
+										<li><a class="dropdown-item nav-link nav_item" href="${pageContext.request.contextPath}/member/memberPage">마이페이지</a></li>
 										<li><a class="dropdown-item nav-link nav_item" href="">회원탈퇴</a></li>
 										<li><a class="dropdown-item nav-link nav_item" href="">기타
 												기능</a></li>

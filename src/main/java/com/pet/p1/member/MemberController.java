@@ -198,6 +198,11 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("memberOrder")
+	public void memberOrder()throws Exception{
+		
+	}
+	
 	
 
 }
