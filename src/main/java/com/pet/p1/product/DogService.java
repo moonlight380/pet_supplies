@@ -83,8 +83,7 @@ public class DogService {
 //select
 	
 	public DogVO dogSelect(long productNum) throws Exception {
-		dogDAO.dogSelect(productNum);
-		
+		dogDAO.hitUpdate(productNum);
 		return dogDAO.dogSelect(productNum);
 	}
 //update
@@ -94,7 +93,7 @@ public class DogService {
 	
 //delete
 	public int dogDelete(long productNum) throws Exception {
-		System.out.println("servixe");
+		
 		return dogDAO.dogDelete(productNum);
 	}
 	

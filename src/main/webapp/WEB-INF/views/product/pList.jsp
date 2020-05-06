@@ -52,7 +52,7 @@
           <img class="card-img-top" src="${pageContext.request.contextPath}/resources/product_img/gum.jpg" alt="">
           <div class="card-body">
     
-            <h4 class="card-title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName}</a></h4>
+            <h4 class="card-title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h4>
             <h4 class="card-title">${vo.price}</h4>
             <p class="card-text">${vo.contents}</p>
      
@@ -129,7 +129,7 @@
 			<c:forEach items="${list}" var="vo">
 			<tr>
 			<td>${vo.productNum}</td>
-			<td><a href="./${product}Select?productNum=${vo.productNum}">${vo.productName}</a></td>
+			<td><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName}</a></td>
 			<td>${vo.price}</td>
 			<td>${vo.contents}</td>
 			<td>${vo.amount}</td>

@@ -1,7 +1,6 @@
 package com.pet.p1.util;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Calendar;
 import java.util.UUID;
@@ -35,7 +34,7 @@ public class FileSaver {
 		
 		//a.
 		//long l = this.makeNameByTime(file.getOriginalFilename());
-		//System.out.println(1);
+		//System.out.println(l);
 		
 		//aa.저장할 파일명 생성
 		String fileName=this.makeNameByUUID(file.getOriginalFilename());
@@ -44,8 +43,12 @@ public class FileSaver {
 		//b. HDD에 저장
 		FileCopyUtils.copy(file.getBytes(), f);
 		
-		return fileName;
+		return fileName;//이네임을 가지고 디비에 저장
 	}
+	
+	
+	
+	
 	//2.MultipartFile
 	public String saveByTransfer(MultipartFile file, String path) throws Exception{
 		

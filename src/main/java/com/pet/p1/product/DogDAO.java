@@ -62,10 +62,10 @@ public class DogDAO {
 	}
 
 //	//HIT UPDATE
-//	public int hitUpdate(long productNum) throws Exception {
-//		// TODO Auto-generated method stub
-//		return sqlSession.update(NAMESPACE+"hitUpdate", productNum);
-//	}
+	public int hitUpdate(long productNum) throws Exception {
+	
+		return sqlSession.update(NAMESPACE+"hitUpdate", productNum);
+	}
 
 //DELETE
 	public int dogDelete(long productNum) throws Exception {
