@@ -126,8 +126,8 @@
 									href="#" data-toggle="dropdown">게시판</a>
 									<div class="dropdown-menu">
 										<ul>
-											<li><a class="dropdown-item nav-link nav_item" href="">QnA</a></li>
-											<li><a class="dropdown-item nav-link nav_item" href="">공지사항</a></li>
+											<li><a class="dropdown-item nav-link nav_item" href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></li>
+											<li><a class="dropdown-item nav-link nav_item" href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
 											<li><a class="dropdown-item nav-link nav_item" href="">이벤트</a></li>
 										</ul>
 									</div></li>
