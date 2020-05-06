@@ -140,8 +140,8 @@
 									class="linearicons-user"></i></a>
 								<div class="dropdown-menu">
 									<ul>
-										<li><a class="dropdown-item nav-link nav_item" href="">로그인
-												하기</a></li>
+
+										<li><a class="dropdown-item nav-link nav_item" href="${pageContext.request.contextPath}/member/memberLogin">로그인하기</a></li>
 										<li><a class="dropdown-item nav-link nav_item" href="">마이페이지</a></li>
 										<li><a class="dropdown-item nav-link nav_item" href="">회원탈퇴</a></li>
 										<li><a class="dropdown-item nav-link nav_item" href="">기타
