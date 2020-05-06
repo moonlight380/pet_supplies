@@ -5,10 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.pet.p1.board.BoardService;
+import com.pet.p1.board.BoardVO;
+import com.pet.p1.board.file.BoardFileDAO;
+import com.pet.p1.board.file.BoardFileVO;
 import com.pet.p1.util.FileSaver;
+import com.pet.p1.util.Pager;
 
 @Service
-public class NoticeService {
+public class NoticeService implements BoardService{
 	@Autowired
 	private NoticeDAO noticeDAO;
 	@Autowired
