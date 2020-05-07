@@ -25,8 +25,8 @@
 					</div>
 						
 						
-						 <input type="text" id="id" class="form-control" placeholder="아이디 입력" required autofocus>
-						 <input type="password" id="pw" class="form-control mt-2 mb-2" placeholder="비밀번호 입력" required>
+						 <input type="text" id="id" name="id" class="form-control" placeholder="아이디 입력" required autofocus>
+						 <input type="password" id="pw"  name="pw" class="form-control mt-2 mb-2" placeholder="비밀번호 입력" required>
 					<button class="btn btn-lg btn-block" id="btn" type="submit">로그인</button>
 					<div class="checkbox mt-3">
 						<label class="ml-0"> <input type="checkbox" value="remember-me">

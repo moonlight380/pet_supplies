@@ -12,7 +12,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div> 　</div>
-	<h1>주문조회 구매내역</h1>
+	
 	<div class="container-fulid border mt-5">
 		<div class="row border">
 			<c:import url="./memberSide.jsp"></c:import>

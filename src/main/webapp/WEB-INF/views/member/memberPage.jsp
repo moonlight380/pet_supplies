@@ -31,7 +31,7 @@
 								<i class="fa fa-product-hunt" style="font-size:24px;color:red">포인트</i>
 								
 								<div>
-								 	<span style="font-size: 30px">10,000</span>
+								 	<span style="font-size: 30px">${member.point }</span>
 								 </div>	
 							</div>
 							
