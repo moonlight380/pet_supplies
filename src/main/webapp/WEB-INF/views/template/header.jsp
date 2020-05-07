@@ -9,9 +9,9 @@
 			<div class="nav_block">
 				<a class="navbar-brand" href="index.html"> <img
 					class="logo_light"
-					src="${pageContext.request.contextPath}/resources/images/logo_light.png"
+					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 					alt="logo" /> <img class="logo_dark"
-					src="${pageContext.request.contextPath}/resources/images/logo_dark.png"
+					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 					alt="logo" />
 				</a>
 				<div class="contact_phone order-md-last">
@@ -126,13 +126,13 @@
 									href="#" data-toggle="dropdown">게시판</a>
 									<div class="dropdown-menu">
 										<ul>
-											<li><a class="dropdown-item nav-link nav_item" href="">QnA</a></li>
-											<li><a class="dropdown-item nav-link nav_item" href="">공지사항</a></li>
+											<li><a class="dropdown-item nav-link nav_item" href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></li>
+											<li><a class="dropdown-item nav-link nav_item" href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
 											<li><a class="dropdown-item nav-link nav_item" href="">이벤트</a></li>
 										</ul>
 									</div></li>
 
-								<li><a class="nav-link nav_item" href="#">매장 위치 정보</a></li>
+								<li><a class="nav-link nav_item" href="${pageContext.request.contextPath}/nav/contact">매장 위치 정보</a></li>
 							</ul>
 						</div>
 						<ul class="navbar-nav attr-nav align-items-center">
