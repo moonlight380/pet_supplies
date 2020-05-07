@@ -12,10 +12,11 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-	<div> 　</div>
+
+
 	<div class="container-fulid border mt-5">
+	<c:import url="./memberSide.jsp"></c:import>
 		<div class="row border">
-			<c:import url="./memberSide.jsp"></c:import>
 
 			<div class="col border">
 				<div class="row border">

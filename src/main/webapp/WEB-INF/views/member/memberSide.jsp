@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<html>
 
 
 
-
-
+<h1>　</h1>
 <div class="col-sm-2 border">
 	<div class="row">
 		<div class="col-sm-2"></div>
@@ -14,12 +14,15 @@
 			<div class="row">
 				<div class="col text-center" style="background-color:#bbbfc3; width: 221px;height: 256px">
 					
-					<a href="#">
-						<i class="material-icons text-center" style="font-size:94px;color:white; margin: 0 auto; padding-top: 25px">account_circle</i>
-					</a>
+
+						<a href="#"> <i class="material-icons text-center"
+							style="font-size: 94px; color: white; margin: 0 auto; padding-top: 25px">account_circle</i>
+						</a>
+				
+
 					<div style="color:white">${member.id }님</div>
-					<div class="btn btn-danger">
-							회원정보수정						
+					<div class="btn btn-danger" id="update">
+							<b style="font-size:13px;">회원정보수정	</b>					
 					</div>
 					
 				
@@ -46,3 +49,14 @@
 	
 	</div>
 </div>
+
+<script type="text/javascript">
+	$("#update").click(function() {
+		location.href="./memberUpdate";
+	});
+
+</script>
+
+
+
+</html>
