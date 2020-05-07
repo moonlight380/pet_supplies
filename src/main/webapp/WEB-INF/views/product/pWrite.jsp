@@ -36,10 +36,7 @@
 		<div id="file">
 			
 	</div> 
-	<!-- 		
-	contents Server null이 될 때  위의 name에 콘텐츠가 있는 것을 뺀다.
-	<input type="hidden" name="contents" id="con">
-	 -->
+
 	
 	
     <input type="button" id="btn" class="btn btn-default">Submit</input>
