@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pet.p1.product.DogService;
+import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 
@@ -28,24 +30,29 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-
-	@RequestMapping(value="memberList", method = RequestMethod.GET)
-	public ModelAndView memberList(Pager memberPager, ModelAndView mv)throws Exception{
-		List<MemberVO> ar = memberService.memberList(memberPager);
+	@Autowired
+	private DogService dogService;
+	
+//--------------------------------------------------------------------------------------------------------------
+	//--장바구니
+	
+	
+	@GetMapping("memberCart")
+	public ModelAndView productList(Long productNum)throws Exception {
 		
-		mv.addObject("list", ar);
-		mv.addObject("pager", memberPager);
-		mv.setViewName("member/memberList");
+	//	List<DogVO> ar = memberService.productList(dogVO);
+
+		ModelAndView mv = new ModelAndView();
+		
+//		mv.addObject("dog", dogVO);
+		mv.setViewName("member/memberCart");
 		
 		return mv;
 	}
 	
-	@RequestMapping(value = "memberLogout")
-	public String memberLogout(HttpSession session)throws Exception{
-		session.invalidate();
-		return "redirect:../";
-	}
-
+	//--장바구니 끝
+	
+	//--회원가입
 	@RequestMapping(value= "memberJoin")
 	public void memberJoin() {
 		
@@ -65,8 +72,9 @@ public class MemberController {
 		 
 		return mv;
 	}
+	//--회원가입 끝
 	
-	
+	//--로그인/로그아웃
 	@RequestMapping(value= "memberLogin")
 	public void memberLogin(@CookieValue(value = "cId", required = false)String cId, Model model) {
 		//model.addAttribute("cId", cId);
@@ -94,6 +102,43 @@ public class MemberController {
 			 mv.setViewName("common/result");
 		 }
 				 
+		return mv;
+	}
+	
+
+	@RequestMapping(value = "memberLogout")
+	public String memberLogout(HttpSession session)throws Exception{
+		session.invalidate();
+		return "redirect:../";
+	}
+	
+	//--로그인/로그아웃 끝
+	
+	@PostMapping("memberIdCheck")
+	public ModelAndView memberIdCheck(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		memberVO = memberService.memberIdCheck(memberVO);
+		//null -> 가입 가능 1
+		//!null -> 중복 0
+		int result = 0;
+		if(memberVO == null) {
+			result = 1;
+		}
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+//-------------------------------------------------------------------------------------------------------	
+	
+	@RequestMapping(value="memberList", method = RequestMethod.GET)
+	public ModelAndView memberList(Pager memberPager, ModelAndView mv)throws Exception{
+		List<MemberVO> ar = memberService.memberList(memberPager);
+		
+		mv.addObject("list", ar);
+		mv.addObject("pager", memberPager);
+		mv.setViewName("member/memberList");
+		
 		return mv;
 	}
 	
@@ -146,20 +191,6 @@ public class MemberController {
 	}
 	
 	
-	@PostMapping("memberIdCheck")
-	public ModelAndView memberIdCheck(MemberVO memberVO)throws Exception{
-		ModelAndView mv = new ModelAndView();
-		memberVO = memberService.memberIdCheck(memberVO);
-		//null -> 가입 가능 1
-		//!null -> 중복 0
-		int result = 0;
-		if(memberVO == null) {
-			result = 1;
-		}
-		mv.addObject("result", result);
-		mv.setViewName("common/ajaxResult");
-		return mv;
-	}
 	
 	@GetMapping("memberDeletes")
 	public ModelAndView memberDeletes(String [] ids, ModelAndView mv)throws Exception{

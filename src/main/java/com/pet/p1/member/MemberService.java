@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import org.springframework.web.multipart.MultipartFile;
+
+import com.pet.p1.product.DogDAO;
+import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
 @Service
@@ -18,6 +21,11 @@ public class MemberService {
 	
 	@Autowired
 	private MemberDAO memberDAO;
+
+	
+	public List<DogVO> productList(DogVO dogVO)throws Exception{
+		return memberDAO.memberCart(dogVO);
+	}
 	
 	public List<MemberVO> memberList(Pager memberPager)throws Exception{
 		memberPager.makeRow();

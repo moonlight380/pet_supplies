@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col"></div>
 			<div class="col border m-5">
-				<form class="form-signin" action="./memberLogin" method="post">
+<form class="form-signin" action="./memberLogin" method="post">
 					<div class="text-center">
 					<a href="${pageContext.request.contextPath}">
 					<img class="m-5 mb-4" 
