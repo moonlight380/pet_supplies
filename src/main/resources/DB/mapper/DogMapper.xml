@@ -6,9 +6,23 @@
   
   <mapper namespace="com.pet.p1.product.DogDAO">
      
-      	<!-- <sql id="search">
-  		like '%'||#{search}||'%'
-  		</sql> -->	
+     <resultMap type="DogVO" id="selectResult">
+  		<id column="productNum" property="productNum"/>
+  		<result column="productName" property="productName"/>
+  		<result column="price" property="price"/>
+  		<result column="contents" property="contents" />
+  		<result column="amount" property="amount"/>	
+  		<result column="hit" property="hit"/>	
+  		<result column="regDate" property="regDate"/>
+  		
+  		<collection property="productFileVOs" javaType="List" ofType="ProductFileVO">
+  			<id column="fileNum" property="fileNum"/>
+  			<result column="fileName" property="fileName"/>
+  			<result column="oriName" property="oriName"/>
+  			<result column="board" property="board"/>
+  		</collection>
+  		
+  	</resultMap>
   		
   		
   		<!-- 전체 글의 개수 -->
@@ -98,9 +112,12 @@
  
  
  <!-- select --> 		
-  	<select id="dogSelect" parameterType="Long" resultType="DogVO">
-	
-			select * from product where productNum=#{productNum} 
+  	<select id="dogSelect" parameterType="Long" resultMap="selectResult">
+			
+			select N.*,F.*
+			from product N left join productFile F
+			ON (N.productNum=F.num)
+			WHERE N.productNum=#{productNum} 
   	</select> 
   	
  

@@ -22,7 +22,7 @@
     </div>
    <div class="form-group">
       <label for="price">price :</label>
-      <input type="text" class="form-control" id="price " placeholder="Enter price " name="price " >
+      <input type="text" class="form-control" id="price " placeholder="Enter price " name="price" >
       <!-- 밸류값을 줘서 로그인 하고 들어가야 함 -->
     </div>
 

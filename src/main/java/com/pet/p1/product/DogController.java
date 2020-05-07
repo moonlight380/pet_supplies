@@ -22,6 +22,7 @@ public class DogController {
 @Autowired
 private DogService dogService;
 
+
 @ModelAttribute("p")
 public String getBoard()throws Exception{
 	return "dog";
@@ -81,16 +82,16 @@ public String getBoard()throws Exception{
 		
 		}	
 	
-//write_get	
+//write_get	(insert)
 	@RequestMapping(value = "dogWrite",method = RequestMethod.GET)
 	public ModelAndView dogWrite (ModelAndView mv) throws Exception{
 		mv.setViewName("product/pWrite");
 		
 		return mv;
 	}
-//Write_post
+//Write_post(insert)
 	@RequestMapping(value ="dogWrite", method = RequestMethod.POST)
-	public ModelAndView boardWrite(HttpServletRequest request,DogVO dogVO , ModelAndView mv, MultipartFile[] files) throws Exception{	
+	public ModelAndView dogWrite(DogVO dogVO , ModelAndView mv, MultipartFile[] files) throws Exception{	
 		
 		int result=dogService.dogWrite(dogVO, files);	
 		//result=0;

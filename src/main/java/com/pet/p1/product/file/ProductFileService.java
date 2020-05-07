@@ -4,11 +4,13 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.pet.p1.util.FileSaver;
 
 @Service
+@Transactional //알아서 롤백
 public class ProductFileService {
 	@Autowired
 	private ProductFileDAO productFileDAO;
@@ -27,7 +29,11 @@ public class ProductFileService {
 
 		return path;
 	}	
-	
+//fileSelect
+	public ProductFileVO fileSelect(ProductFileVO productFileVO)throws Exception{
+		
+		return productFileDAO.fileSelect(productFileVO);
+	}
 	
 	
 	

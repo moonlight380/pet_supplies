@@ -7,7 +7,11 @@
   
   <!-- INSERT -->
   <insert id="fileInsert" parameterType="ProductFileVO">
-  INSERT INTO productFile VALUES(productfile_seq.nextval,#{NUM},#{fileName},#{oriName},#{board})
+  INSERT INTO productFile VALUES(productFile_seq.nextval,#{num},#{fileName},#{oriName},#{board})
   </insert>
-
+  
+  <!-- fileSelect -->
+	<select id="fileSelect" parameterType="ProductFileVO" resultType="ProductFileVO">
+	select * from productFile where fileNum=#{fileNum} and board=#{board}
+	</select>
   </mapper>

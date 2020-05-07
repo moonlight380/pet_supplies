@@ -42,9 +42,9 @@ public class DogDAO {
 		
 		return sqlSession.selectOne(NAMESPACE+"dogCount", pager);
 	}
-//dogWrite
+//dogWrite(insert)
 	public int dogWrite(DogVO dogVO)throws Exception{
-		
+		System.out.println("dogDAO");
 		return sqlSession.insert(NAMESPACE+"dogWrite",dogVO);
 	}
 	
