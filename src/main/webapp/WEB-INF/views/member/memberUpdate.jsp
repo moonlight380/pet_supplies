@@ -22,7 +22,7 @@
 
 			</div>
 				<div class="col ">
-				<form action="./memberUpdate" method="post" class="form-horizontal">
+				<form action="./memberUpdate" method="post" class="form-horizontal" id="frm">
 					<div class="row mt-5 text-center form-group form-group-sm">
 						<table class="table table-hover">
 							<thead>
@@ -43,7 +43,7 @@
 									<td>
 										<input class="form-control col-sm-8 text-center"
 											type="text" style="margin-left: 90px;"
-											name="name" value="${member.name }" >
+											id="name" name="name" value="${member.name }" >
 									</td>
 
 								</tr>
@@ -52,7 +52,7 @@
 									<td>
 										<input class="form-control col-sm-8 text-center"
 											type="text" style="margin-left: 90px;"
-											name="age" value="${member.age }" >
+											id="age" name="age" value="${member.age }" >
 									</td>
 
 								</tr>
@@ -61,7 +61,7 @@
 									<td>
 										<input class="form-control col-sm-8 text-center"
 											type="text" style="margin-left: 90px;"
-											name="phone" value="${member.phone }" >
+											id="phone" name="phone" value="${member.phone }" >
 									</td>
 
 								</tr>
@@ -70,7 +70,7 @@
 									<td>
 										<input class="form-control col-sm-8 text-center"
 											type="text" style="margin-left: 90px;"
-											name="email" value="${member.email }" >
+											id="email" name="email" value="${member.email }" >
 									</td>
 
 								</tr>
@@ -79,7 +79,7 @@
 									<td>
 										<input class="form-control col-sm-8 text-center"
 											type="text" style="margin-left: 90px;"
-											name="address" value="${member.address }" >
+											id="address" name="address" value="${member.address }" >
 									</td>
 
 								</tr>
@@ -90,7 +90,7 @@
 
 					</div>
 					<div class="row center">
-						<button type="submit" id="button" class="btn btn-default">수정</button>
+						<button type="button" id="button" class="btn btn-default">수정</button>
 					</div>
 				</form>
 
@@ -108,6 +108,30 @@
 <script type="text/javascript">
 document.getElementById('button').style.backgroundColor = '#FF324D';
 document.getElementById('button').style.color = 'white';
+
+$("#button").click(function() {
+	var name = $("#name").val();
+	var age = $("#age").val();
+	var phone = $("#phone").val();
+	var address = $("#address").val();
+	var email = $("#email").val();
+	var ch = new Array(name,age,phone,address,email);
+	var check=0;
+	for(var i=0;i<ch.length;i++){
+		if(ch[i]==""){
+			check++;
+			
+		}
+	}
+	if(check>0){
+		alert("모두 입력해주세요");
+	} else{
+		$("#frm").submit();
+	}
+	
+	
+});
+
 
 </script>
 
