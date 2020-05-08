@@ -55,7 +55,7 @@
 		
 		</div>
 
-     <input type="submit" id="btn" class="btn btn-default" value="Write">
+ <input type="submit" id="btn" class="btn btn-default" value="Write">
 	</div>
 
 
