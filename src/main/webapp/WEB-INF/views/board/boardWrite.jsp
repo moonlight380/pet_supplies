@@ -10,7 +10,7 @@
 <c:import url="../template/summer.jsp"></c:import>
 </head>
 <body>
-	<c:import url="../template/header_sub.jsp"></c:import>
+	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 		<h1>${board}WriteForm</h1>
 
