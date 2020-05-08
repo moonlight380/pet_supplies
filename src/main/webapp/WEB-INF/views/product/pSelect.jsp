@@ -37,16 +37,13 @@
   <div class="panel-body">${vo.regDate}</div>
 </div>
 
-<h1>file 자리</h1>
-  	<!-- 이미지가 여러개 이므로 반복문 -->	
-  	<img alt="" src="../resources/upload/${vo.productFileVO.fileName}"> 
 
- 		
-		<%-- <c:forEach items="${vo.productFileVOs}" var="file">
+  	<!-- 이미지가 여러개 이므로 반복문 -->		
+	 <c:forEach items="${vo.productFileVOs}" var="file">
 			 <div>
-			   <a href="../productFile/fileDown?fileNum=${file.fileNum}">${file.oriName}</a>
+			 <img alt="" src="../resources/upload/${file.fileName}">			
 			</div> 
-		</c:forEach> --%>
+	</c:forEach>
 		</div> 
 
 <div class="container"> 

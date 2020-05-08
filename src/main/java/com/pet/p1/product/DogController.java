@@ -122,11 +122,12 @@ public String getBoard()throws Exception{
 	
 //update_get
 	@GetMapping("dogUpdate")
-	public ModelAndView dogUpdate(ModelAndView mv,DogVO dogVO,long productNum)throws Exception{
+	public ModelAndView dogUpdate(Model model,ModelAndView mv,DogVO dogVO,long productNum)throws Exception{
 		dogVO =dogService.dogSelect(productNum);
 		mv.addObject("vo",dogVO);	
 		mv.setViewName("product/pUpdate");
-		
+		//size(): 리스트에 들어있는 객체의 수
+		model.addAttribute("size", dogVO.getProductFileVOs().size());
 		return mv;
 	}
 //update_post	

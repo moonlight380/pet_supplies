@@ -20,6 +20,7 @@
       <label for="productName">productName:</label>
       <input type="text" class="form-control" id="productName" placeholder="Enter productName" name="productName" >
     </div>
+    
    <div class="form-group">
       <label for="price">price :</label>
       <input type="text" class="form-control" id="price " placeholder="Enter price " name="price" >
@@ -30,15 +31,17 @@
 		    <label for="contents">Contents:</label>
 		    <textarea rows="20" cols="" class="form-control" id="contents" name="contents"></textarea>
 	</div> 
+	
+    <div class="form-group">
+      <label for="point">POINT:</label>
+      <input type="text" class="form-control" id="point" placeholder="Enter point" name="point" >
+    </div>
     
 	<!-- 이 버튼을 클릭하면 파일 추가하는 버튼이 생기는 것 // 받을 때는 배열로 받음-->
 		<input type="button" id="add" class="btn btn-info" value="AddFile">
 		<div id="file">
-			
-	</div> 
+		</div> 
 
-	
-	
     <input type="button" id="btn" class="btn btn-default">Submit</input>
   </form>
 
@@ -46,7 +49,7 @@
 
 
 <!-- 썸머노트경로를 준다. -->
-<script type="text/javascript" src="../resources/js/productForm.js"> </script>  
+<script type="text/javascript" src="../resources/script/productForm.js"> </script>  
 
 </body>
 </html>

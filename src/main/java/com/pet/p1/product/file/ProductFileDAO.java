@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class ProductFileDAO {
 	
@@ -20,6 +21,18 @@ public class ProductFileDAO {
 	public ProductFileVO fileSelect(ProductFileVO productFileVO)throws Exception{
 		
 		return sqlSession.selectOne(NAMESPACE+"fileSelect",productFileVO);
+	}
+	
+	
+	//fileDelete
+	public int fileDelete(ProductFileVO productFileVO)throws Exception{
+		
+		return sqlSession.delete(NAMESPACE+"fileDelete",productFileVO);
+	}
+	
+	//fileDeleteAll
+	public int fileDeleteAll(Long num)throws Exception{
+		return sqlSession.delete(NAMESPACE+"fileDeleteAll",num);
 	}
 	
 }//END CLASS

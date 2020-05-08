@@ -55,7 +55,7 @@ public class DogService {
 	
 //dogWrite(insert)
 	public int dogWrite(DogVO dogVO,MultipartFile[] files) throws Exception {
-		String path = servletContext.getRealPath("/resources/upload");
+		String path = servletContext.getRealPath("/resources/dogUpload");
 		
 		System.out.println(path);
 		

@@ -15,19 +15,16 @@ public class DogVO {
 	private long hit;
 	private Date regDate;
 	private List<ProductFileVO> productFileVOs;
-	private ProductFileVO productFileVO;
+	private long point;
 	
 
-	
-	
-	
-
-	public ProductFileVO getProductFileVO() {
-		return productFileVO;
+	public long getPoint() {
+		return point;
 	}
-	public void setProductFileVO(ProductFileVO productFileVO) {
-		this.productFileVO = productFileVO;
+	public void setPoint(long point) {
+		this.point = point;
 	}
+	
 	public List<ProductFileVO> getProductFileVOs() {
 		return productFileVOs;
 	}

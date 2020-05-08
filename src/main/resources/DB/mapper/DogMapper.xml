@@ -14,6 +14,7 @@
   		<result column="amount" property="amount"/>	
   		<result column="hit" property="hit"/>	
   		<result column="regDate" property="regDate"/>
+  		<result column="point" property="point"/>
   		
   		<collection property="productFileVOs" javaType="List" ofType="ProductFileVO">
   			<id column="fileNum" property="fileNum"/>
@@ -112,8 +113,7 @@
  
  
  <!-- select --> 		
-  	<select id="dogSelect" parameterType="Long" resultMap="selectResult">
-			
+  	<select id="dogSelect" parameterType="Long" resultMap="selectResult">		
 			select N.*,F.*
 			from product N left join productFile F
 			ON (N.productNum=F.num)
@@ -132,24 +132,24 @@
 <!-- WRITE -->
 	<insert id="dogWrite" parameterType="DogVO">
 	INSERT INTO product
-	VALUES (#{productNum},#{productName},#{price},#{contents},0,1,SYSDATE)
+	VALUES (#{productNum},#{productName},#{price},#{contents},0,1,SYSDATE,#{point})
 	</insert>
 
 
 <!-- update -->
  	<update id="dogUpdate" parameterType="DogVO">
-  		UPDATE product set productName =#{productName}, price=#{price},contents =#{contents} where productNum=#{productNum}
+  		UPDATE product set productName =#{productName}, price=#{price},contents=#{contents} where productNum=#{productNum}
   	</update>
 
 
-    <!-- hitupdate -->
+<!-- hitupdate -->
 	 <update id="hitUpdate" parameterType="Long">
-	  		UPDATE product set hit=hit+1 where productNum=#{productNum}
+	  	UPDATE product set hit=hit+1 where productNum=#{productNum}
 	</update> 
 	
-	 <!-- delete -->
+<!-- delete -->
 	<delete id="dogDelete" parameterType="Long"> 
-			delete product where productNum=#{productNum}
+		delete product where productNum=#{productNum}
 	</delete>
 		
 

@@ -14,4 +14,17 @@
 	<select id="fileSelect" parameterType="ProductFileVO" resultType="ProductFileVO">
 	select * from productFile where fileNum=#{fileNum} and board=#{board}
 	</select>
+  
+  <!-- filedelete -->
+    <delete id="fileDelete" parameterType="ProductFileVO" >
+  delete productFile where fileNum=#{fileNum}
+  </delete>
+  
+ <!-- fileDeleteAll --> 
+    <delete id="fileDeleteAll" parameterType="Long" >
+  delete productFile where num=#{num}
+  
+  </delete>
+  
   </mapper>
+  
