@@ -18,6 +18,18 @@
 		select * from member where id = #{id} and pw = #{pw}
   	</select>
   	
+  	<insert id="memberJoin" parameterType="MemberVO">
+  		insert into member values(#{id},#{pw},#{name},#{email},#{age, jdbcType=NUMERIC},#{address},#{phone},0,#{sex, jdbcType=VARCHAR})
+  	</insert> 
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
   	<sql id="search">
 		like '%'||#{search}||'%'
 	</sql>
@@ -57,9 +69,7 @@
 		
 	</select>
 	
-  	<insert id="memberJoin" parameterType="MemberVO">
-  		insert into member values(#{id},#{pw},#{name},#{email},#{age},#{address},#{phone},0,#{sex})
-  	</insert> 
+
   	
   	<delete id="memberDelete" parameterType="Long">
   		delete member where id = #{id}

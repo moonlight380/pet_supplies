@@ -13,7 +13,6 @@ public class MemberVO {
 	private String sex;
 	
 	
-	
 	public String getId() {
 		return id;
 	}
@@ -68,8 +67,6 @@ public class MemberVO {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	
-	
 	
 	
 	

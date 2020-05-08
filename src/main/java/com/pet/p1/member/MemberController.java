@@ -59,17 +59,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "memberJoin", method = RequestMethod.POST)
-	public ModelAndView memberJoin(MemberVO memberVO, MultipartFile avatar, ModelAndView mv,HttpSession session) throws Exception {
+	public ModelAndView memberJoin(MemberVO memberVO, ModelAndView mv,HttpSession session) throws Exception {
 
-		  int result = memberService.memberJoin(memberVO, avatar, session);
+		  int result = memberService.memberJoin(memberVO,session);
+		  
 		  String msg ="Member Join Fail";
 		  if(result>0) { 
 			msg = "Member Join Success";
 			}
 		  
-		  mv.addObject("result", msg); mv.addObject("path", "../");
+		  mv.addObject("result", msg); 
+		  mv.addObject("path", "../");
 		  mv.setViewName("common/result");
-		 
+		  
 		return mv;
 	}
 	//--회원가입 끝

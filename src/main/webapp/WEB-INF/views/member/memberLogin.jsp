@@ -44,6 +44,9 @@
 
 
 <script type="text/javascript">
+	$("#btn").click(function() {
+		alert("click");
+	});
 	document.getElementById('btn').style.backgroundColor = '#ff9999';
 	document.getElementById('btn').style.color = 'white';
 	$('.member').css({'color':'gray','font-size':'5px'});

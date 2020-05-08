@@ -46,7 +46,7 @@ public class MemberService {
 		return memberDAO.memberLogin(memberVO);
 	}
 	
-	public int memberJoin(MemberVO memberVO, MultipartFile avatar, HttpSession session)throws Exception{
+	public int memberJoin(MemberVO memberVO, HttpSession session)throws Exception{
 		return memberDAO.memberJoin(memberVO);
 	}
 
