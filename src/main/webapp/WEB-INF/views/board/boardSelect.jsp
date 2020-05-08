@@ -7,15 +7,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
+<style type="text/css">
+</style>
 </head>
+<c:import url="../template/header.jsp"></c:import>
+<c:import url="../template/css.jsp"></c:import>
 <body>
-	<c:import url="../template/header_sub.jsp"></c:import>
+
 	<div class="container">
 		<div class="panel panel-info">
 			<div class="panel-heading">TITLE</div>
 			<div class="panel-body">${vo.title}</div>
-			<div class="panel-heading">Writer</div>
-			<div class="panel-body">${vo.writer}</div>
+			<div class="panel-heading">ID</div>
+			<div class="panel-body">${vo.id}</div>
 			<div class="panel-heading">Contents</div>
 			<div class="panel-body">${vo.contents}</div>
 		</div>
