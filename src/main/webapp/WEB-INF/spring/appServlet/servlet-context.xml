@@ -33,6 +33,16 @@
 	<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
 	<context:component-scan base-package="com.pet.p1" />
 	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/*"/>
+			<exclude-mapping path="/member/memberLogin"/>
+			<exclude-mapping path="/member/memberJoin"/>
+			<beans:ref bean="memberInterceptor"/>
+			
+		</interceptor>
+	
+	</interceptors>
 	
 	
 </beans:beans>

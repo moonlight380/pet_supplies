@@ -15,6 +15,7 @@
   		<typeAlias type="com.pet.p1.qna.QnaVO" alias="QnaVO"/>
   		<typeAlias type="com.pet.p1.product.DogVO" alias="DogVO"/>
   		<typeAlias type="com.pet.p1.member.MemberVO" alias="MemberVO"/>
+  		<typeAlias type="com.pet.p1.cart.CartVO" alias="CartVO"/>
   	</typeAliases>
   
   </configuration>

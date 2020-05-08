@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pet.p1.cart.CartService;
 import com.pet.p1.util.Pager;
 
 
@@ -28,6 +29,8 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private CartService cartService;
 
 	@RequestMapping(value="memberList", method = RequestMethod.GET)
 	public ModelAndView memberList(Pager memberPager, ModelAndView mv)throws Exception{
@@ -87,15 +90,22 @@ public class MemberController {
 		response.addCookie(cookie); 	//만든 쿠키 넣기
 		
 		 memberVO = memberService.memberLogin(memberVO);
-		
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
+			 System.out.println(memberVO.getId());
+			 String id = memberVO.getId();
+			 long cartCount=cartService.cartCount(id);
+			 System.out.println(cartService.cartCount(id));
+			 
+			 session.setAttribute("cartCount", cartCount);
+
 			 mv.setViewName("redirect:../");
 		 }else {
 			 mv.addObject("result", "Login Fail");
 			 mv.addObject("path", "./memberJoin");
 			 mv.setViewName("common/result");
 		 }
+		 
 		 
 		//로그인 성공이면 index
 		//로그인 실패 하면 로그인 실패 alert login form 이동		 

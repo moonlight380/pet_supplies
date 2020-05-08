@@ -150,7 +150,14 @@
 								</div></li>
 							<li class="dropdown cart_dropdown"><a
 								class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
-									class="linearicons-cart"></i><span class="cart_count">0</span></a>
+									class="linearicons-cart"></i>
+									<c:if test="${not empty member}">
+										<span class="cart_count"> ${cartCount} </span>
+									</c:if>
+									<c:if test="${empty member}">
+										<span class="cart_count"> 0 </span>
+									</c:if>
+										</a>
 							</li>
 						</ul>
 						<div class="pr_search_icon">
