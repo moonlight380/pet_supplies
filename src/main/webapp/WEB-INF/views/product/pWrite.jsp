@@ -39,10 +39,11 @@
     
 	<!-- 이 버튼을 클릭하면 파일 추가하는 버튼이 생기는 것 // 받을 때는 배열로 받음-->
 		<input type="button" id="add" class="btn btn-info" value="AddFile">
+		<input type="file" name="firstFile">
 		<div id="file">
 		</div> 
 
-    <input type="button" id="btn" class="btn btn-default">Submit</input>
+    <input type="button" id="btn" class="btn btn-danger" value="submit">
   </form>
 
 </div>

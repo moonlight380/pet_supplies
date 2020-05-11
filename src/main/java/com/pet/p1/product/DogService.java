@@ -1,9 +1,12 @@
 package com.pet.p1.product;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import org.aspectj.apache.bcel.generic.MULTIANEWARRAY;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,7 +57,7 @@ public class DogService {
 	}	
 	
 //dogWrite(insert)
-	public int dogWrite(DogVO dogVO,MultipartFile[] files) throws Exception {
+	public int dogWrite(DogVO dogVO,MultipartFile firstFile, MultipartFile[] files) throws Exception {
 		String path = servletContext.getRealPath("/resources/dogUpload");
 		
 		System.out.println(path);
@@ -66,6 +69,19 @@ public class DogService {
 		//dogDAO table insert
 		int result=dogDAO.dogWrite(dogVO);
 		
+		///------------------------ 대표 이미지
+		if(firstFile.getSize()>0) {
+			ProductFileVO productFileVO = new ProductFileVO(); // 한번 돌때마다 새로운 파일
+			String fileName=fileSaver.saveByTransfer(firstFile,  path);
+			productFileVO.setNum(dogVO.getProductNum());//productTable에 글을 인서트하면 이 파일이 누구의 글에 있는 파일이냐
+			productFileVO.setFileName(fileName);
+			productFileVO.setOriName(firstFile.getOriginalFilename());
+			productFileVO.setBoard(1);
+			productFileVO.setFirstFile(0);
+			productFileDAO.fileInsert(productFileVO); //파일의 갯수만큼이라서 반복문 안에
+		
+		}
+		//-------------------------------
 		
 		for(MultipartFile file:files) {
 			if(file.getSize()>0) {
@@ -75,7 +91,7 @@ public class DogService {
 			productFileVO.setFileName(fileName);
 			productFileVO.setOriName(file.getOriginalFilename());
 			productFileVO.setBoard(1);
-			
+			productFileVO.setFirstFile(1);
 			productFileDAO.fileInsert(productFileVO); //파일의 갯수만큼이라서 반복문 안에
 			}
 		}

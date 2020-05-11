@@ -41,7 +41,7 @@
   	<!-- 이미지가 여러개 이므로 반복문 -->		
 	 <c:forEach items="${vo.productFileVOs}" var="file">
 			 <div>
-			 <img alt="" src="../resources/upload/${file.fileName}">			
+			 <img alt="" src="../resources/dogUpload/${file.fileName}">			
 			</div> 
 	</c:forEach>
 		</div> 

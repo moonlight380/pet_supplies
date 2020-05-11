@@ -6,8 +6,17 @@ public class ProductFileVO {
 	private String fileName;
 	private String oriName;
 	private int board;
+	private int firstFile;
 	
 	
+	
+	
+	public int getFirstFile() {
+		return firstFile;
+	}
+	public void setFirstFile(int firstFile) {
+		this.firstFile = firstFile;
+	}
 	public long getFileNum() {
 		return fileNum;
 	}

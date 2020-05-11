@@ -45,12 +45,14 @@
   		</select>
 
 <!-- LIST -->
-   	<select id="dogList" parameterType="Pager" resultType="DogVO">
-		select * from
+   	<select id="dogList" parameterType="Pager" resultMap="selectResult">
+		select P.*, F.*
+		from
+		(select * from
 			 (select N.*, rownum R from 
 				(select * from product 
 				 where 
-				  <choose>
+				   <choose>
 					<when test="kind == 'pc'">
 						Contents
 					</when>
@@ -61,14 +63,17 @@
 					<otherwise>
 						productNum
 					</otherwise>
-				</choose>
+				</choose> 
 				like '%'||#{search}||'%' and productNum>=1 order by productNum desc) N )
-				where R between #{startRow} and #{lastRow}  
+				where R between #{startRow} and #{lastRow})P  left join productFile F
+				on (P.productNum=F.num) order by F.firstFile asc
 	</select>    
 	
 <!--dogNewList-->
-   	<select id="dogNewList" parameterType="Pager" resultType="DogVO">
-		select * from
+   	<select id="dogNewList" parameterType="Pager" resultMap="selectResult">
+		select P.*, F.*
+		from
+		(select * from
 			 (select N.*, rownum R from 
 				(select * from product 
 				 where 
@@ -85,12 +90,15 @@
 					</otherwise>
 				</choose>
 				like '%'||#{search}||'%' and productNum>=1 order by regDate desc) N )
-				where R between #{startRow} and #{lastRow}  
+				where R between #{startRow} and #{lastRow}) P  left join productFile F
+				on (P.productNum=F.num)
 	</select>  
  
 <!--dogBestList-->
-   	<select id="dogBestList" parameterType="Pager" resultType="DogVO">
-		select * from
+   	<select id="dogBestList" parameterType="Pager" resultMap="selectResult">
+		select P.*, F.*
+		from
+		(select * from
 			 (select N.*, rownum R from 
 				(select * from product 
 				 where 
@@ -107,7 +115,8 @@
 					</otherwise>
 				</choose>
 				like '%'||#{search}||'%' and productNum>=1 order by hit desc) N )
-				where R between #{startRow} and #{lastRow}  
+				where R between #{startRow} and #{lastRow})P  left join productFile F
+				on (P.productNum=F.num)
 	</select>  
   
  

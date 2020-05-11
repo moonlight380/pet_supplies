@@ -7,7 +7,7 @@
   
   <!-- INSERT -->
   <insert id="fileInsert" parameterType="ProductFileVO">
-  INSERT INTO productFile VALUES(productFile_seq.nextval,#{num},#{fileName},#{oriName},#{board})
+  INSERT INTO productFile VALUES(productFile_seq.nextval,#{num},#{fileName},#{oriName},#{board},#{firstFile})
   </insert>
   
   <!-- fileSelect -->

@@ -91,9 +91,9 @@ public String getBoard()throws Exception{
 	}
 //Write_post(insert)
 	@RequestMapping(value ="dogWrite", method = RequestMethod.POST)
-	public ModelAndView dogWrite(DogVO dogVO , ModelAndView mv, MultipartFile[] files) throws Exception{	
+	public ModelAndView dogWrite(DogVO dogVO , ModelAndView mv,MultipartFile firstFile, MultipartFile[] files) throws Exception{	
 		
-		int result=dogService.dogWrite(dogVO, files);	
+		int result=dogService.dogWrite(dogVO, firstFile,files);	
 		//result=0;
 		
 		if(result>0) {

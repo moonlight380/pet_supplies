@@ -45,8 +45,7 @@
 	 	<c:forEach items="${vo.productFileVOs}" var="file">
 			 <div>
 			 <img alt="" src="../resources/upload/${file.fileName}">
-			 <p>${file.oriName}<i id="${file.fileNum}" title="${file.board}" class='fas fa-paw remove fileDelete' style='font-size:24px'></i></p>
-			
+			 <p>${file.oriName}<i id="${file.fileNum}" title="${file.board}" class='fas fa-paw remove fileDelete' style='font-size:24px'></i></p>	
 			</div> 
 		</c:forEach>
 
