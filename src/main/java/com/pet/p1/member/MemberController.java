@@ -31,6 +31,17 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private CartService cartService;
+	
+	@GetMapping("memberPayment")
+	public void memeberPayment() throws Exception{
+		
+	}
+	
+	@GetMapping("memberCart")
+	public void memberCart()throws Exception{
+		
+	}
+	
 
 	@RequestMapping(value="memberList", method = RequestMethod.GET)
 	public ModelAndView memberList(Pager memberPager, ModelAndView mv)throws Exception{

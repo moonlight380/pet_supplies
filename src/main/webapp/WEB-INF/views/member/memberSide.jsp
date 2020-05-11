@@ -15,8 +15,8 @@
 				<div class="col text-center" style="background-color:#bbbfc3; width: 221px;height: 256px">
 					
 
-						<a href="#"> <i class="material-icons text-center"
-							style="font-size: 94px; color: white; margin: 0 auto; padding-top: 25px">account_circle</i>
+						<a href="#"> <i class="far fa-grin text-center"
+							style="font-size: 94px; color: white; margin: 0 auto; padding-top: 25px"></i>
 						</a>
 				
 
@@ -32,7 +32,7 @@
 			<ul>
 				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberPage">회원정보</a></li>
 				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberOrder">주문조회</a></li>
-				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}">찜한 상품</a></li>
+				<li class="ml-5 mt-5"><a href="${pageContext.request.contextPath}/member/memberCart">장바구니</a></li>
 				<li class="ml-5 mt-5">쿠폰/포인트</li>
 				<li class="ml-5 mt-5">상품 리뷰</li>
 				<li class="ml-5 mt-5">상품Q&amp;A</li>
