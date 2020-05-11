@@ -8,8 +8,11 @@
 		<div class="container">
 			<nav class="navbar navbar-expand-lg">
 				<a class="navbar-brand" href="index.html"> <img
-					class="logo_light" src="assets/images/logo_light.png" alt="logo" />
-					<img class="logo_dark" src="assets/images/logo_dark.png" alt="logo" />
+					class="logo_light"
+					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
+					alt="logo" /> <img class="logo_dark"
+					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
+					alt="logo" />
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-expanded="false">
@@ -169,11 +172,15 @@
 										href="faq.html">회원 탈퇴</a></li>
 								</ul>
 							</div></li>
+
 						<li><a class="nav-link nav_item" href="contact.html">매장
 								위치</a></li>
+
 					</ul>
 				</div>
+
 				<ul class="navbar-nav attr-nav align-items-center">
+				
 					<li><div class="col-md-6">
 							<div class="text-center text-md-right">
 								<ul class="header_list">
@@ -181,7 +188,6 @@
 								</ul>
 							</div>
 						</div></li>
-
 
 					<li class="dropdown cart_dropdown"><a
 						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
