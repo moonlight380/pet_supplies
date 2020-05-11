@@ -14,6 +14,7 @@
 					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 					alt="logo" />
 				</a>
+
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-expanded="false">
 					<span class="ion-android-menu"></span>
@@ -46,9 +47,10 @@
 									<li><a class="dropdown-item nav-link nav_item"
 										href="about.html">회사 소개</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
-										href="contact.html">공지 사항</a></li>
+										href="${pageContext.request.contextPath}/notice/noticeList">공지
+											사항</a></li>
 									<li><a class="dropdown-item nav-link nav_item"
-										href="faq.html">QnA</a></li>
+										href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></li>
 								</ul>
 							</div></li>
 						<li class="dropdown dropdown-mega-menu"><a
@@ -173,14 +175,14 @@
 								</ul>
 							</div></li>
 
-						<li><a class="nav-link nav_item" href="contact.html">매장
-								위치</a></li>
+						<li><a class="nav-link nav_item"
+							href="${pageContext.request.contextPath}/nav/contact">매장 위치</a></li>
 
 					</ul>
 				</div>
 
 				<ul class="navbar-nav attr-nav align-items-center">
-				
+
 					<li><div class="col-md-6">
 							<div class="text-center text-md-right">
 								<ul class="header_list">

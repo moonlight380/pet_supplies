@@ -31,8 +31,10 @@ html, body {
 	padding: 0;
 }
 </style>
+
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
+
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
@@ -67,6 +69,8 @@ html, body {
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT7sSTMO5sgyqu_1l0KuaIK_QAyv0U44c&callback=initMap"
 		async defer></script>
 </body>
+<c:import url="../template/footer.jsp"></c:import>
+
 </body>
 
 
