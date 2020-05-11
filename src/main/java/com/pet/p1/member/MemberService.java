@@ -49,7 +49,10 @@ public class MemberService {
 	public int memberJoin(MemberVO memberVO, HttpSession session)throws Exception{
 		return memberDAO.memberJoin(memberVO);
 	}
-
+	
+	public MemberVO memberEMCheck(MemberVO memberVO)throws Exception{
+		return memberDAO.memberEMCheck(memberVO);
+	}
 	
 	public MemberVO memberIdCheck(MemberVO memberVO)throws Exception{
 		return memberDAO.memberIdCheck(memberVO);

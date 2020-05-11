@@ -34,6 +34,9 @@ public class MemberController {
 	private DogService dogService;
 	
 //--------------------------------------------------------------------------------------------------------------
+
+	
+	
 	//--장바구니
 	
 	
@@ -51,6 +54,8 @@ public class MemberController {
 	}
 	
 	//--장바구니 끝
+	
+	
 	
 	//--회원가입
 	@RequestMapping(value= "memberJoin")
@@ -75,6 +80,8 @@ public class MemberController {
 		return mv;
 	}
 	//--회원가입 끝
+	
+	
 	
 	//--로그인/로그아웃
 	@RequestMapping(value= "memberLogin")
@@ -116,6 +123,24 @@ public class MemberController {
 	
 	//--로그인/로그아웃 끝
 	
+	@PostMapping("memberEmailCheck")
+	public ModelAndView memberEMCheck(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		memberVO = memberService.memberEMCheck(memberVO);
+		int result = 0;
+		if(memberVO == null) {
+			result = 1;
+		}
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	
+	
+	
+	//-- id 중복검사
 	@PostMapping("memberIdCheck")
 	public ModelAndView memberIdCheck(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -130,6 +155,14 @@ public class MemberController {
 		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
+	
+	//-- id 중복검사 끝
+	
+	
+	
+	
+	
+	
 	
 //-------------------------------------------------------------------------------------------------------	
 	
