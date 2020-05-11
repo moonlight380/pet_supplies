@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
+<c:import url="../template/css.jsp"></c:import>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
@@ -23,8 +24,8 @@
 			</div>
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
-					class="form-control" id="writer" value="${member.id}"
-					readonly="readonly" name="writer">
+					class="form-control" id="id" value="${member.id}"
+					readonly="readonly" name="id">
 			</div>
 			<div class="form-group">
 				<label for="contents">Contents:</label>

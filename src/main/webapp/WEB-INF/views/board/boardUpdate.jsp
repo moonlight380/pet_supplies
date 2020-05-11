@@ -9,10 +9,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
+<c:import url="../template/css.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
+
 </head>
 <body>
-	<c:import url="../template/header_sub.jsp"></c:import>
+	
+	<c:import url="../template/header.jsp"></c:import>
+	
 	<div class="container">
 		<h1>${fn:toUpperCase(board)}UpdateForm</h1>
 
@@ -26,8 +30,8 @@
 			</div>
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
-					disabled="disabled" value="${vo.writer}" class="form-control"
-					id="writer" name="writer">
+					disabled="disabled" value="${vo.id}" class="form-control"
+					id="id" name="id">
 			</div>
 			<div class="form-group">
 				<label for="contents">Contents:</label>

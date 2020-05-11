@@ -7,8 +7,8 @@
 	<div class="bottom_header dark_skin main_menu_uppercase">
 		<div class="container">
 			<nav class="navbar navbar-expand-lg">
-				<a class="navbar-brand" href="index.html"> <img
-					class="logo_light"
+				<a class="navbar-brand" href="${pageContext.request.contextPath}">
+					<img class="logo_light"
 					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 					alt="logo" /> <img class="logo_dark"
 					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
@@ -183,14 +183,8 @@
 
 				<ul class="navbar-nav attr-nav align-items-center">
 
-					<li><div class="col-md-6">
-							<div class="text-center text-md-right">
-								<ul class="header_list">
-									<li><a href="login.html"><i class="ti-user"></i><span>Login</span></a></li>
-								</ul>
-							</div>
-						</div></li>
-
+					<li><a href="${pageContext.request.contextPath}/member/memberLogin" class="nav-link"><i
+							class="linearicons-user"></i></a></li>
 					<li class="dropdown cart_dropdown"><a
 						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
 							class="linearicons-cart"></i><span class="cart_count">2</span></a>
@@ -215,8 +209,8 @@
 										class="price_symbole">$</span></span>159.00
 								</p>
 								<p class="cart_buttons">
-									<a href="#" class="btn btn-fill-line rounded-0 view-cart">View
-										Cart</a><a href="#" class="btn btn-fill-out rounded-0 checkout">Checkout</a>
+									<a href="#" class="btn btn-fill-line view-cart">View Cart</a><a
+										href="#" class="btn btn-fill-out checkout">Checkout</a>
 								</p>
 							</div>
 						</div></li>

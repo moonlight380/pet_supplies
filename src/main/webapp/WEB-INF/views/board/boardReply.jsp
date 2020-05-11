@@ -7,9 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
+<c:import url="../template/css.jsp"></c:import>
 </head>
 <body>
-<c:import url="../template/header_sub.jsp"></c:import>
+<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 		<h1>${board} reply Form</h1>
 		
