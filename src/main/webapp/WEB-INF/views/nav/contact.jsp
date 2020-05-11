@@ -69,6 +69,8 @@ html, body {
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT7sSTMO5sgyqu_1l0KuaIK_QAyv0U44c&callback=initMap"
 		async defer></script>
 </body>
+
+<div class="section"></div>
 <c:import url="../template/footer.jsp"></c:import>
 
 </body>

@@ -62,22 +62,25 @@
 			</tbody>
 		</table>
 
-		<div>
-			<ul class="pagination">
-				<c:if test="${pager.curBlock gt 1}">
-					<li><a
-						href="./${board}List?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">이전</a></li>
-				</c:if>
-				<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-					<li><a
-						href="./${board}List?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
-				</c:forEach>
-				<c:if test="${pager.curBlock lt pager.totalBlock}">
-					<li><a
-						href="./${board}List?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">다음</a></li>
-				</c:if>
-			</ul>
+		<div class="row">
+			<div class="col-12">
+				<ul class="pagination mt-3 justify-content-center pagination_style1">
+					<c:if test="${pager.curBlock gt 1}">
+						<li class="page-item active"><a class="page-link"
+							href="./${board}List?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">이전</a></li>
+					</c:if>
+					<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+						<li class="page-item"><a class="page-link"
+							href="./${board}List?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+					</c:forEach>
+					<c:if test="${pager.curBlock lt pager.totalBlock}">
+						<li class="page-item"><a class="page-link"
+							href="./${board}List?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">다음</a></li>
+					</c:if>
+				</ul>
+			</div>
 		</div>
+
 
 		<c:catch>
 			<c:choose>

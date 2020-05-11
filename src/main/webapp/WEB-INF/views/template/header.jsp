@@ -19,6 +19,37 @@
 					data-target="#navbarSupportedContent" aria-expanded="false">
 					<span class="ion-android-menu"></span>
 				</button>
+
+				<div class="product_search_form">
+					<form>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="custom_select">
+									<select class="first_null">
+										<option value="">All Category</option>
+										<option value="Dresses">Dresses</option>
+										<option value="Shirt-Tops">Shirt & Tops</option>
+										<option value="T-Shirt">T-Shirt</option>
+										<option value="Pents">Pents</option>
+										<option value="Jeans">Jeans</option>
+									</select>
+								</div>
+							</div>
+							
+							<input class="form-control" placeholder="Search Product..."
+								required="" type="text">
+							<button type="submit" class="search_btn">
+								<i class="linearicons-magnifier"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+
+				<input type="text" placeholder="검색어입력"> <a
+					href="${pageContext.request.contextPath}"
+					class="nav-link searchmargin"><i class="linearicons-magnifier"></i></a>
+
+
 				<div class="collapse navbar-collapse justify-content-end"
 					id="navbarSupportedContent">
 					<ul class="navbar-nav">
@@ -183,8 +214,10 @@
 
 				<ul class="navbar-nav attr-nav align-items-center">
 
-					<li><a href="${pageContext.request.contextPath}/member/memberLogin" class="nav-link"><i
-							class="linearicons-user"></i></a></li>
+					<li><a
+						href="${pageContext.request.contextPath}/member/memberLogin"
+						class="nav-link"><i class="linearicons-user"></i></a></li>
+
 					<li class="dropdown cart_dropdown"><a
 						class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i
 							class="linearicons-cart"></i><span class="cart_count">2</span></a>

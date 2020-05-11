@@ -31,38 +31,33 @@
 				</div>
 				<div class="col-lg-2 col-md-3 col-sm-6">
 					<div class="widget">
-						<h6 class="widget_title">Useful Links</h6>
+						<h6 class="widget_title">사이트 링크</h6>
 						<ul class="widget_links">
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">Location</a></li>
-							<li><a href="#">Affiliates</a></li>
-							<li><a href="#">Contact</a></li>
+							<li><a href="#">회사소개</a></li>
+							<li><a href="#">QnA</a></li>
+							<li><a href="#">오시는길</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-2 col-md-3 col-sm-6">
 					<div class="widget">
-						<h6 class="widget_title">Category</h6>
+						<h6 class="widget_title">카테고리</h6>
 						<ul class="widget_links">
-							<li><a href="#">Men</a></li>
-							<li><a href="#">Woman</a></li>
-							<li><a href="#">Kids</a></li>
-							<li><a href="#">Best Saller</a></li>
-							<li><a href="#">New Arrivals</a></li>
+							<li><a href="#">강아지</a></li>
+							<li><a href="#">고양이</a></li>
+							<li><a href="#">기타</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-4 col-sm-6">
 					<div class="widget">
-						<h6 class="widget_title">Contact Info</h6>
+						<h6 class="widget_title">연락처</h6>
 						<ul class="contact_info contact_info_light">
 							<li><i class="ti-location-pin"></i>
-								<p>123 Street, Old Trafford, New South London , UK</p></li>
-							<li><i class="ti-email"></i> <a
-								href="mailto:info@sitename.com">info@sitename.com</a></li>
+								<p>서울특별시 마포구 서교동 447-5 풍성빌딩 2,3,4층</p></li>
+							<li><i class="ti-email"></i> <a href="">kimssangyong@naver.com</a></li>
 							<li><i class="ti-mobile"></i>
-								<p>+ 457 789 789 65</p></li>
+								<p>02-336-8546</p></li>
 						</ul>
 					</div>
 				</div>
