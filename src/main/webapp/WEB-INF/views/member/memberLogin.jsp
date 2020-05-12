@@ -12,7 +12,19 @@
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">
-<div class="row">
+
+	<div class="path" style="display: block; float: right; position: relative; height: auto;">
+		<ol><li style="display: inline;"><a href="${pageContext.request.contextPath}">Home > </a></li>
+			<li style="display: inline;" title="현재 위치"><strong>로그인</strong></li>
+		</ol>
+	</div>
+
+<div style="border-bottom: 3px solid black; margin-top: 100px; text-align: center;">
+<h1 style="border: 1px solid red; margin-bottom: 20px; font-weight: bold; font-size: 36px;">로그인</h1>
+
+</div>
+
+<div class="row" style="border: 1px solid red; margin-top: 50px;">
 <div class="col"></div>
 <div class="col border m-7" style="height: 400px;">
 
@@ -30,8 +42,8 @@
 	<button class="btn btn-lg btn-block" id="btn" type="submit">로그인</button>
 		
 	<div class="checkbox mt-3">
-		<label class="ml-0"> <input type="checkbox" value="remember-me">
-			Remember me
+		<label class="ml-0" style="font-size: small; font-style: inherit;"> <input type="checkbox" value="remember-me">
+			아이디 저장하기
 		</label>
 	</div>
 	
@@ -41,7 +53,7 @@
 	
 </form>
 
-<%-- <form action="./kakaoLogin" method="get">
+ <form action="./kakaoLogin" method="get">
 	<div class="kakaoLogin" style="margin-top: 50px;">
 	
 	<c:if test="${member.id eq null}">
@@ -52,16 +64,16 @@
 		<img src="${pageContext.request.contextPath}/resources/images/kakao_login_btn_large_wide.png">
 	</a>
 	</c:if>
+    
+	
+	</div>
+
+</form> 
 	
 	<c:if test="${member.id ne null}">
         alert("로그인 성공!");
         <input type="button" value="로그아웃" onclick="">
     </c:if>
-    
-	
-	</div>
-
-</form> --%>
 </div>
 <div class="col"></div>
 </div>

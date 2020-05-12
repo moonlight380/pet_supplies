@@ -17,13 +17,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import org.springframework.web.multipart.MultipartFile;
 
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.pet.p1.product.DogDAO;
 import com.pet.p1.product.DogVO;
 import com.pet.p1.util.Pager;
 
