@@ -289,7 +289,7 @@ $(".check").click(function() {
 		
 		sum = sum + set;
 		console.log(sum);
-		
+		final_set(sum);
 		//------
 		check(name);
 	} else{
