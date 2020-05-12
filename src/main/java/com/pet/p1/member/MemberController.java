@@ -25,8 +25,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.pet.p1.product.DogService;
 import com.pet.p1.product.DogVO;
+
+
+import com.pet.p1.cart.CartService;
+
+import com.pet.p1.product.DogService;
+import com.pet.p1.product.DogVO;
+
 import com.pet.p1.util.Pager;
 
 
@@ -37,10 +45,20 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	@Autowired
+	private CartService cartService;
+	
+	@GetMapping("memberPayment")
+	public void memeberPayment() throws Exception{
+		
+	}
+	
+
+
 	private DogService dogService;
 	
 	
 //--------------------------------------------------------------------------------------------------------------
+
 
 	
 	
@@ -109,6 +127,7 @@ public class MemberController {
 		
 		 memberVO = memberService.memberLogin(memberVO);
 
+
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
 			 mv.setViewName("redirect:../");
@@ -117,6 +136,12 @@ public class MemberController {
 			 mv.addObject("path", "./memberJoin");
 			 mv.setViewName("common/result");
 		 }
+
+		 
+		 
+		//로그인 성공이면 index
+		//로그인 실패 하면 로그인 실패 alert login form 이동		 
+
 				 
 		return mv;
 	}

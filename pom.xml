@@ -14,7 +14,9 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
-	
+
+	<!-- jackson -->
+
 	<!-- Gson -->
 	<dependency>
 	    <groupId>com.google.code.gson</groupId>
@@ -24,6 +26,7 @@
 	
 	<!-- jackson-databind -->
 	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>

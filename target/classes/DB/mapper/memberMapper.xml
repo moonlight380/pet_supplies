@@ -9,7 +9,7 @@
  	<select id="memberCart" resultType="DogVO" parameterType="DogVO">
  		select * from product where productNum = #{productNum}
  	</select>
-  	
+
   	<select id="memberIdCheck" resultType="MemberVO" parameterType="MemberVO">
   		select id from member where id = #{id}
   	</select>
