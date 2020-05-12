@@ -1,6 +1,11 @@
 package com.pet.p1.member;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -16,6 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,6 +38,7 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private DogService dogService;
+	
 	
 //--------------------------------------------------------------------------------------------------------------
 
@@ -123,6 +130,35 @@ public class MemberController {
 	
 	//--로그인/로그아웃 끝
 	
+	//-- kakao 로그인
+	@GetMapping("kakaoLogin")
+	public String kakaoLogin(@RequestParam("code") String code, HttpSession session)throws Exception{
+		String access_Token = memberService.getAccessToken(code);
+		HashMap<String, Object> memberInfo = memberService.getmemberInfo(access_Token);
+		System.out.println("login Controller:"+memberInfo);
+		
+		// 클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
+		/*
+		 * if(memberInfo.get("email") != null) { session.setAttribute("memberId",
+		 * memberInfo.get("email")); session.setAttribute("access_Token", access_Token);
+		 * }
+		 */
+		
+		return "redirect:../";
+	}
+	
+	//-- kakao 로그아웃
+	@GetMapping("kakaoLogout")
+	public String kakaoLogout(HttpSession session) {
+		memberService.kakaoLogout((String)session.getAttribute("access_Token"));
+		session.removeAttribute("access_Token");
+		session.removeAttribute("memberId");
+		return "redirect:../";
+	}
+	
+	
+	
+	//-- email 중복검사
 	@PostMapping("memberEmailCheck")
 	public ModelAndView memberEMCheck(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -136,9 +172,7 @@ public class MemberController {
 		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
-	
-	
-	
+
 	
 	//-- id 중복검사
 	@PostMapping("memberIdCheck")
@@ -157,10 +191,6 @@ public class MemberController {
 	}
 	
 	//-- id 중복검사 끝
-	
-	
-	
-	
 	
 	
 	
