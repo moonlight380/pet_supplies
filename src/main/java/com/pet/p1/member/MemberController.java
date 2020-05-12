@@ -48,10 +48,7 @@ public class MemberController {
 		
 	}
 	
-	@GetMapping("memberCart")
-	public void memberCart()throws Exception{
-		
-	}
+
 	
 
 	private DogService dogService;
