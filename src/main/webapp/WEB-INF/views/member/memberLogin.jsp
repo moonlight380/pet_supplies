@@ -9,7 +9,6 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
 </head>
-
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">
@@ -77,7 +76,6 @@
 	$("#btn").click(function() {
 		alert("click");
 	});
-
 	document.getElementById('btn').style.backgroundColor = '#ff9999';
 	document.getElementById('btn').style.color = 'white';
 	$('.member').css({'color':'gray','font-size':'5px'});
