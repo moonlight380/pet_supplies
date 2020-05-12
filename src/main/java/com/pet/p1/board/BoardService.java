@@ -7,19 +7,19 @@ import org.springframework.web.multipart.MultipartFile;
 import com.pet.p1.util.Pager;
 
 public interface BoardService {
-	// List
+	// 게시판 리스트
 	public List<BoardVO> boardList(Pager pager) throws Exception;
 
-	// Select
+	// 특정 게시물 내용보기
 	public BoardVO boardSelect(long num) throws Exception;
 
-	// Insert
+	// 게시물 작성
 	public int boardWrite(BoardVO boardVO, MultipartFile[] files) throws Exception;
 
-	// update
+	// 게시물 업데이트
 	public int boardUpdate(BoardVO boardVO, MultipartFile[] files) throws Exception;
 
-	// delete
+	// 게시물 삭제
 	public int boardDelete(long num) throws Exception;
 
 }

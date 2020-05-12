@@ -3,6 +3,7 @@ package com.pet.p1.board;
 import java.sql.Date;
 
 public class BoardVO {
+	
 	private long num;
 	private String title;
 	private String id;

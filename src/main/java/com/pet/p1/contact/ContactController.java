@@ -10,7 +10,7 @@ public class ContactController {
 
 	@GetMapping("contact")
 	public void ContactPage() throws Exception {
-
+		
 	}
 
 	@GetMapping("test")
