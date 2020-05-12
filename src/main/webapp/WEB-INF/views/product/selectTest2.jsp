@@ -249,6 +249,7 @@
                 <div class="medium_divider"></div>
             </div>
         </div>
+        
         <div class="row">
         	<div class="col-12">
             	<div class="heading_s1">
@@ -314,35 +315,41 @@
                                         <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
                                         <li><a href="#"><i class="icon-heart"></i></a></li>
                                     </ul>
-                                </div>
-                            </div>
+                                </div> <!-- END class="product_action_box" -->
+                            </div> <!-- END class="product_img" -->
+                            
                             <div class="product_info">
                                 <h6 class="product_title"><a href="shop-product-detail.html">Lether Gray Tuxedo</a></h6>
+                                
                                 <div class="product_price">
                                     <span class="price">$55.00</span>
                                     <del>$95.00</del>
                                     <div class="on_sale">
                                         <span>25% Off</span>
                                     </div>
-                                </div>
+                                </div> <!-- END class="product_price" -->
+                                 
                                 <div class="rating_wrap">
                                     <div class="rating">
                                         <div class="product_rate" style="width:68%"></div>
                                     </div>
                                     <span class="rating_num">(15)</span>
-                                </div>
+                                </div> <!-- END class="rating_wrap" -->
+                                
                                 <div class="pr_desc">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
                                 </div>
+                                
                                 <div class="pr_switch_wrap">
                                     <div class="product_color_switch">
                                         <span class="active" data-color="#847764"></span>
                                         <span data-color="#0393B5"></span>
                                         <span data-color="#DA323F"></span>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                    
+                                </div> <!-- END class="pr_switch_wrap" -->
+                            </div> <!--  END class="product_info" -->
+                        </div> <!--  END class="product" -->
                     </div> <!-- END class="item" -->
                     
                     
@@ -360,7 +367,7 @@
                                         <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
                                         <li><a href="#"><i class="icon-heart"></i></a></li>
                                     </ul>
-                                </div>
+                                </div> <!--  END class="product_action_box" -->
                             </div> <!-- END class="product_img" -->
                             
                             <div class="product_info">

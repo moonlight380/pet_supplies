@@ -61,6 +61,49 @@ clear: both;
 	background-color: rgba(255,238,51,0.99);
 
 }
+
+
+#prdInfo .cont h3 {
+    font-family: 'NotokrBold',sans-serif;
+    font-size: 22px;
+    color: #111;
+    margin-bottom: 20px;
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+}
+
+#prdInfo .prdInfo-cont .cont {
+	font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 3px;
+    line-height: 1.8;
+}
+.contents_div_1{
+	width: 45%;
+	border: solid 1px #687188;
+	line-height: auto;
+	float: left;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 70px;
+}
+.contents_div_2{
+	width: auto;
+	border: solid 1px #687188;
+	line-height: auto;
+	clear:both;
+	margin-left: 30px;
+	margin-right: 30px;
+	
+}
+
+.height_line{}
+
+
 </style>
 
 
@@ -550,7 +593,8 @@ clear: both;
             </div> <!-- class="col-lg-6 col-md-6" -->
         </div><!-- END class="row" -->
         
-        
+<!-- 탭으로 나누는 버튼 -->    
+
         <div class="row">
         	<div class="col-12">
             	<div class="large_divider clearfix"></div>
@@ -561,41 +605,98 @@ clear: both;
         <div class="row">
         	<div class="col-12">
             	<div class="tab-style3">
+            	<!-- 상품 탭 이름 -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li class="nav-item">
-							<a class="nav-link active" id="Description-tab" data-toggle="tab" href="#Description" role="tab" aria-controls="Description" aria-selected="true">Description</a>
+							<a class="nav-link active" id="Description-tab" data-toggle="tab" href="#Description" role="tab" aria-controls="Description" aria-selected="true">상품 상세</a>
                       	</li>
                       	<li class="nav-item">
-                        	<a class="nav-link" id="Additional-info-tab" data-toggle="tab" href="#Additional-info" role="tab" aria-controls="Additional-info" aria-selected="false">Additional info</a>
+                        	<a class="nav-link" id="Additional-info-tab" data-toggle="tab" href="#Additional-info" role="tab" aria-controls="Additional-info" aria-selected="false">베송/반품/교환/환불</a>
                       	</li>
                       	<li class="nav-item">
-                        	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">Reviews (2)</a>
+                        	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">상품 후기</a>
                       	</li>
+                      	<li class="nav-item">
+                        	<a class="nav-link" id="Reviews-tab" data-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">상품 문의</a>
+                      	</li>
+                      	
                     </ul>
                 	<div class="tab-content shop_info_tab">
                       	<div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
-                        	<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Vivamus bibendum magna Lorem ipsum dolor sit amet, consectetur adipiscing elit.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                        	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                        	
+						  	<!-- 이미지가 여러개 이므로 반복문 -->		
+							 <c:forEach items="${vo.productFileVOs}" var="file">
+									 <div>
+									 	<img alt="" src="../resources/dogUpload/${file.fileName}">			
+									</div> 
+							</c:forEach>
+							
                       	</div>
+                      	
+                      	
                       	<div class="tab-pane fade" id="Additional-info" role="tabpanel" aria-labelledby="Additional-info-tab">
-                        	<table class="table table-bordered">
-                            	<tr>
-                                	<td>Capacity</td>
-                                	<td>5 Kg</td>
-                            	</tr>
-                                <tr>
-                                    <td>Color</td>
-                                    <td>Black, Brown, Red,</td>
-                                </tr>
-                                <tr>
-                                    <td>Water Resistant</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <td>Material</td>
-                                    <td>Artificial Leather</td>
-                                </tr>
-                        	</table>
+                        	<div class="prdInfo-cont">
+								<div class="cont contents_div_1">
+											<h3>배송안내</h3>
+												-배송 방법 : 택배<br>
+												-배송 지역 : 전국지역<br>
+												-배송 비용 : 2,500원<br>
+												-배송 기간 : 3일 ~ 7일<br>
+												-배송 안내 : - 산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다.<br>
+							  						&nbsp;&nbsp;-고객님께서 주문하신 상품은 입금 확인후 배송해 드립니다. 다만, 상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.<br>
+								</div>
+								</div>
+								
+								 <div class=" height_line"></div>
+								 
+								 
+								 <div class="prdInfo-cont">
+										<div class="cont contents_div_1">
+											<h3>교환 및 반품정보</h3>
+											<div class="xans-element- xans-layout xans-layout-info">
+											<span>080-850-0085</span>
+										
+										
+											<b>교환 및 반품이 가능한 경우</b><br>
+											- 상품을 공급 받으신 날로부터 7일이내 단, 가전제품의<br>
+											&nbsp;&nbsp;경우 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우에는 교환/반품이 불가능합니다.<br>
+											- 공급받으신 상품 및 용역의 내용이 표시.광고 내용과<br>
+											&nbsp;&nbsp;다르거나 다르게 이행된 경우에는 공급받은 날로부터 3월이내, 그사실을 알게 된 날로부터 30일이내<br>
+											<br>
+											
+											<b>교환 및 반품이 불가능한 경우</b><br>
+											- 고객님의 책임 있는 사유로 상품등이 멸실 또는 훼손된 경우. 단, 상품의 내용을 확인하기 위하여<br>
+											&nbsp;&nbsp;포장 등을 훼손한 경우는 제외<br>
+											- 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우<br>
+											&nbsp;&nbsp;(예 : 가전제품, 식품, 음반 등, 단 액정화면이 부착된 노트북, LCD모니터, 디지털 카메라 등의 불량화소에<br>
+											&nbsp;&nbsp;따른 반품/교환은 제조사 기준에 따릅니다.)<br>
+											- 고객님의 사용 또는 일부 소비에 의하여 상품의 가치가 현저히 감소한 경우 단, 화장품등의 경우 시용제품을 <br>
+											&nbsp;&nbsp;제공한 경우에 한 합니다.<br>
+											- 시간의 경과에 의하여 재판매가 곤란할 정도로 상품등의 가치가 현저히 감소한 경우<br>
+											- 복제가 가능한 상품등의 포장을 훼손한 경우<br>
+											&nbsp;&nbsp;(자세한 내용은 고객만족센터 1:1 E-MAIL상담을 이용해 주시기 바랍니다.)<br>
+											<br>
+											※ 고객님의 마음이 바뀌어 교환, 반품을 하실 경우 상품반송 비용은 고객님께서 부담하셔야 합니다.<br>
+											&nbsp;&nbsp;(색상 교환, 사이즈 교환 등 포함)<br>
+											</div>
+										</div>
+										
+							</div>
+ 						
+ 						<div class="line"></div>
+ 						
+ 						<div class="cont contents_div_2">
+						    <h3>상품결제정보</h3>
+						            고액결제의 경우 안전을 위해 카드사에서 확인전화를 드릴 수도 있습니다. 확인과정에서 도난 카드의 사용이나 타인 명의의 주문등
+						             정상적인 주문이 아니라고 판단될 경우 임의로 주문을 보류 또는 취소할 수 있습니다. &nbsp; <br>
+						      <br>
+						      무통장 입금은 상품 구매 대금은 PC뱅킹, 인터넷뱅킹, 텔레뱅킹 혹은 가까운 은행에서 직접 입금하시면 됩니다. &nbsp;<br>
+						      주문시 입력한&nbsp;입금자명과 실제입금자의 성명이 반드시 일치하여야 하며, 7일 이내로 입금을 하셔야 하며&nbsp;입금되지
+						      않은 주문은 자동취소 됩니다. <br>
+						 </div>
+ 
+ 
+                                
                       	</div>
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
@@ -675,16 +776,279 @@ clear: both;
         </div>
         
         
-        <div class="row">
+<!--         <div class="row">
         	<div class="col-12">
             	<div class="small_divider"></div>
             	<div class="divider"></div>
                 <div class="medium_divider"></div>
             </div>
-        </div>
+        </div> -->
         
-        
-        
+<!-- 관련상품 -->        
+<%--         <div class="row">
+        	<div class="col-12">
+            	<div class="heading_s1">
+                	<h3>Releted Products</h3>
+                </div> <!-- END "heading_s1" -->
+                
+            	<div class="releted_product_slider carousel_slider owl-carousel owl-theme" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
+                	<div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="${pageContext.request.contextPath}/resources/images/product_img1.jpg" alt="product_img1">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">Blue Dress For Woman</a></h6>
+                                <div class="product_price">
+                                    <span class="price">$45.00</span>
+                                    <del>$55.25</del>
+                                    <div class="on_sale">
+                                        <span>35% Off</span>
+                                    </div>
+                                </div>
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(21)</span>
+                                </div>
+                                <div class="pr_desc">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                                </div>
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#87554B"></span>
+                                        <span data-color="#333333"></span>
+                                        <span data-color="#DA323F"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- END class="item" -->
+                    
+                    
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="${pageContext.request.contextPath}/resources/images/product_img2.jpg" alt="product_img2">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div> <!-- END class="product_action_box" -->
+                            </div> <!-- END class="product_img" -->
+                            
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">Lether Gray Tuxedo</a></h6>
+                                
+                                <div class="product_price">
+                                    <span class="price">$55.00</span>
+                                    <del>$95.00</del>
+                                    <div class="on_sale">
+                                        <span>25% Off</span>
+                                    </div>
+                                </div> <!-- END class="product_price" -->
+                                 
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:68%"></div>
+                                    </div>
+                                    <span class="rating_num">(15)</span>
+                                </div> <!-- END class="rating_wrap" -->
+                                
+                                <div class="pr_desc">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                                </div>
+                                
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#847764"></span>
+                                        <span data-color="#0393B5"></span>
+                                        <span data-color="#DA323F"></span>
+                                    </div>
+                                    
+                                </div> <!-- END class="pr_switch_wrap" -->
+                            </div> <!--  END class="product_info" -->
+                        </div> <!--  END class="product" -->
+                    </div> <!-- END class="item" -->
+                    
+                    
+                    <div class="item">
+                        <div class="product">
+                            <span class="pr_flash">New</span>
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="${pageContext.request.contextPath}/resources/images/product_img3.jpg" alt="product_img3">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div> <!--  END class="product_action_box" -->
+                            </div> <!-- END class="product_img" -->
+                            
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">woman full sliv dress</a></h6>
+                                
+                                <div class="product_price">
+                                    <span class="price">$68.00</span>
+                                    <del>$99.00</del>
+                                </div>
+                                
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:87%"></div>
+                                    </div>
+                                    <span class="rating_num">(25)</span>
+                                </div> <!--  END class="rating_wrap" -->
+                                
+                                <div class="pr_desc">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                                </div>
+                                
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#333333"></span>
+                                        <span data-color="#7C502F"></span>
+                                        <span data-color="#2F366C"></span>
+                                        <span data-color="#874A3D"></span>
+                                    </div>
+                                </div> <!--  END class="pr_switch_wrap" -->
+                                
+                            </div> <!--  END class="product_info" -->
+                        </div> <!-- END class="product" -->
+                    </div> <!-- END class="item" -->
+                    
+                    
+                    <div class="item">
+                        <div class="product">
+                            
+                            <div class="product_img">
+                                
+                                <a href="shop-product-detail.html">
+                                    <img src="${pageContext.request.contextPath}/resources/images/product_img4.jpg" alt="product_img4">
+                                </a>
+                                
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div> <!-- class="product_action_box" -->
+                                
+                            </div> <!-- END class="product_img" -->
+                            
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">light blue Shirt</a></h6>
+                                
+                                <div class="product_price">
+                                    <span class="price">$69.00</span>
+                                    <del>$89.00</del>
+                                    <div class="on_sale">
+                                        <span>20% Off</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:70%"></div>
+                                    </div>
+                                    <span class="rating_num">(22)</span>
+                                </div> <!-- END class="rating_wrap" -->
+                                
+                                <div class="pr_desc">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                                </div>
+                                
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#333333"></span>
+                                        <span data-color="#A92534"></span>
+                                        <span data-color="#B9C2DF"></span>
+                                    </div>
+                                </div> <!-- END lass="pr_switch_wrap" -->
+                                
+                            </div> <!-- class="product_info" -->
+                        </div> <!-- class="product" -->
+                    </div> <!-- END class="item" -->
+                    
+                    
+                    <div class="item">
+                        <div class="product">
+                            <div class="product_img">
+                                <a href="shop-product-detail.html">
+                                    <img src="${pageContext.request.contextPath}/resources/images/product_img5.jpg" alt="product_img5">
+                                </a>
+                                <div class="product_action_box">
+                                    <ul class="list_none pr_action_btn">
+                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                                        <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                        <li><a href="//bestwebcreator.com/shopping-zone/demo/shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                    </ul>
+                                </div> <!-- class="product_action_box" -->
+                            </div> <!-- class="product_img" -->
+                            
+                            <div class="product_info">
+                                <h6 class="product_title"><a href="shop-product-detail.html">blue dress for woman</a></h6>
+                                
+                                <div class="product_price">
+                                    <span class="price">$45.00</span>
+                                    <del>$55.25</del>
+                                    <div class="on_sale">
+                                        <span>35% Off</span>
+                                    </div>
+                                </div> <!-- class="product_price" -->
+                                
+                                <div class="rating_wrap">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width:80%"></div>
+                                    </div>
+                                    <span class="rating_num">(21)</span>
+                                </div> <!-- class="rating_wrap" -->
+                                
+                                <div class="pr_desc">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                                </div>
+                                
+                                <div class="pr_switch_wrap">
+                                    <div class="product_color_switch">
+                                        <span class="active" data-color="#87554B"></span>
+                                        <span data-color="#333333"></span>
+                                        <span data-color="#5FB7D4"></span>
+                                    </div>
+                                </div> <!-- class="pr_switch_wrap"> -->
+                                
+                                
+                            </div> <!-- class="product_info" -->
+                        </div> <!-- class="product" -->
+                    </div> <!-- END class="item" -->
+                    
+                    
+                    
+                </div> <!-- END class="releted_product_slider carousel_slider owl-carousel owl-theme"  -->
+            </div> <!-- END class="col-12" -->
+        </div><!-- END class="row" --> --%>
     </div><!-- END class="container" -->
 </div>  <!-- END class="section" -->
 
