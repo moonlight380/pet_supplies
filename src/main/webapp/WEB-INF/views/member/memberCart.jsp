@@ -60,15 +60,16 @@
 					<table>
 						<colgroup>
 							<col style="width:27px"/>
-							<col style="width:92px"/>
-							<col style="width:450px"/>
-							<col style="width:98px"/>
-							<col style="width:75px"/>
-							<col style="width:98px"/>
-							<col style="width:98px"/>
-							<col style="width:85px"/>
-							<col style="width:98px"/>
-							<col style="width:110px"/>
+							
+							<col style="width:250px"/>
+							<col style="width:400px"/>
+							<col style="width:150px"/>
+							<col style="width:120px"/>
+							<col style="width:100px"/>
+													
+							<col style="width:130px"/>
+							
+							
 						
 						</colgroup>
 						<thead>
@@ -85,10 +86,10 @@
 								<th scope="col">판매가</th>
 								<th scope="col">수량</th>
 								<th scope="col">적립금</th>
-								<th scope="col">배송구분</th>
-								<th scope="col">배송비</th>
+								
+								
 								<th scope="col">합계</th>
-								<th scope="col">선택</th>
+								
 	
 							</tr>
 						</thead>
@@ -96,18 +97,23 @@
 						<tbody>
 							<tr class="table_title">
 								<td>
-									<input type="checkbox" class="check" id="first" hidden="hidden">
-										<label for="first" class="material-icons checkbox" title="first">check</label>
+									<input type="checkbox" class="check" id="${member.id}1_check" hidden="hidden" title="${member.id}1">
+										<label for="${member.id}1_check" class="material-icons checkbox" title="${member.id}1_check">check</label>
+								</td>
+								<td>img</td>
+								<td>info</td>
+								<td id="${member.id}1_price">35000</td>
+								<td>
+									<input type="button" style="width: 20px;height: 20px;" value="-" class="minus" title="${member.id}1">
+									<input type="text" style="width: 30px;height: 20px;" value="1"  class="in" id="${member.id}1_amount" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+									<input type="button" style="width: 20px;height: 20px;" value="+" class="plus" title="${member.id}1">
 								</td>
 								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
+					
+								<td>
+									<span id="${member.id}1_total" class="sum_text"></span>
+								</td>
+							
 
 							
 							
@@ -120,18 +126,23 @@
 						<tbody>
 							<tr class="table_title">
 								<td>
-									<input type="checkbox" class="check" id="second" hidden="hidden">
-										<label for="second" class="material-icons checkbox" title="second">check</label>
+									<input type="checkbox" class="check" id="${member.id}2_check" hidden="hidden" >
+										<label for="${member.id}2_check" class="material-icons checkbox" title="${member.id}2_check">check</label>
+								</td>
+								<td>img</td>
+								<td>info</td>
+								<td id="${member.id}2_price">42000</td>
+								<td>
+									<input type="button" style="width: 20px;height: 20px;" value="-" class="minus" title="${member.id}2">
+									<input type="text" style="width: 30px;height: 20px;" value="1"  class="in" id="${member.id}2_amount" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+									<input type="button" style="width: 20px;height: 20px;" value="+" class="plus" title="${member.id}2">
 								</td>
 								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
+					
+								<td>
+									<span id="${member.id}2_total" class="sum_text"></span>
+								</td>
+							
 
 							
 							
@@ -141,6 +152,7 @@
 						
 						
 						</tbody>
+
 					
 					
 					</table>
@@ -157,7 +169,7 @@
 						<div class="col-sm-8" style="border-right: 1px solid gray;">
 							<div class="col-sm-5">
 								<div>총 상품금액</div>
-								<div>2,004,000원</div>
+								<div id="sum">0원</div>
 							</div>
 							<div class="col-sm-1">
 								<div>&nbsp;</div>
@@ -165,7 +177,7 @@
 							</div> 
 							<div class="col-sm-2">
 								<div>배송비</div>
-								<div>3,000원</div>
+								<div id="deli">0원</div>
 							</div>
 							<div class="col-sm-1">
 								<div>&nbsp;</div>
@@ -173,14 +185,14 @@
 							</div> 
 							<div class="col-sm-3">
 								<div>할인금액</div>
-								<div>0원</div>
+								<div id="discount">0원</div>
 									
 								
 							</div>
 						</div>
 						<div class="col-sm-4">
 							<div>결제 금액</div>
-							<div style="color:#FF324D;">2,007,000원</div>
+							<div style="color:#FF324D;" id="payment">0원</div>
 							
 							
 						
@@ -191,7 +203,7 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-8" style="padding-right: 7.5px;">
-						<button class="btn btn-danger" style="float: right; font-size: 16px;">쇼핑 홈 가기</button>
+						<a href="${pageContext.request.contextPath}" class="btn btn-danger" style="float: right; font-size: 16px;">쇼핑 홈 가기</a>
 					</div>
 					<div class="col-sm-4" style="padding-left: 0px;">
 						<a href="./memberPayment" class="btn btn-danger" style="font-size: 16px;">결제 하기</a>
@@ -210,11 +222,20 @@
 	
 	
 	</div>
+	
+	
 
 </body>
 
 <script type="text/javascript">
+
+
+
+
+
 //-------------------------Function------------------------
+
+
 
 function check(name) {
 	$(name).css({
@@ -236,11 +257,16 @@ $("#check_all").click(function() {
 	$(".check").prop("checked",$(this).prop("checked"));
 	
 	var name = ('.'+ $("#check_all").prop("title"));
+	var sum = set();
 	if($("#check_all").prop("checked")){
 		check(name);
 		
+		final_set(sum);
+		
 	} else{
 		uncheck(name);
+		num=0;
+		final_set(num);
 	}
 	
 });
@@ -253,9 +279,22 @@ $(".check").click(function() {
 	var name = "[title="+$(this).attr("id")+"]";
 	
 	if($(this).prop("checked")){
+		var sum=0;
+		var title = $(this).attr("title");
+
+		var amount = $("#" + title + "_amount").val();
+		var price = parseInt($("#" + title + "_price").text());
+
+		var set = (price * amount);
+		
+		sum = sum + set;
+		console.log(sum);
+		
+		//------
 		check(name);
 	} else{
 		uncheck(name);
+		console.log($(this).attr("title"));
 	}
 	
 	$(".check").each(function() {
@@ -281,5 +320,117 @@ $(".check").click(function() {
 	});
 
 
+
+//---------------------------------------------------------------------------------------------
+
+
+
+//--------------------minus--------------------------------
+	$(".minus").click(function() {
+		var title=$(this).attr("title");
+		console.log(title);
+		var num = $("#"+title+"_amount").val();
+		console.log(num);
+		num--;
+		if(num<1){
+			num=1;
+		}
+		$("#"+title+"_amount").val(num);
+		set();
+		
+
+	});
+//-----------------plus--------------------------------------	
+	
+	$(".plus").click(function() {
+		var title=$(this).attr("title");
+		var num = $("#"+title+"_amount").val();
+		console.log(num);
+		num++;
+		$("#"+title+"_amount").val(num);
+		set();
+	}); 
+ 	
+//--------------첫 화면 뿌리기---------------------------------------
+	$(document).ready(function() {
+		
+		set();
+	});
+
+//-------------------총 합계---------------------------------------
+
+	function set() {
+		//---------plus가 공통 클래스여서 사용 다른의미는 없음-----------------
+		var sum = 0;
+		$(".plus").each(function() {
+			var title = $(this).attr("title");
+
+			var amount = $("#" + title + "_amount").val();
+			var price = parseInt($("#" + title + "_price").text());
+
+			var set = (price * amount);
+			sum = sum + set;
+
+			var text = addCommas(set); // set은 각각의 합계 , sum은 모든 합계
+			text = text + "원";
+			$("#" + title + "_total").text(text);
+			
+
+		});
+			return sum;
+	}
+
+	//-------------------계산 금액 함수-------------------
+
+
+	function final_set(sum) {
+
+		//--------합계 금액-----------------
+		var text = addCommas(sum);
+		text = text + "원";
+		$("#sum").text(text);
+
+		//--------------배송비----------------------------
+		var deli = 3000;
+		if (sum > 100000 || sum==0) {
+			deli = 0;
+		}
+		var text = addCommas(deli) + "원";
+		$("#deli").text(text);
+		//------------쿠폰 적립금 사용시-----------------------
+		if(sum>0){
+			var discount = 5000;  //나중에 값 받아올곳 
+		} else {
+			discount=0;
+		}
+
+		text = addCommas(discount) + "원";
+		$("#discount").text(text);
+
+		//-----------최종 결제 금액------------------
+		var payment = sum + deli - discount;
+		text = addCommas(payment) + "원";
+		$("#payment").text(text);
+
+	}
+
+	//-------------직접 입력하고 빠져 나올 때---------------------------------
+	$(".in").each(function() {
+		$(this).blur(function() {
+
+			set();
+		});
+	});
+
+	//----------------숫자 컴마 생성--------------------------------------------
+	function addCommas(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	//-------------------------------
+	$(".sum_text").css({
+		'color' : 'red',
+		'font-weight' : 'bold'
+	});
 </script>
 </html>
