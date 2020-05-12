@@ -26,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
-
+<c:import url="../template/summer.jsp"></c:import>
 
 <style type="text/css">
 
@@ -42,7 +42,7 @@
 <c:import url="../template/header.jsp"></c:import>
 <h1>${p}List PAGE</h1>
 
-<body>
+
 
 <!-- LOADER -->
 <div class="preloader">

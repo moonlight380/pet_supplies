@@ -5028,6 +5028,7 @@ footer .widget_title {
 .product-price del {
 	margin-left: 5px;
 	color: #919191;
+	
 }
 .on_sale {
 	display: inline-block;
@@ -5348,10 +5349,12 @@ footer .widget_title {
 }
 .cart-product-quantity {
 	margin: 7px 10px 7px 0;
-	display: table;
+	display: block;
 }
 .quantity {
+	clear:both;
 	display: table;
+	
 }
 .quantity .minus, .quantity .plus {
 	background-color: #eee;
@@ -5864,6 +5867,7 @@ footer .widget_title {
 .shop_cart_table td.product-price,
 .shop_cart_table td.product-subtotal {
 	font-weight: 600;
+	display: block;
 }
 .shop_cart_table .table {
 	margin: 0;
