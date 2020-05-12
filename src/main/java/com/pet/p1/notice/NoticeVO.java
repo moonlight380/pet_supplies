@@ -4,6 +4,7 @@ import com.pet.p1.board.BoardVO;
 import com.pet.p1.board.file.BoardFileVO;
 
 public class NoticeVO extends BoardVO {
+	
 	private List<BoardFileVO> boardFileVOs;
 
 	public List<BoardFileVO> getBoardFileVOs() {
