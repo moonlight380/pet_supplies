@@ -157,7 +157,7 @@
                             <div class="product_img">
                                 <a href="shop-product-detail.html">                             
                                     <img src="${pageContext.request.contextPath}/resources/dogUpload/${vo.productFileVOs['0'].fileName}" alt="X">
-                               ${vo.productFileVOs['0'].fileName}
+                              <!--  첫번째 이미지 가져오기 -->
                                 </a>
                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
@@ -172,10 +172,6 @@
                                 <h6 class="product_title"><a href="./${p}Select?productNum=${vo.productNum}">${vo.productName} </a></h6>
                                 <div class="product_contents">
                                 
-                                
-                              
-                               
-                               
                                 <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>                             
                                 </div>
                                 <div class="product_price">

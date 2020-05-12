@@ -58,7 +58,10 @@ float: right;
 	margin-bottom: 20px;
 }
 
-
+.admin_btn{
+	float: right;
+	margin-left: 20px;
+}
 #prdInfo .cont h3 {
     font-family: 'NotokrBold',sans-serif;
     font-size: 22px;
@@ -86,6 +89,7 @@ float: right;
 	margin-left: 20px;
 	margin-right: 20px;
 	margin-bottom: 70px;
+	padding: 30px;
 }
 .contents_div_2{
 	width: auto;
@@ -94,7 +98,7 @@ float: right;
 	clear:both;
 	margin-left: 30px;
 	margin-right: 30px;
-	
+	padding: 30px;
 }
 
 
@@ -128,7 +132,7 @@ float: right;
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item active">Product Detail</li>
                 </ol>
@@ -150,8 +154,8 @@ float: right;
               <div class="product-image">
               
                     <div class="product_img_box">
-                        <img id="product_img" src='${pageContext.request.contextPath}/resources/images/product_img1.jpg' data-zoom-image="${pageContext.request.contextPath}/resources/images/product_zoom_img1.jpg" alt="product_img1" />
-                        
+                        <img id="product_img" src="${pageContext.request.contextPath}/resources/dogUpload/${vo.productFileVOs['0'].fileName}" data-zoom-image="${pageContext.request.contextPath}/resources/dogUpload/${vo.productFileVOs['0'].fileName}" alt="product_img1" />
+                       
                         <a href="#" class="product_img_zoom" title="Zoom">
                             <span class="linearicons-zoom-in"></span>
                         </a>
@@ -278,6 +282,15 @@ float: right;
                             <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
                         </ul>
                     </div> <!--  END class="product_share" -->
+                    
+                      <div class="line"></div>
+                      
+                    <div class="container"> 
+						<a href="./${p }Update?productNum=${vo.productNum}"  class="btn btn-danger admin_btn">Update</a>
+						<a href="./${p }Delete?productNum=${vo.productNum}"  class="btn btn-primary admin_btn">Delete</a>
+						
+					</div>
+                    
                     
                 </div><!-- class="pr_detail" -->
             </div> <!-- class="col-lg-6 col-md-6" -->
