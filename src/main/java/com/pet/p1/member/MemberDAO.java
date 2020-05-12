@@ -16,16 +16,12 @@ public class MemberDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-
 	
 	private final String NAMESPACE="com.pet.p1.member.MemberDAO.";
 	
 	public List<DogVO> memberCart(DogVO dogVO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"memberCart", dogVO);
 	}
-
-	private final String NAMESPACE="com.pet.p1.member.MemberDAO.";
-
 	
 	public Long memberCount(Pager memberPager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"memberCount", memberPager);
