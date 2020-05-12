@@ -5,7 +5,7 @@
 
 <mapper namespace="com.pet.p1.qna.QnaDAO">
 
-	<resultMap type="QnaVO" id="selectResult">
+	<resultMap type="QnaVO" id="selectResult2">
 		<id column="num" property="num" />
 		<result column="title" property="title" />
 		<result column="id" property="id" />
@@ -59,12 +59,12 @@
 	</select>
 
 	<select id="boardSelect" parameterType="Long"
-		resultMap="selectResult">
+		resultMap="selectResult2">
 		select Q.*,F.*
 		from qna Q left join boardFile F
 		on(Q.num =
 		F.num)
-		where num=#{num}
+		where Q.num=#{num}
 	</select>
 
 	<select id="boardNum" resultType="Long">
