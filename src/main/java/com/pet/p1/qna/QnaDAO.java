@@ -12,7 +12,7 @@ import com.pet.p1.util.Pager;
 
 @Repository
 public class QnaDAO implements BoardDAO {
-	
+
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.pet.p1.qna.QnaDAO."; // mapper namespace 경로랑 똑같아야함.
@@ -47,19 +47,16 @@ public class QnaDAO implements BoardDAO {
 
 	@Override
 	public int boardDelete(long num) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE + "boardDelete", num);
 	}
 
 	@Override
 	public int boardUpdate(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE + "boardUpdate", boardVO);
 	}
 
 	@Override
 	public int hitUpdate(long num) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE + "hitUpdate", num);
 	}
 }

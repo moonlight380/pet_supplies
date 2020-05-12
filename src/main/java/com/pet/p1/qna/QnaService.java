@@ -2,7 +2,6 @@ package com.pet.p1.qna;
 
 import java.util.List;
 
-
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +44,7 @@ public class QnaService implements BoardService {
 
 	@Override
 	public BoardVO boardSelect(long num) throws Exception {
+		qnaDAO.hitUpdate(num);
 		return qnaDAO.boardSelect(num);
 	}
 
