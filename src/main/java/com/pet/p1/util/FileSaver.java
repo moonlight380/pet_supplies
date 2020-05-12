@@ -64,7 +64,23 @@ public class FileSaver {
 		
 	}
 	
+	//3.OutputStream
+	public String saveByStream(MultipartFile file, String path) throws Exception {
+		File f = new File(path);
+		
+		if(!f.exists()){	
+			f.mkdirs();}
+		String fileName = this.makeNameByUUID(file.getOriginalFilename());
+		f = new File(f,fileName);
+		
+		//저장하는 형식을 자바에서 이용하는 string 객체 
+		FileOutputStream fs = new FileOutputStream(f);
+		fs.write(file.getBytes());
+		fs.close();
+		
+		return fileName;
 
+	}
 	
 	
 	///////////////////////////////////////////////////////////////////////////////////
