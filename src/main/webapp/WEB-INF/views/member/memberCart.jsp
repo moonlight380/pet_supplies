@@ -102,12 +102,24 @@
 								</td>
 								<td>img</td>
 								<td>info</td>
-								<td id="${member.id}1_price">35000</td>
+								<td id="${member.id}1_price" class="price">35000</td>
 								<td>
 									<input type="button" style="width: 20px;height: 20px;" value="-" class="minus" title="${member.id}1">
-									<input type="text" style="width: 30px;height: 20px;" value="1"  class="in" id="${member.id}1_amount" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+									<input type="text" style="width: 30px;height: 20px;" value="1" title="${member.id }1" class="in" id="${member.id}1_amount" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 									<input type="button" style="width: 20px;height: 20px;" value="+" class="plus" title="${member.id}1">
+									
+										<div class="row " style="height: 27px; width: 112px;">
+											<div class=" text-center"
+												style="width: 28px; border: 1px solid #d9dde0;">-</div>
+											<input class="text-center"
+												style="color: #333; width: 51px; border: 1px solid #d9dde0;"
+												value="125">
+											<div class=" text-center"
+												style="width: 28px; border: 1px solid #d9dde0;">+</div>
+	
+										</div>
 								</td>
+					
 								<td>a</td>
 					
 								<td>
@@ -126,15 +138,15 @@
 						<tbody>
 							<tr class="table_title">
 								<td>
-									<input type="checkbox" class="check" id="${member.id}2_check" hidden="hidden" >
+									<input type="checkbox" class="check" id="${member.id}2_check" hidden="hidden" title="${member.id}2" >
 										<label for="${member.id}2_check" class="material-icons checkbox" title="${member.id}2_check">check</label>
 								</td>
 								<td>img</td>
 								<td>info</td>
-								<td id="${member.id}2_price">42000</td>
+								<td id="${member.id}2_price" class="price">42000</td>
 								<td>
 									<input type="button" style="width: 20px;height: 20px;" value="-" class="minus" title="${member.id}2">
-									<input type="text" style="width: 30px;height: 20px;" value="1"  class="in" id="${member.id}2_amount" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+									<input type="text" style="width: 30px;height: 20px;" value="1"  title="${member.id}2"class="in" id="${member.id}2_amount" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 									<input type="button" style="width: 20px;height: 20px;" value="+" class="plus" title="${member.id}2">
 								</td>
 								<td>a</td>
@@ -169,7 +181,7 @@
 						<div class="col-sm-8" style="border-right: 1px solid gray;">
 							<div class="col-sm-5">
 								<div>총 상품금액</div>
-								<div id="sum">0원</div>
+								<div id="all_sum">0원</div>
 							</div>
 							<div class="col-sm-1">
 								<div>&nbsp;</div>
@@ -203,7 +215,7 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-8" style="padding-right: 7.5px;">
-						<a href="${pageContext.request.contextPath}" class="btn btn-danger" style="float: right; font-size: 16px;">쇼핑 홈 가기</a>
+						<a href="${pageContext.request.contextPath}" class="btn btn-danger" style="float:right; font-size: 16px;">쇼핑 홈 가기</a>
 					</div>
 					<div class="col-sm-4" style="padding-left: 0px;">
 						<a href="./memberPayment" class="btn btn-danger" style="font-size: 16px;">결제 하기</a>
@@ -214,7 +226,16 @@
 		</div>
 		
 		
-			<div class="col-sm-2">asdasd</div>
+			<div class="col-sm-2">asdasd
+				<div class="row " style="height: 27px;width: 112px; ">
+					<button  class=" text-center	" style="width: 28px; border: 1px solid #d9dde0;">-</button>
+					<input class="text-center" style="color: #333;width: 51px; border: 1px solid #d9dde0;" value="125">
+					<div class=" text-center" style="width: 28px; border: 1px solid #d9dde0;">+</div>
+					
+					
+				</div>
+			
+			</div>
 	</div>
 	
 	
@@ -277,24 +298,29 @@ $("#check_all").click(function() {
 $(".check").click(function() {
 	var result=true;
 	var name = "[title="+$(this).attr("id")+"]";
+	var title=$(this).attr("title");
+	
+/* 	var amount = $("#" + title + "_amount").val();
+	var price = parseInt($("#" + title + "_price").text());
+	var set = (price * amount); */ 
+	
+	//낼 다시할것
+	
+	var eachsum=each_sum(title);
+	var allsum=$("#all_sum").text();
+	allsum = removeCommas(allsum)*1;
 	
 	if($(this).prop("checked")){
-		var sum=0;
-		var title = $(this).attr("title");
-
-		var amount = $("#" + title + "_amount").val();
-		var price = parseInt($("#" + title + "_price").text());
-
-		var set = (price * amount);
+		allsum = allsum+eachsum;
 		
-		sum = sum + set;
-		console.log(sum);
-		final_set(sum);
+		final_set(allsum);
+		
 		//------
 		check(name);
 	} else{
 		uncheck(name);
-		console.log($(this).attr("title"));
+		allsum = allsum-eachsum;
+		final_set(allsum);
 	}
 	
 	$(".check").each(function() {
@@ -328,59 +354,131 @@ $(".check").click(function() {
 //--------------------minus--------------------------------
 	$(".minus").click(function() {
 		var title=$(this).attr("title");
-		console.log(title);
 		var num = $("#"+title+"_amount").val();
-		console.log(num);
 		num--;
 		if(num<1){
-			num=1;
+			num=0;
+		} else{
+			
+			$("#"+title+"_amount").val(num);
+			set();
+			
 		}
-		$("#"+title+"_amount").val(num);
-		set();
+		
+		
+		var check = $("#"+title+"_check").prop("checked");
+		var name = $(this).attr("class");
+		if(check && num>0){
+			clickchange(title,name);
+		}
 		
 
 	});
+	
+//---------체크일 때 수량 변경시 결제가격 수정-------------------------
+function clickchange(title,name) {
+ 	var eachsum=each_sum(title);
+	var allsum=$("#all_sum").text();
+	allsum = removeCommas(allsum)*1;
+	var price = $("#"+title+"_price").text();
+	
+	price = removeCommas(price);
+	
+	if(name=="minus"){
+		allsum=allsum-price;
+	} else if(name=="plus"){
+		allsum=allsum+price*1;
+	}
+	final_set(allsum);
+
+}
+	
+	
 //-----------------plus--------------------------------------	
 	
 	$(".plus").click(function() {
 		var title=$(this).attr("title");
 		var num = $("#"+title+"_amount").val();
-		console.log(num);
 		num++;
 		$("#"+title+"_amount").val(num);
 		set();
+	 	var check = $("#"+title+"_check").prop("checked");
+	 	var name = $(this).attr("class");
+		if(check){
+			clickchange(title,name);
+		} 
 	}); 
+	
  	
 //--------------첫 화면 뿌리기---------------------------------------
 	$(document).ready(function() {
+		$(".price").each(function () {
+			var id = $(this).attr("id");
+			var price = parseInt($(this).text());
+			var text = addCommas(price);
+			text = text+ "원";
+			$("#"+id).text(text);
+			
+		});
 		
-		set();
+			set();
+		
 	});
+
+
 
 //-------------------총 합계---------------------------------------
 
+
+
 	function set() {
+		 
+		
 		//---------plus가 공통 클래스여서 사용 다른의미는 없음-----------------
 		var sum = 0;
 		$(".plus").each(function() {
 			var title = $(this).attr("title");
 
 			var amount = $("#" + title + "_amount").val();
-			var price = parseInt($("#" + title + "_price").text());
-
+			var price = $("#" + title + "_price").text();
+			
+			price = removeCommas(price)*1;
 			var set = (price * amount);
-			sum = sum + set;
-
+			sum = sum + set;	
 			var text = addCommas(set); // set은 각각의 합계 , sum은 모든 합계
 			text = text + "원";
+			
 			$("#" + title + "_total").text(text);
+			
+			
 			
 
 		});
+		
+		
 			return sum;
 	}
+	
+	//----------------합계 금액 함수------------------------
+	function each_sum(title){
+		
 
-	//-------------------계산 금액 함수-------------------
+		var amount = $("#" + title + "_amount").val();
+		var price = $("#" + title + "_price").text();
+	 	price = removeCommas(price);
+	
+
+
+		var set = (price * amount);
+
+		
+		
+		return set;
+	}
+	
+	
+
+	//------------------- 마지막 계산 금액 함수-------------------
 
 
 	function final_set(sum) {
@@ -388,7 +486,7 @@ $(".check").click(function() {
 		//--------합계 금액-----------------
 		var text = addCommas(sum);
 		text = text + "원";
-		$("#sum").text(text);
+		$("#all_sum").text(text);
 
 		//--------------배송비----------------------------
 		var deli = 3000;
@@ -415,16 +513,40 @@ $(".check").click(function() {
 	}
 
 	//-------------직접 입력하고 빠져 나올 때---------------------------------
+
 	$(".in").each(function() {
 		$(this).blur(function() {
 
-			set();
+			var sum = set();
+			var title = $(this).attr("title");
+			var check = $("#" + title + "_check").prop("checked");
+			if (check) {
+
+				final_set(sum);
+			}
 		});
 	});
 
-	//----------------숫자 컴마 생성--------------------------------------------
+	//----------------숫자 콤마 생성--------------------------------------------
 	function addCommas(x) {
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+	//-----------------콤마 삭제-------------------------------------
+
+	function removeCommas(x) {
+		if (!x || x.length == 0)
+			return "";
+		else
+			var text = x.split("원").join("");
+		return text.split(",").join("");
+	}
+
+	function removeId(x, id) {
+		if (!x || x.length == 0)
+			return "";
+		else
+			var text = x.split(id).join("");
+		return text;
 	}
 
 	//-------------------------------
