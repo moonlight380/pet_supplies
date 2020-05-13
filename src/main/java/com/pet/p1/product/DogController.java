@@ -22,6 +22,7 @@ public class DogController {
 @Autowired
 private DogService dogService;
 
+
 @ModelAttribute("p")
 public String getBoard()throws Exception{
 	return "dog";
@@ -80,19 +81,40 @@ public String getBoard()throws Exception{
 		return mv;
 		
 		}	
+//dogTimeSale	
+	@RequestMapping(value ="dogTimeSale", method = RequestMethod.GET )
+	public ModelAndView dogTimeSale	(ModelAndView mv,Pager pager)throws Exception {
+			
+		System.out.println("kind:"+pager.getKind());
+		System.out.println("search:"+pager.getSearch());
+			
+		List<DogVO> ar =dogService.dogTimeSale(pager);
+		System.out.println(pager.getTotalPage());
+			
+		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
+			
+		mv.setViewName("product/pTimeSale");
+
+		return mv;
+		
+		}	
 	
-//write_get	
+	
+	
+	
+//write_get	(insert)
 	@RequestMapping(value = "dogWrite",method = RequestMethod.GET)
 	public ModelAndView dogWrite (ModelAndView mv) throws Exception{
 		mv.setViewName("product/pWrite");
 		
 		return mv;
 	}
-//Write_post
+//Write_post(insert)
 	@RequestMapping(value ="dogWrite", method = RequestMethod.POST)
-	public ModelAndView boardWrite(HttpServletRequest request,DogVO dogVO , ModelAndView mv, MultipartFile[] files) throws Exception{	
+	public ModelAndView dogWrite(DogVO dogVO , ModelAndView mv,MultipartFile firstFile, MultipartFile[] files) throws Exception{	
 		
-		int result=dogService.dogWrite(dogVO, files);	
+		int result=dogService.dogWrite(dogVO, firstFile,files);	
 		//result=0;
 		
 		if(result>0) {
@@ -121,17 +143,22 @@ public String getBoard()throws Exception{
 	
 //update_get
 	@GetMapping("dogUpdate")
-	public ModelAndView dogUpdate(ModelAndView mv,DogVO dogVO,long productNum)throws Exception{
+	public ModelAndView dogUpdate(Model model,ModelAndView mv,DogVO dogVO,long productNum)throws Exception{
 		dogVO =dogService.dogSelect(productNum);
 		mv.addObject("vo",dogVO);	
 		mv.setViewName("product/pUpdate");
-		
+		//size(): 리스트에 들어있는 객체의 수
+		model.addAttribute("size", dogVO.getProductFileVOs().size());
 		return mv;
 	}
 //update_post	
 	@RequestMapping(value = "dogUpdate", method=RequestMethod.POST)
-	public String boardUpdate(ModelAndView mv,Model model,DogVO dogVO,long productNum) throws Exception {
-		int result=dogService.dogUpdate(dogVO);
+	public String boardUpdate(ModelAndView mv,Model model,DogVO dogVO,long productNum,MultipartFile firstFile, MultipartFile[] files) throws Exception {
+		for(MultipartFile multipartFile:files) {
+			System.out.println("files:"+multipartFile.getOriginalFilename());
+		}
+		
+		int result=dogService.dogUpdate(dogVO, firstFile, files);
 		//result=0;
 		String path="";
 		if(result>0) {

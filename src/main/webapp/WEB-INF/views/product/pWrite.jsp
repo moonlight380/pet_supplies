@@ -20,9 +20,10 @@
       <label for="productName">productName:</label>
       <input type="text" class="form-control" id="productName" placeholder="Enter productName" name="productName" >
     </div>
+    
    <div class="form-group">
       <label for="price">price :</label>
-      <input type="text" class="form-control" id="price " placeholder="Enter price " name="price " >
+      <input type="text" class="form-control" id="price " placeholder="Enter price " name="price" >
       <!-- 밸류값을 줘서 로그인 하고 들어가야 함 -->
     </div>
 
@@ -30,26 +31,29 @@
 		    <label for="contents">Contents:</label>
 		    <textarea rows="20" cols="" class="form-control" id="contents" name="contents"></textarea>
 	</div> 
+	
+    <div class="form-group">
+      <label for="point">POINT:</label>
+      <input type="text" class="form-control" id="point" placeholder="Enter point" name="point" >
+    </div>
     
 	<!-- 이 버튼을 클릭하면 파일 추가하는 버튼이 생기는 것 // 받을 때는 배열로 받음-->
-		<input type="button" id="add" class="btn btn-info" value="AddFile">
+		<input type="button" id="add" class="btn btn-info" value="AddFile"><br>
+		<!-- 메인에 올 첫번째 사진파일 버튼을 준다 -->
+		<br>
+		<input type="file" name="firstFile">
 		<div id="file">
-			
-	</div> 
-	<!-- 		
-	contents Server null이 될 때  위의 name에 콘텐츠가 있는 것을 뺀다.
-	<input type="hidden" name="contents" id="con">
-	 -->
-	
-	
-    <input type="button" id="btn" class="btn btn-default">Submit</input>
+		
+		</div> 
+	<br>
+    <input type="button" id="btn" class="btn btn-danger" value="submit">
   </form>
 
 </div>
 
 
 <!-- 썸머노트경로를 준다. -->
-<script type="text/javascript" src="../resources/js/productForm.js"> </script>  
+<script type="text/javascript" src="../resources/script/productForm.js"> </script>  
 
 </body>
 </html>

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.pet.p1.product.file.ProductFileVO;
 import com.pet.p1.util.Pager;
 
 @Repository
@@ -37,14 +38,20 @@ public class DogDAO {
 		return sqlSession.selectList(NAMESPACE+"dogBestList",pager);
 	}		
 	
+//dogTimeSale
+	public List<DogVO> dogTimeSale(Pager pager) throws Exception{
+				
+		return sqlSession.selectList(NAMESPACE+"dogTimeSale",pager);
+	}	
+
 //count
 	public long dogCount(Pager pager) throws Exception {
 		
 		return sqlSession.selectOne(NAMESPACE+"dogCount", pager);
 	}
-//dogWrite
+//dogWrite(insert)
 	public int dogWrite(DogVO dogVO)throws Exception{
-		
+		System.out.println("dogDAO");
 		return sqlSession.insert(NAMESPACE+"dogWrite",dogVO);
 	}
 	
@@ -62,10 +69,10 @@ public class DogDAO {
 	}
 
 //	//HIT UPDATE
-//	public int hitUpdate(long productNum) throws Exception {
-//		// TODO Auto-generated method stub
-//		return sqlSession.update(NAMESPACE+"hitUpdate", productNum);
-//	}
+	public int hitUpdate(long productNum) throws Exception {
+	
+		return sqlSession.update(NAMESPACE+"hitUpdate", productNum);
+	}
 
 //DELETE
 	public int dogDelete(long productNum) throws Exception {
@@ -73,7 +80,10 @@ public class DogDAO {
 		return sqlSession.delete(NAMESPACE+"dogDelete",productNum);
 	}
 
-
+//fileList
+	public List<ProductFileVO> fileList(long productNum) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"fileList", productNum);
+	}
 	
 }//end class
 

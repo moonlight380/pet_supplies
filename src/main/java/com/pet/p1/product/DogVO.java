@@ -1,6 +1,9 @@
 package com.pet.p1.product;
 
 import java.sql.Date;
+import java.util.List;
+import com.pet.p1.product.file.ProductFileVO;
+
 
 public class DogVO {
 	
@@ -11,7 +14,23 @@ public class DogVO {
 	private long amount;
 	private long hit;
 	private Date regDate;
+	private List<ProductFileVO> productFileVOs;
+	private long point;
 	
+
+	public long getPoint() {
+		return point;
+	}
+	public void setPoint(long point) {
+		this.point = point;
+	}
+	
+	public List<ProductFileVO> getProductFileVOs() {
+		return productFileVOs;
+	}
+	public void setProductFileVOs(List<ProductFileVO> productFileVOs) {
+		this.productFileVOs = productFileVOs;
+	}
 	public Date getRegDate() {
 		return regDate;
 	}
