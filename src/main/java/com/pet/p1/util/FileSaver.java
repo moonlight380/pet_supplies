@@ -1,7 +1,10 @@
 package com.pet.p1.util;
 
 import java.io.File;
+
+
 import java.io.FileNotFoundException;
+
 import java.io.FileOutputStream;
 import java.util.Calendar;
 import java.util.UUID;
@@ -16,12 +19,11 @@ public class FileSaver {
 	//1. 폴더 생성
 	//2.저장할 파일명 생성
 	//3.파일 HDD 저장
-	
 
-	//파일명 생성해주는 메서드 3가지 방법
 
 	//1.FileCopyUtils 클래스 사용
 	public String saveByUtils(MultipartFile file,String path) throws Exception{
+		
 		//1.path 경로로된 폴더가 있는지 없는지 확인
 		File f = new File(path);
 		//System.out.println(f.exists()); 
@@ -46,6 +48,8 @@ public class FileSaver {
 		
 		return fileName;
 	}
+
+	
 	//2.MultipartFile
 	public String saveByTransfer(MultipartFile file, String path) throws Exception{
 		
@@ -59,7 +63,6 @@ public class FileSaver {
 		return fileName;  //이네임을 가지고 디비에 저장
 		
 	}
-	
 	
 	//3.OutputStream
 	public String saveByStream(MultipartFile file, String path) throws Exception {
@@ -76,9 +79,7 @@ public class FileSaver {
 		fs.close();
 		
 		return fileName;
-		
-		
-		
+
 	}
 	
 	
@@ -97,6 +98,7 @@ public class FileSaver {
 		Calendar ca = Calendar.getInstance();
 		Long l=ca.getTimeInMillis();
 		System.out.println(name);
+		
 		String result= name.substring(0, name.indexOf("."));
 		result = result+"_"+l;
 		result= result+name.substring(name.lastIndexOf("."));
@@ -120,6 +122,7 @@ public class FileSaver {
 		if(check) {
 			result=1;
 		}
+		
 		return result;
 	}
 	
