@@ -75,8 +75,7 @@
 </form> 
 	
 	<c:if test="${member.id ne null}">
-        alert("로그인 성공!");
-        <input type="button" value="로그아웃" onclick="">
+        <input type="button" value="로그아웃" onclick="location.href='kakaoLogout'">
     </c:if>
 </div>
 <div class="col"></div>

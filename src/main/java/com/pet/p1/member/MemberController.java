@@ -151,6 +151,7 @@ public class MemberController {
 	//-- kakao 로그아웃
 	@GetMapping("kakaoLogout")
 	public String kakaoLogout(HttpSession session) {
+		System.out.println("로그아웃");
 		memberService.kakaoLogout((String)session.getAttribute("access_Token"));
 		session.removeAttribute("access_Token");
 		session.removeAttribute("memberId");
