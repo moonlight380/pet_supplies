@@ -116,6 +116,72 @@ public class MemberController {
 	
 	//--로그인/로그아웃 끝
 	
+
+	//-- kakao 로그인
+	@GetMapping("kakaoLogin")
+	public ModelAndView kakaoLogin(@RequestParam("code") String code, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		String access_Token = memberService.getAccessToken(code);
+		HashMap<String, Object> memberInfo = memberService.getmemberInfo(access_Token);
+		System.out.println("login Controller:"+memberInfo);
+		
+		// 클라이언트의 이메일이 존재할 때 세션에 해당 이메일과 토큰 등록
+		/*
+		 * if(memberInfo.get("email") != null) { session.setAttribute("memberId",
+		 * memberInfo.get("email")); session.setAttribute("access_Token", access_Token);
+		 * }
+		 */
+		
+		mv.addObject("result", "로그인 성공!");
+		mv.addObject("path", "../");
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
+	
+	//-- kakao 로그아웃
+	@GetMapping("kakaoLogout")
+	public String kakaoLogout(HttpSession session) {
+		System.out.println("로그아웃");
+		memberService.kakaoLogout((String)session.getAttribute("access_Token"));
+		session.removeAttribute("access_Token");
+		session.removeAttribute("memberId");
+		return "redirect:../";
+	}
+	
+	//-- ID 찾기
+	@GetMapping("memberID")
+	public void memberID()throws Exception{
+		
+	}
+	//-- Phone 중복검사/찾기
+	@PostMapping("memberPhoneCheck")
+	public ModelAndView findEmail(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		return mv;
+	}
+	
+	
+	//-- email 중복검사/찾기
+	@PostMapping("memberEmailCheck")
+	public ModelAndView memberEMCheck(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		memberVO = memberService.memberEMCheck(memberVO);
+		int result = 0;
+		if(memberVO == null) {
+			result = 1;
+		}
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+
+	
+	//-- id 중복검사
+
 	@PostMapping("memberIdCheck")
 	public ModelAndView memberIdCheck(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
