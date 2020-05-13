@@ -16,19 +16,12 @@
 <header class="header_wrap fixed-top header_with_topbar">
 	<div class="bottom_header dark_skin main_menu_uppercase">
 		<div class="container">
-
-			<div class="nav_block">
-				<a class="navbar-brand" href="index.html"> <img
-					class="logo_light"
-					src="${pageContext.request.contextPath}/resources/images/logo_light.png"
-
 			<nav class="navbar navbar-expand-lg">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}">
 					<img class="logo_light"
 					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
-
 					alt="logo" /> <img class="logo_dark"
-					src="${pageContext.request.contextPath}/resources/images/logo_dark.png"
+					src="${pageContext.request.contextPath}/resources/images/catdog.jpg"
 					alt="logo" />
 				</a>
 
@@ -153,11 +146,6 @@
 									</li>
 									<li class="mega-menu-col col-lg-3">
 										<ul>
-
-											<li><a class="dropdown-item nav-link nav_item" href="">QnA</a></li>
-											<li><a class="dropdown-item nav-link nav_item" href="">공지사항</a></li>
-											<li><a class="dropdown-item nav-link nav_item" href="">이벤트</a></li>
-
 											<li class="dropdown-header">Accessories</li>
 											<li><a class="dropdown-item nav-link nav_item"
 												href="shop-product-detail.html">Curabitur tempus</a></li>
@@ -173,7 +161,6 @@
 											<li><a class="dropdown-item nav-link nav_item"
 												href="shop-product-detail-accordion-style.html">Donec
 													porttitor</a></li>
-
 										</ul>
 									</li>
 								</ul>
@@ -211,16 +198,6 @@
 								</div>
 							</div></li>
 
-
-								<li><a class="nav-link nav_item" href="#">매장 위치 정보</a></li>
-							</ul>
-						</div>
-						<ul class="navbar-nav attr-nav align-items-center">
-							<li><a href="#" class="nav-link" data-toggle="dropdown"><i
-									class="linearicons-user"></i></a>
-								<div class="dropdown-menu">
-									<ul>
-
 						<li class="dropdown"><a class="dropdown-toggle nav-link"
 							href="#" data-toggle="dropdown">마이 페이지</a>
 							<div class="dropdown-menu">
@@ -235,7 +212,6 @@
 										href="faq.html">회원 탈퇴</a></li>
 								</ul>
 							</div></li>
-
 
 						<li><a class="nav-link nav_item"
 							href="${pageContext.request.contextPath}/nav/contact">매장 위치</a></li>
