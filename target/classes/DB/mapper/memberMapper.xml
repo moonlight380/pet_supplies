@@ -29,9 +29,6 @@
   	
   	
   	
-  	
-  	
-  	
   	<sql id="search">
 		like '%'||#{search}||'%'
 	</sql>
