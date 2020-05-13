@@ -174,7 +174,7 @@
                                 
                                 <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>
 
-                 				<div id="timeSale"><h2>sale is on for twenty-four hours</h2></div>    
+                 				<div id="timeSale">time sale</div>    
                  				
                  				                    
                                 </div>
@@ -301,34 +301,32 @@
 
 <script type="text/javascript">
 
-var h = 24;
-var m = 0;
-var s = 0;
 $(document).ready(function(){
-	var id = setInterval(function(){
-	$("#contents").html("<h2>" + h +" h " + m + " m " + s + "s </h2>");
-	
-	if(s==0){
-		s=59;
-		if(m==0){
-			m=59;
-			if(h==0){
-				window.clearInterval(id);
-				$("#timeSale").html("<h2>The end of the sale!!!!!!</h2>");
-			}
-			h -= 1;								
-		}
-		else{
-			m -= 1;				
-		}
-	}
-	else{
-		s -= 1;
-	}
-	
-}, 1000);
+	  tid=setInterval('msg_time()',1000); // 타이머 1초간격으로 수행
+	});
 
-})
+var stDate = new Date().getTime();
+var edDate = new Date('2018-10-25 24:00:00').getTime(); // 종료날짜
+var RemainDate = edDate - stDate;
+ 
+function msg_time() {
+  var hours = Math.floor((RemainDate % (1000 * 60 * 60 * 24)) / (1000*60*60));
+  var miniutes = Math.floor((RemainDate % (1000 * 60 * 60)) / (1000*60));
+  var seconds = Math.floor((RemainDate % (1000 * 60)) / 1000);
+  
+  m = hours + ":" +  miniutes + ":" + seconds ; // 남은 시간 text형태로 변경
+  
+  document.all.timer.innerHTML = m;   // div 영역에 보여줌 
+  
+  if (RemainDate < 0) {      
+    // 시간이 종료 되었으면..
+    clearInterval(tid);   // 타이머 해제
+  }else{
+    RemainDate = RemainDate - 1000; // 남은시간 -1초
+  }
+}
+
+
 </script>
 
 
