@@ -1,6 +1,7 @@
 package com.pet.p1.member;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -12,15 +13,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pet.p1.product.DogService;
-import com.pet.p1.product.DogVO;
+
 import com.pet.p1.util.Pager;
 
 
@@ -30,10 +32,13 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-	@Autowired
-	private DogService dogService;
+
+	
 	
 //--------------------------------------------------------------------------------------------------------------
+
+	
+	
 	//--장바구니
 	
 	
@@ -51,6 +56,8 @@ public class MemberController {
 	}
 	
 	//--장바구니 끝
+	
+	
 	
 	//--회원가입
 	@RequestMapping(value= "memberJoin")
@@ -75,6 +82,8 @@ public class MemberController {
 		return mv;
 	}
 	//--회원가입 끝
+	
+	
 	
 	//--로그인/로그아웃
 	@RequestMapping(value= "memberLogin")
@@ -116,7 +125,6 @@ public class MemberController {
 	
 	//--로그인/로그아웃 끝
 	
-
 	//-- kakao 로그인
 	@GetMapping("kakaoLogin")
 	public ModelAndView kakaoLogin(@RequestParam("code") String code, HttpSession session)throws Exception{
@@ -142,7 +150,6 @@ public class MemberController {
 	//-- kakao 로그아웃
 	@GetMapping("kakaoLogout")
 	public String kakaoLogout(HttpSession session) {
-		System.out.println("로그아웃");
 		memberService.kakaoLogout((String)session.getAttribute("access_Token"));
 		session.removeAttribute("access_Token");
 		session.removeAttribute("memberId");
@@ -181,7 +188,6 @@ public class MemberController {
 
 	
 	//-- id 중복검사
-
 	@PostMapping("memberIdCheck")
 	public ModelAndView memberIdCheck(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -196,6 +202,10 @@ public class MemberController {
 		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
+	
+	//-- id 중복검사 끝
+	
+	
 	
 //-------------------------------------------------------------------------------------------------------	
 	
