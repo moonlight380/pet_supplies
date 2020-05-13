@@ -12,6 +12,7 @@
   		
   		<typeAlias type="com.pet.p1.product.DogVO" alias="DogVO"/>
   		
+  		<typeAlias type="com.pet.p1.notice.NoticeVO" alias="NoticeVO"/>
   		<typeAlias type="com.pet.p1.product.file.ProductFileVO" alias="ProductFileVO"/>
 		<typeAlias type="com.pet.p1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.pet.p1.qna.QnaVO" alias="QnaVO"/>
