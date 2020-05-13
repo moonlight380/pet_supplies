@@ -22,9 +22,10 @@
   		insert into member values(#{id},#{pw},#{name},#{email},#{age, jdbcType=NUMERIC},#{address},#{phone},0,#{sex, jdbcType=VARCHAR})
   	</insert> 
   	
-  	<select id="memberEMCheck" resultType="MemberVO" parameterType="MemberVO">
-  		select email,name from member where email = #{email}
-  	</select>
+  	
+  	
+  	
+  	
   	
   	
   	

@@ -693,6 +693,5 @@
 	<!-- END MAIN CONTENT -->
 
 	<c:import url="./template/footer.jsp"></c:import>
-
 </body>
 </html>
