@@ -47,6 +47,10 @@ public class MemberDAO {
 		return sqlSession.delete(NAMESPACE+"memberDelete", memberVO);
 	}
 	
+	public MemberVO memberEMCheck(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberEMCheck", memberVO);
+	}
+	
 	public MemberVO memberIdCheck(MemberVO memberVO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"memberIdCheck",memberVO);
 	}
