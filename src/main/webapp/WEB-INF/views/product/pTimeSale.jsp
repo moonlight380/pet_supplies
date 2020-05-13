@@ -303,7 +303,7 @@
 
 $(document).ready(function(){
 	  tid=setInterval('msg_time()',1000); // 타이머 1초간격으로 수행
-	});
+});
 
 var stDate = new Date().getTime();
 var edDate = new Date('2018-10-25 24:00:00').getTime(); // 종료날짜
