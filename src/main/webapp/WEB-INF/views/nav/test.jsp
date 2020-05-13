@@ -9,44 +9,59 @@
 
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
+
+<style type="text/css">
+</style>
+
 </head>
 <body>
 
 	<c:import url="../template/header.jsp"></c:import>
 
-	<div class="container">
-		<h2>공지사항</h2>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>글번호</th>
-					<th>제목</th>
-					<th>ID</th>
-					<th>날짜</th>
-					<th>조회수</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${list}" var="vo">
-					<tr>
-						<td>${vo.num}</td>
-						<td><c:catch>
-								<!-- for(int i=0;i<=0;i++) -->
-								<c:forEach begin="1" end="${vo.depth}">
-					--
-					<!-- &nbsp;&nbsp; -->
-								</c:forEach>
-							</c:catch> <a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
-						<td>${vo.id}</td>
-						<td>${vo.regDate}</td>
-						<td>${vo.hit}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-9">
+					<div class="single_post">
+						<h2 class="blog_title">${vo.title}</h2>
+						<ul class="list_none blog_meta">
+							<li><a href="#"><i class="ti-calendar"></i>등록일 :
+									${vo.regDate} </a></li>
+							<li><a href="#"><i class="ti-comments"></i>작성자 :
+									${vo.id}</a></li>
+						</ul>
+						<div class="blog_content">
+							<div class="blog_text">
+								<p>${vo.contents}</p>
 
-		<button type="button" class="btn btn-info">Info</button>
+								<div class="blog_post_footer">
+									<div class="row justify-content-between align-items-center">
+										<div class="col-md-4">
+											<ul class="social_icons text-md-right">
+												<li><a href="#" class="sc_facebook"><i
+														class="ion-social-facebook"></i></a></li>
+												<li><a href="#" class="sc_twitter"><i
+														class="ion-social-twitter"></i></a></li>
+												<li><a href="#" class="sc_google"><i
+														class="ion-social-googleplus"></i></a></li>
+												<li><a href="#" class="sc_youtube"><i
+														class="ion-social-youtube-outline"></i></a></li>
+												<li><a href="#" class="sc_instagram"><i
+														class="ion-social-instagram-outline"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+
+	<c:import url="../template/footer.jsp"></c:import>
+
 
 </body>
 </html>
