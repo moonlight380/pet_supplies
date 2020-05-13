@@ -119,6 +119,33 @@
 				on (P.productNum=F.num) order by F.firstFile asc
 	</select>  
   
+<!-- dogTimeSale --> 
+	<select id="dogTimeSale" parameterType="Pager" resultMap="selectResult">
+		select P.*, F.* 
+		    from
+		        (select * from
+		            (select N.*, rownum R from
+		                (select * from product 
+		                where
+		                 <choose>
+							<when test="kind == 'pc'">
+								Contents
+							</when>
+							
+							<when test="kind=='pn'">
+								productName
+							</when>
+							<otherwise>
+								productNum
+							</otherwise>
+						</choose> 
+		                like '%'||#{search}||'%' and  productNum>=1 order by hit asc) N) 
+		                    where rowNum between 1 and 9)P left join productFile F 
+		                        on (P.productNum=F.num) order by F.firstFile asc
+	
+	</select>
+ 
+ 
  
  
  <!-- select --> 		

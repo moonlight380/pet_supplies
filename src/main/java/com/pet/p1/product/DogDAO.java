@@ -38,6 +38,12 @@ public class DogDAO {
 		return sqlSession.selectList(NAMESPACE+"dogBestList",pager);
 	}		
 	
+//dogTimeSale
+	public List<DogVO> dogTimeSale(Pager pager) throws Exception{
+				
+		return sqlSession.selectList(NAMESPACE+"dogTimeSale",pager);
+	}	
+
 //count
 	public long dogCount(Pager pager) throws Exception {
 		

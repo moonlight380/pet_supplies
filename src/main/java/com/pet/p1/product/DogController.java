@@ -81,6 +81,27 @@ public String getBoard()throws Exception{
 		return mv;
 		
 		}	
+//dogTimeSale	
+	@RequestMapping(value ="dogTimeSale", method = RequestMethod.GET )
+	public ModelAndView dogTimeSale	(ModelAndView mv,Pager pager)throws Exception {
+			
+		System.out.println("kind:"+pager.getKind());
+		System.out.println("search:"+pager.getSearch());
+			
+		List<DogVO> ar =dogService.dogTimeSale(pager);
+		System.out.println(pager.getTotalPage());
+			
+		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
+			
+		mv.setViewName("product/pTimeSale");
+
+		return mv;
+		
+		}	
+	
+	
+	
 	
 //write_get	(insert)
 	@RequestMapping(value = "dogWrite",method = RequestMethod.GET)

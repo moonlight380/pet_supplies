@@ -173,7 +173,10 @@
                                 <div class="product_contents">
                                 
                                 <span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">${vo.contents}</a></span>
-                 				<span class="contents"><a href="./${p}Select?productNum=${vo.productNum}">view: ${vo.hit}</a></span>                          
+
+                 				<div id="timeSale"><h2>sale is on for twenty-four hours</h2></div>    
+                 				
+                 				                    
                                 </div>
                                 <div class="product_price">
 		                              <span class="price">${vo.price}</span>
@@ -294,6 +297,41 @@
 <script src="${pageContext.request.contextPath}/resources/js/jquery.elevatezoom.js"></script>
 <!-- scripts js --> 
 <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+
+
+<script type="text/javascript">
+
+var h = 24;
+var m = 0;
+var s = 0;
+$(document).ready(function(){
+	var id = setInterval(function(){
+	$("#contents").html("<h2>" + h +" h " + m + " m " + s + "s </h2>");
+	
+	if(s==0){
+		s=59;
+		if(m==0){
+			m=59;
+			if(h==0){
+				window.clearInterval(id);
+				$("#timeSale").html("<h2>The end of the sale!!!!!!</h2>");
+			}
+			h -= 1;								
+		}
+		else{
+			m -= 1;				
+		}
+	}
+	else{
+		s -= 1;
+	}
+	
+}, 1000);
+
+})
+</script>
+
+
 
 
 

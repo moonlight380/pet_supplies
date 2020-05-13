@@ -39,7 +39,7 @@ public class DogService {
 		
 		return dogDAO.dogList(pager);
 	}
-//pNewList	
+//dogNewList	
 	public List<DogVO> dogNewList(Pager pager) throws Exception{
 		pager.makeRow();
 		long totalCount= dogDAO.dogCount(pager);
@@ -51,9 +51,17 @@ public class DogService {
 	public List<DogVO> dogBestList(Pager pager) throws Exception{
 		pager.makeRow();
 		long totalCount= dogDAO.dogCount(pager);
-		pager.makePage(totalCount);
-		System.out.println("dogBestList in");
+		pager.makePage(totalCount);		
 		return dogDAO.dogBestList(pager);
+	}	
+
+//dogTimeSale	
+	public List<DogVO> dogTimeSale(Pager pager) throws Exception{
+		pager.makeRow();
+		long totalCount= dogDAO.dogCount(pager);
+		pager.makePage(totalCount);
+		System.out.println("dogTimeSale	 in");
+		return dogDAO.dogTimeSale(pager);
 	}	
 	
 //dogWrite(insert)
