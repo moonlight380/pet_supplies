@@ -128,7 +128,8 @@ public class MemberController {
 	
 	//-- kakao 로그인
 	@GetMapping("kakaoLogin")
-	public String kakaoLogin(@RequestParam("code") String code, HttpSession session)throws Exception{
+	public ModelAndView kakaoLogin(@RequestParam("code") String code, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
 		String access_Token = memberService.getAccessToken(code);
 		HashMap<String, Object> memberInfo = memberService.getmemberInfo(access_Token);
 		System.out.println("login Controller:"+memberInfo);
@@ -140,7 +141,11 @@ public class MemberController {
 		 * }
 		 */
 		
-		return "redirect:../";
+		mv.addObject("result", "로그인 성공!");
+		mv.addObject("path", "../");
+		mv.setViewName("common/result");
+		
+		return mv;
 	}
 	
 	//-- kakao 로그아웃
@@ -152,9 +157,22 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
+	//-- ID 찾기
+	@GetMapping("memberID")
+	public void memberID()throws Exception{
+		
+	}
+	//-- Phone 중복검사/찾기
+	@PostMapping("memberPhoneCheck")
+	public ModelAndView findEmail(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		return mv;
+	}
 	
 	
-	//-- email 중복검사
+	//-- email 중복검사/찾기
 	@PostMapping("memberEmailCheck")
 	public ModelAndView memberEMCheck(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();

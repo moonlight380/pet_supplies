@@ -23,7 +23,7 @@
   	</insert> 
   	
   	<select id="memberEMCheck" resultType="MemberVO" parameterType="MemberVO">
-  		select email from member where email = #{email}
+  		select email,name from member where email = #{email}
   	</select>
   	
   	

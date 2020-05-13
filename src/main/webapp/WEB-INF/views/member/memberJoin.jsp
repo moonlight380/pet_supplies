@@ -9,11 +9,6 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/css.jsp"></c:import>
-<style type="text/css">
-
-
-
-</style>
 
 </head>
 <body>
@@ -33,10 +28,16 @@
 		</ol>
 	</div>
 	
-  <form action="./memberJoin" method="post" id="Joinfrm" style="font-style: inherit; font-size: small;">
+ <form action="./memberJoin" method="post" id="Joinfrm" style="font-style: inherit; font-size: small;">
   
-<%-- 	
-<div class="row" style="display: block; margin-right: 30px;">
+
+<div class="path"  style="margin-top: 80px;" >
+
+<div style="border-bottom: 3px solid black; margin-top: 100px; text-align: center;">
+<h3 style="margin-bottom: 30px; font-weight: bold; font-size: 36px;">회원가입</h3>
+</div>
+
+<%-- <div class="row" style="display: block; margin-right: 30px;">
 	
 
 	<div class="col border m-5">
@@ -49,13 +50,10 @@
 	</div>
 	</div>
 
-</div>
- --%>
+</div> --%>
 
-		
-<div class="path"  style="margin-top: 80px;" >
-<h3 class=" ">회원가입</h3>
-<h4 style="float: right;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</h4>
+<h4 style="float: right; margin-top: 60px;"><img src="${pageContext.request.contextPath}/resources/images/ico_required.gif" alt="필수">필수입력사항</h4>
+
 <table class="table table-bordered" style="margin-bottom: -1px;">
 
 <colgroup>

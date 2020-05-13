@@ -20,15 +20,16 @@
 	</div>
 
 <div style="border-bottom: 3px solid black; margin-top: 100px; text-align: center;">
-<h1 style="border: 1px solid red; margin-bottom: 20px; font-weight: bold; font-size: 36px;">로그인</h1>
+<h1 style=" margin-bottom: 30px; font-weight: bold; font-size: 36px;">로그인</h1>
 
 </div>
 
-<div class="row" style="border: 1px solid red; margin-top: 50px;">
+<div class="row" style=" margin-top: 50px;">
 <div class="col"></div>
 <div class="col border m-7" style="height: 400px;">
 
 <form class="form-signin" action="./memberLogin" method="post">
+
 	<div class="text-center">
 	<a href="${pageContext.request.contextPath}">
 	<img class="m-5 mb-4" 
@@ -39,16 +40,19 @@
 						
 	<input type="text" id="id" name="id" class="form-control" placeholder="아이디 입력" required autofocus value="${cookie.cId.value}">
 	<input type="password" id="pw" name="pw" class="form-control mt-2 mb-2" placeholder="비밀번호 입력" required>
-	<button class="btn btn-lg btn-block" id="btn" type="submit">로그인</button>
 		
 	<div class="checkbox mt-3">
 		<label class="ml-0" style="font-size: small; font-style: inherit;"> <input type="checkbox" value="remember-me">
-			아이디 저장하기
+			아이디 저장
 		</label>
 	</div>
 	
-	<div class="text-center" style="background-color: #ffffff; border: 1px solid #d7d5d5; font-size: large; height: 50px;">
-		<a href="${pageContext.request.contextPath}/member/memberJoin" class="member">회원가입</a>
+	<button class="btn btn-lg btn-block" id="btn" type="submit">로그인</button>
+	
+	<div class="text-center" style="background-color: #ffffff; border: 1px solid #d7d5d5; font-size:medium; height: 50px; margin-top: 15px;">
+		<a href="${pageContext.request.contextPath}/member/memberJoin" class="member">회원가입</a> |
+		<a href="${pageContext.request.contextPath}/member/memberID">아이디 찾기</a> |
+		<a>비밀번호 찾기</a>
 	</div>
 	
 </form>
@@ -84,7 +88,6 @@
 <script type="text/javascript">
 	/* kakao Login  */
 	
-
 	$("#btn").click(function() {
 		alert("click");
 	});
