@@ -47,18 +47,18 @@
 
 		<table class="table table-hover">
 			<thead>
-				<tr align="center">
+				<tr align="left">
 					<th>글번호</th>
 					<th width="50%">제목</th>
 					<th>ID</th>
-					<th>날짜</th>
+					<th style="padding-left: 1.65em">날짜</th>
 					<th>조회수</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${list}" var="vo">
-					<tr align="center">
-						<td align="center">${vo.num}</td>
+					<tr align="left">
+						<td style="padding-left: 1.5em;">${vo.num}</td>
 						<td width="50%"><c:catch>
 								<!-- for(int i=0;i<=0;i++) -->
 								<c:forEach begin="1" end="${vo.depth}">
@@ -66,9 +66,9 @@
 					<!-- &nbsp;&nbsp; -->
 								</c:forEach>
 							</c:catch> <a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
-						<td>${vo.id}</td>
-						<td>${vo.regDate}</td>
-						<td>${vo.hit}</td>
+						<td style="padding-left: 0em;">${vo.id}</td>
+						<td style="padding-left: 0;">${vo.regDate}</td>
+						<td style="padding-left: 2em;">${vo.hit}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

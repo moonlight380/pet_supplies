@@ -68,14 +68,14 @@
 	</select>
 
 	<select id="boardNum" resultType="Long">
-		select board_seq.nextrval from
+		select qna_seq.nextval from
 		dual
 	</select>
 
 	<insert id="boardWrite" parameterType="QnaVO">
 		<selectKey keyProperty="num" order="BEFORE"
 			resultType="Long">
-			select board_seq.nextval from dual
+			select qna_seq.nextval from dual
 		</selectKey>
 
 		insert into qna values(
@@ -117,7 +117,7 @@
 
 	<insert id="boardReply" parameterType="QnaVO">
 		insert into qna
-		values(board_seq.nextval, #{title}, #{id}, #{contents}, sysdate, 0,
+		values(qna_seq.nextval, #{title}, #{id}, #{contents}, sysdate, 0,
 		(select ref from qna where num=#{num}),
 		(select step from qna where
 		num=#{num})+1,

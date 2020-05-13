@@ -18,15 +18,15 @@
 		<form action="./${board}Reply" id="frm" method="post">
 			<input type="hidden" name="num" value="${num}">
 			<div class="form-group">
-				<label for="title">Title:</label> <input type="text"
+				<label for="title">제목:</label> <input type="text"
 					class="form-control" id="title" name="title">
 			</div>
 			<div class="form-group">
-				<label for="Writer">Writer:</label> <input type="text"
-					class="form-control" id="reply" name="writer">
+				<label for="Writer">작성자:</label> <input type="text"
+					class="form-control" id="reply" name="id">
 			</div>
 			<div class="form-group">
-				<label for="contents">Contents:</label>
+				<label for="contents">내용:</label>
 				<textarea rows="5" cols="" class="form-control" id="contents"
 					name="contents"></textarea>
 			</div>
@@ -34,7 +34,7 @@
 
 
 
-			<input type="submit" id="btn" class="btn btn-default" value="write">
+			<input type="submit" id="btn" class="btn btn-default" value="작성하기">
 		</form>
 
 	</div>

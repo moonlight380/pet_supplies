@@ -151,7 +151,7 @@ public class QnaController {
 		if (result > 0) {
 			mv.setViewName("redirect:./qnaList");
 		} else {
-			mv.addObject("result", "Reply Write Fail");
+			mv.addObject("result", "답변 달기 실패");
 			mv.addObject("path", "./qnaList");
 			mv.setViewName("common/result");
 		}

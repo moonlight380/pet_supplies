@@ -10,7 +10,6 @@
 .product_search_form {
 	width: 35%;
 }
-
 </style>
 
 <!-- START HEADER -->
@@ -31,7 +30,7 @@
 					<span class="ion-android-menu"></span>
 				</button>
 
-				<div class="product_search_form rounded_input">
+				<div class="product_search_form rounded_input" style="margin-left: 30px;">
 					<form>
 						<div class="input-group">
 							<div class="input-group-prepend">
@@ -44,8 +43,8 @@
 									</select>
 								</div>
 							</div>
-							<input class="form-control" placeholder="검색어 입력"
-								required="" type="text">
+							<input class="form-control" placeholder="검색어 입력" required=""
+								type="text">
 							<button type="submit" class="search_btn2">
 								<i class="fa fa-search"></i>
 							</button>
@@ -232,16 +231,18 @@
 						<div class="cart_box dropdown-menu dropdown-menu-right">
 							<ul class="cart_list">
 								<li><a href="#" class="item_remove"><i
-										class="ion-close"></i></a> <a href="#"><img
-										src="" alt="cart_thumb1">Variable
-										product 001</a> <span class="cart_quantity"> 1 x <span
-										class="cart_amount"> <span class="price_symbole">$</span></span>78.00
+										class="ion-close"></i></a> <a href="#"><img src=""
+										alt="cart_thumb1">Variable product 001</a> <span
+									class="cart_quantity"> 1 x <span class="cart_amount">
+											<span class="price_symbole">$</span>
+									</span>78.00
 								</span></li>
 								<li><a href="#" class="item_remove"><i
-										class="ion-close"></i></a> <a href="#"><img
-										src="" alt="cart_thumb2">Ornare
-										sed consequat</a> <span class="cart_quantity"> 1 x <span
-										class="cart_amount"> <span class="price_symbole">$</span></span>81.00
+										class="ion-close"></i></a> <a href="#"><img src=""
+										alt="cart_thumb2">Ornare sed consequat</a> <span
+									class="cart_quantity"> 1 x <span class="cart_amount">
+											<span class="price_symbole">$</span>
+									</span>81.00
 								</span></li>
 							</ul>
 							<div class="cart_footer">
