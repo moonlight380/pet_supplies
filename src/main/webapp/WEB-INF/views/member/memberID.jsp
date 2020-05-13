@@ -64,6 +64,7 @@
 </select>-<input style="width: 50px;" id="mobile2" name="phone" class="input_Join tel" maxlength="4" value="" type="text">-<input style="width: 50px;" id="mobile3" class="input_Join tel" name="phone" maxlength="4" value="" type="text">
 <div class="ec-base-button gColumn">
     <button type="submit">확인</button>
+   
 </div>
 </div>
 
