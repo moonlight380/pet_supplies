@@ -1,9 +1,5 @@
 package com.pet.p1.member;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -17,19 +13,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+
 import org.springframework.web.servlet.ModelAndView;
 
-
-import com.pet.p1.cart.CartService;
-
 import com.pet.p1.product.DogService;
-import com.pet.p1.product.DogVO;
 
 import com.pet.p1.util.Pager;
 
@@ -41,21 +33,10 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	@Autowired
-	private CartService cartService;
-	
-	@GetMapping("memberPayment")
-	public void memeberPayment() throws Exception{
-		
-	}
-	
-
-	
-
 	private DogService dogService;
 	
 	
 //--------------------------------------------------------------------------------------------------------------
-
 
 	
 	
@@ -124,30 +105,14 @@ public class MemberController {
 		
 		 memberVO = memberService.memberLogin(memberVO);
 
-
-
 		 if(memberVO != null) {
 			 session.setAttribute("member", memberVO);
-			 System.out.println(memberVO.getId());
-			 String id = memberVO.getId();
-			 long cartCount=cartService.cartCount(id);
-			 System.out.println(cartService.cartCount(id));
-			 
-			 session.setAttribute("cartCount", cartCount);
-
 			 mv.setViewName("redirect:../");
 		 }else {
 			 mv.addObject("result", "Login Fail");
 			 mv.addObject("path", "./memberJoin");
 			 mv.setViewName("common/result");
 		 }
-
-		 
-		 
-		//로그인 성공이면 index
-		//로그인 실패 하면 로그인 실패 alert login form 이동		 
-				 
-
 				 
 		return mv;
 	}
@@ -163,7 +128,8 @@ public class MemberController {
 	
 	//-- kakao 로그인
 	@GetMapping("kakaoLogin")
-	public String kakaoLogin(@RequestParam("code") String code, HttpSession session)throws Exception{
+	public ModelAndView kakaoLogin(@RequestParam("code") String code, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
 		String access_Token = memberService.getAccessToken(code);
 		HashMap<String, Object> memberInfo = memberService.getmemberInfo(access_Token);
 		System.out.println("login Controller:"+memberInfo);
@@ -175,7 +141,11 @@ public class MemberController {
 		 * }
 		 */
 		
-		return "redirect:../";
+		mv.addObject("result", "로그인 성공!");
+		mv.addObject("path", "../");
+		mv.setViewName("common/result");
+		
+		return mv;
 	}
 	
 	//-- kakao 로그아웃
@@ -187,9 +157,22 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
+	//-- ID 찾기
+	@GetMapping("memberID")
+	public void memberID()throws Exception{
+		
+	}
+	//-- Phone 중복검사/찾기
+	@PostMapping("memberPhoneCheck")
+	public ModelAndView findEmail(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		return mv;
+	}
 	
 	
-	//-- email 중복검사
+	//-- email 중복검사/찾기
 	@PostMapping("memberEmailCheck")
 	public ModelAndView memberEMCheck(MemberVO memberVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -316,11 +299,6 @@ public class MemberController {
 		mv.setViewName("member/memberLists");
 		
 		return mv;
-	}
-	
-	@GetMapping("memberOrder")
-	public void memberOrder()throws Exception{
-		
 	}
 	
 	
