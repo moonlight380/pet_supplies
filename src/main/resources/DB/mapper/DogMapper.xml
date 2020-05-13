@@ -91,7 +91,7 @@
 				</choose>
 				like '%'||#{search}||'%' and productNum>=1 order by regDate desc) N )
 				where R between #{startRow} and #{lastRow}) P  left join productFile F
-				on (P.productNum=F.num)
+				on (P.productNum=F.num) order by F.firstFile asc
 	</select>  
  
 <!--dogBestList-->
@@ -116,7 +116,7 @@
 				</choose>
 				like '%'||#{search}||'%' and productNum>=1 order by hit desc) N )
 				where R between #{startRow} and #{lastRow})P  left join productFile F
-				on (P.productNum=F.num)
+				on (P.productNum=F.num) order by F.firstFile asc
 	</select>  
   
  

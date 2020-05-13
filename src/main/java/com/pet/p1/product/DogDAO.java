@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.pet.p1.product.file.ProductFileVO;
 import com.pet.p1.util.Pager;
 
 @Repository
@@ -73,7 +74,10 @@ public class DogDAO {
 		return sqlSession.delete(NAMESPACE+"dogDelete",productNum);
 	}
 
-
+//fileList
+	public List<ProductFileVO> fileList(long productNum) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"fileList", productNum);
+	}
 	
 }//end class
 

@@ -132,8 +132,12 @@ public String getBoard()throws Exception{
 	}
 //update_post	
 	@RequestMapping(value = "dogUpdate", method=RequestMethod.POST)
-	public String boardUpdate(ModelAndView mv,Model model,DogVO dogVO,long productNum) throws Exception {
-		int result=dogService.dogUpdate(dogVO);
+	public String boardUpdate(ModelAndView mv,Model model,DogVO dogVO,long productNum,MultipartFile firstFile, MultipartFile[] files) throws Exception {
+		for(MultipartFile multipartFile:files) {
+			System.out.println("files:"+multipartFile.getOriginalFilename());
+		}
+		
+		int result=dogService.dogUpdate(dogVO, firstFile, files);
 		//result=0;
 		String path="";
 		if(result>0) {

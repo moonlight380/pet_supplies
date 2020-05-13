@@ -1,8 +1,11 @@
 package com.pet.p1.product.file;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 
 
 @Repository
@@ -31,8 +34,13 @@ public class ProductFileDAO {
 	}
 	
 	//fileDeleteAll
-	public int fileDeleteAll(Long num)throws Exception{
-		return sqlSession.delete(NAMESPACE+"fileDeleteAll",num);
+	public int fileDeleteAll(long productNum)throws Exception{
+		return sqlSession.delete(NAMESPACE+"fileDeleteAll",productNum);
+	}
+	
+	//fileList
+	public List<ProductFileVO> fileList(long productNum) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"fileList", productNum);
 	}
 	
 }//END CLASS

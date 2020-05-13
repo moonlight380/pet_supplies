@@ -23,8 +23,16 @@
  <!-- fileDeleteAll --> 
     <delete id="fileDeleteAll" parameterType="Long" >
   delete productFile where num=#{num}
-  
   </delete>
+  
+<!-- fileList -->  
+    
+  <select id="fileList" parameterType="Long" resultType="ProductFileVO">
+  <!-- //어떤 글의 글번호를 이용해서 파일의 정보를 꺼내오는 것 -->
+  select * from productFile where num=#{num}
+  </select> 
+  
+  
   
   </mapper>
   

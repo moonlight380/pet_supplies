@@ -30,6 +30,7 @@ $("#contents").summernote({
 			//console.log("d");
 			var formData = new FormData();//<form></form>
 			formData.append('files', files[0]); //<input type="file" name="">
+			
 			$.ajax({
 				type:"POST",
 				url:"../productFile/fileInsert",
