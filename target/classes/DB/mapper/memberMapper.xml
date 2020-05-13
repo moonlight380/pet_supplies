@@ -5,16 +5,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.pet.p1.member.MemberDAO">
-
-
-  
-
  	
  	<select id="memberCart" resultType="DogVO" parameterType="DogVO">
  		select * from product where productNum = #{productNum}
  	</select>
   	
-
   	<select id="memberIdCheck" resultType="MemberVO" parameterType="MemberVO">
   		select id from member where id = #{id}
   	</select>
@@ -28,7 +23,7 @@
   	</insert> 
   	
   	<select id="memberEMCheck" resultType="MemberVO" parameterType="MemberVO">
-  		select email from member where email = #{email}
+  		select email,name from member where email = #{email}
   	</select>
   	
   	
@@ -83,7 +78,7 @@
   	</delete>	
   	
   	<update id="memberUpdate" parameterType="MemberVO">
-  		update member set  name=#{name} , age=#{age} , phone=#{phone} , email=#{email},address=#{address}  where id=#{id}
+  		update member set pw=#{pw} , name=#{name} , age=#{age} , phone=#{phone} , email=#{email}  where id=#{id}
   	</update>
   	
   	<delete id="memberDeletes" parameterType="List">
