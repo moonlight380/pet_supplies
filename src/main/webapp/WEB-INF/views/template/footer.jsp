@@ -10,7 +10,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="widget">
 						<div class="footer_logo">
-							<a href="#"><img src="assets/images/logo_light.png"
+							<a href="#"><img src=""
 								alt="logo" /></a>
 						</div>
 						<p>

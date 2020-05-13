@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<c:import url="../template/boot.jsp"></c:import>
+<c:import url="../template/css.jsp"></c:import>
+<style type="text/css"></style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
@@ -13,17 +15,25 @@
 	.custom_select select.form-control-sm:focus {
 	height: 30px;
 } */
-</style>
+/* .form-inline {
+	margin: 0 auto;
+} */
+.section2 {
+	padding: 15px 0;
+	position: relative;
+}
 
-<c:import url="../template/boot.jsp"></c:import>
-<c:import url="../template/css.jsp"></c:import>
+.hit {
+	
+}
+</style>
 
 </head>
 
 <body>
 
 	<c:import url="../template/header.jsp"></c:import>
-
+	<div class="section2"></div>
 	<div class="container">
 
 		<c:if test="${board eq 'notice'}">
@@ -33,11 +43,13 @@
 			<h2>QnA</h2>
 		</c:if>
 
+		<div class="section2"></div>
+
 		<table class="table table-hover">
 			<thead>
-				<tr>
+				<tr align="center">
 					<th>글번호</th>
-					<th>제목</th>
+					<th width="50%">제목</th>
 					<th>ID</th>
 					<th>날짜</th>
 					<th>조회수</th>
@@ -45,9 +57,9 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${list}" var="vo">
-					<tr>
-						<td>${vo.num}</td>
-						<td><c:catch>
+					<tr align="center">
+						<td align="center">${vo.num}</td>
+						<td width="50%"><c:catch>
 								<!-- for(int i=0;i<=0;i++) -->
 								<c:forEach begin="1" end="${vo.depth}">
 					--
@@ -61,6 +73,25 @@
 				</c:forEach>
 			</tbody>
 		</table>
+
+		<c:catch>
+			<c:choose>
+				<c:when test="${board eq 'notice'}">
+					<c:if test="${member.id eq 'admin'}">
+						<div align="right">
+							<a href="./${board}Write" class="btn btn-danger">글쓰기</a>
+						</div>
+					</c:if>
+				</c:when>
+				<c:otherwise>
+					<c:if test="${not empty member}">
+						<div align="right">
+							<a href="./${board}Write" class="btn btn-danger">글쓰기</a>
+						</div>
+					</c:if>
+				</c:otherwise>
+			</c:choose>
+		</c:catch>
 
 		<div class="row">
 			<div class="col-12">
@@ -81,46 +112,35 @@
 			</div>
 		</div>
 
-
-		<c:catch>
-			<c:choose>
-				<c:when test="${board eq 'notice'}">
-					<c:if test="${member.id eq 'admin'}">
-						<div>
-							<a href="./${board}Write" class="btn btn-danger">WRITE</a>
-						</div>
-					</c:if>
-				</c:when>
-				<c:otherwise>
-					<c:if test="${not empty member}">
-						<div>
-							<a href="./${board}Write" class="btn btn-danger">WRITE</a>
-						</div>
-					</c:if>
-				</c:otherwise>
-			</c:choose>
-		</c:catch>
-
 	</div>
+
+	<div class="section2"></div>
 
 	<div class="form-group row justify-content-center">
-		<div class="w100" style="padding-right: 10px">
-			<select class="form-control form-control-sm" name="searchType"
-				id="searchType">
-				<option value="title">제목</option>
-				<option value="Content">본문</option>
-				<option value="reg_id">작성자</option>
-			</select>
-		</div>
-		<div class="w300" style="padding-right: 10px">
-			<input type="text" class="form-control form-control-sm"
-				name="keyword" id="keyword">
-		</div>
-		<div>
-			<button class="btn btn-sm btn-primary" name="btnSearch"
-				id="btnSearch">검색</button>
-		</div>
+		<form action="./${board}List" class="form-inline">
+			<div class="form-group row justify-content-center">
+				<div class="w100" style="padding-right: 10px">
+					<select class="form-control form-control-sm" name="kind"
+						id="searchType">
+						<option value="bt">제목</option>
+						<option value="bc">본문</option>
+						<option value="bw">작성자</option>
+					</select>
+				</div>
+
+				<div class="w300" style="padding-right: 10px">
+					<input type="text" class="form-control form-control-sm"
+						name="search" id="keyword">
+				</div>
+
+				<div>
+					<button class="btn btn-sm btn-primary" type="submit"
+						name="btnSearch" id="btnSearch">검색</button>
+				</div>
+			</div>
+		</form>
 	</div>
+
 
 	<c:import url="../template/footer.jsp"></c:import>
 

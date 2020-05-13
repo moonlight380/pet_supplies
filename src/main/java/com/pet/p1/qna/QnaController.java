@@ -106,9 +106,10 @@ public class QnaController {
 	public ModelAndView boardWrite(QnaVO qnaVO, MultipartFile[] files, ModelAndView mv) throws Exception {
 
 		int result = qnaService.boardWrite(qnaVO, files);
-		String msg = "Qna write Fail";
+		String msg = "글쓰기 실패";
 		if (result > 0) {
-			msg = "Qna Write success";
+			msg = "글이 등록되었습니다";
+			mv.setViewName("redirect:./qnaList");
 		} else {
 			mv.addObject("result", msg);
 			mv.addObject("path", "./qnaList");

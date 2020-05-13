@@ -14,9 +14,9 @@
 
 </head>
 <body>
-	
+
 	<c:import url="../template/header.jsp"></c:import>
-	
+
 	<div class="container">
 		<h1>${fn:toUpperCase(board)}UpdateForm</h1>
 
@@ -30,8 +30,8 @@
 			</div>
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
-					disabled="disabled" value="${vo.id}" class="form-control"
-					id="id" name="id">
+					disabled="disabled" value="${vo.id}" class="form-control" id="id"
+					name="id">
 			</div>
 			<div class="form-group">
 				<label for="contents">Contents:</label>
@@ -99,6 +99,6 @@
 		
 		
 	</script>
-
+	<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>

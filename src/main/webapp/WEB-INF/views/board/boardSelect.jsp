@@ -10,13 +10,18 @@
 <c:import url="../template/css.jsp"></c:import>
 
 <style type="text/css">
+.section2 {
+	padding: 15px 0;
+	position: relative;
+}
 </style>
 </head>
 
 <body>
 
 	<c:import url="../template/header.jsp"></c:import>
-
+	
+	<div class="section2"></div>
 	<div class="container">
 		<div class="panel panel-info">
 			<div class="panel-heading">TITLE</div>
@@ -54,6 +59,6 @@
 		</div>
 
 	</div>
-
+	<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>

@@ -33,9 +33,9 @@ public class NoticeController {
 	public ModelAndView boardDelete(long num, ModelAndView mv) throws Exception {
 		int result = noticeService.boardDelete(num);
 		if (result > 0) {
-			mv.addObject("result", "Delete Success");
+			mv.addObject("result", "삭제 성공");
 		} else {
-			mv.addObject("result", "Delete Fail");
+			mv.addObject("result", "삭제 실패");
 		}
 		mv.addObject("path", "./noticeList");
 		mv.setViewName("common/result");
@@ -82,7 +82,7 @@ public class NoticeController {
 		if (result > 0) {
 			mv.setViewName("redirect:./noticeList");
 		} else {
-			mv.addObject("result", "Write Fail");
+			mv.addObject("result", "글쓰기 실패");
 			mv.addObject("path", "./noticeList");
 			mv.setViewName("common/result");
 		}

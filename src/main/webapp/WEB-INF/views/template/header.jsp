@@ -2,6 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<style type="text/css">
+.footersubbtn {
+	height: 100%;
+}
+
+.product_search_form {
+	width: 35%;
+}
+
+</style>
+
 <!-- START HEADER -->
 <header class="header_wrap fixed-top header_with_topbar">
 	<div class="bottom_header dark_skin main_menu_uppercase">
@@ -20,9 +31,31 @@
 					<span class="ion-android-menu"></span>
 				</button>
 
-				<input type="text" placeholder="검색어입력"> <a
+				<div class="product_search_form rounded_input">
+					<form>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="custom_select">
+									<select class="first_null">
+										<option value="">모든 카테고리</option>
+										<option value="dog">강아지</option>
+										<option value="cat">고양이</option>
+										<option value="etc">기타</option>
+									</select>
+								</div>
+							</div>
+							<input class="form-control" placeholder="검색어 입력"
+								required="" type="text">
+							<button type="submit" class="search_btn2">
+								<i class="fa fa-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+
+				<%-- 				<input type="text" placeholder="검색어입력"> <a
 					href="${pageContext.request.contextPath}"
-					class="nav-link searchmargin"><i class="linearicons-magnifier"></i></a>
+					class="nav-link searchmargin"-><i class="lineariconsmagnifier"></i></a> --%>
 
 
 				<div class="collapse navbar-collapse justify-content-end"
@@ -135,7 +168,7 @@
 								<div class="d-lg-flex menu_banners">
 									<div class="col-sm-4">
 										<div class="header-banner">
-											<img src="assets/images/menu_banner1.jpg" alt="menu_banner1">
+											<img src="" alt="menu_banner1">
 											<div class="banne_info">
 												<h6>10% Off</h6>
 												<h4>New Arrival</h4>
@@ -145,7 +178,7 @@
 									</div>
 									<div class="col-sm-4">
 										<div class="header-banner">
-											<img src="assets/images/menu_banner2.jpg" alt="menu_banner2">
+											<img src="" alt="menu_banner2">
 											<div class="banne_info">
 												<h6>15% Off</h6>
 												<h4>Men's Fashion</h4>
@@ -155,7 +188,7 @@
 									</div>
 									<div class="col-sm-4">
 										<div class="header-banner">
-											<img src="assets/images/menu_banner3.jpg" alt="menu_banner3">
+											<img src="" alt="menu_banner3">
 											<div class="banne_info">
 												<h6>23% Off</h6>
 												<h4>Kids Fashion</h4>
@@ -200,13 +233,13 @@
 							<ul class="cart_list">
 								<li><a href="#" class="item_remove"><i
 										class="ion-close"></i></a> <a href="#"><img
-										src="assets/images/cart_thamb1.jpg" alt="cart_thumb1">Variable
+										src="" alt="cart_thumb1">Variable
 										product 001</a> <span class="cart_quantity"> 1 x <span
 										class="cart_amount"> <span class="price_symbole">$</span></span>78.00
 								</span></li>
 								<li><a href="#" class="item_remove"><i
 										class="ion-close"></i></a> <a href="#"><img
-										src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare
+										src="" alt="cart_thumb2">Ornare
 										sed consequat</a> <span class="cart_quantity"> 1 x <span
 										class="cart_amount"> <span class="price_symbole">$</span></span>81.00
 								</span></li>

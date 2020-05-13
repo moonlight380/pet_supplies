@@ -24,6 +24,7 @@ $("#add")
 
 $("#contents").summernote({
 	height : 300,
+	width : 300,
 	callbacks : {
 		onImageUpload : function(files, editor) {
 
